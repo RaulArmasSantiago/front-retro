@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './style.css';
 import { GoogleMap, Marker } from 'react-google-maps';
 import singleDevice from '../../services/singleDevice';
+import Map from '../Map/Map';
 
 class Device extends Component{
     
@@ -24,8 +25,7 @@ class Device extends Component{
         return(
             <div>
                 <div className="row justify-content-center">
-                    holi
-                    
+                    <Map/>
                 </div>
             </div>
         )
