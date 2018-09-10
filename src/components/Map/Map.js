@@ -12,9 +12,9 @@ class Map extends Component {
       </GoogleMap>
    ));
    return(
-      <div>
-        <GoogleMapExample
-          containerElement={ <div style={{ height: '500px', width: '500px' }} /> }
+      <div className="row justify-content-center">
+        <GoogleMapExample className="col-sm-12"
+          containerElement={ <div style={{ height: '300px', width: '300px' }} /> }
           mapElement={ <div style={{ height: `100%` }} /> }
         />
       </div>
