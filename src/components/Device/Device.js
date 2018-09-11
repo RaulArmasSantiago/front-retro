@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './style.css';
-import { GoogleMap, Marker } from 'react-google-maps';
 import singleDevice from '../../services/singleDevice';
 import Map from '../Map/Map';
 
@@ -16,26 +15,40 @@ class Device extends Component{
 
     componentDidMount(){
         singleDevice(this.state.id).then((device) => {
-            console.log(device.data.data.singleDevice)
+            //console.log(device.data.data.singleDevice)
             this.setState({device:device.data.data.singleDevice})
-        })
+        }) 
     }
 
     contCash(){
         let efectivo = Number(this.state.device.contEfectivo);
-        console.log(efectivo);
         let efectivoDecimal = (Math.round(efectivo * 2) / 2).toFixed(2);
-        console.log(efectivoDecimal);
         return efectivoDecimal;
+    }
+
+    renderMap(){
+        if(this.state.device !== ""){
+                return(
+                    <div>
+                        <Map data={this.state.device.lastLocation}/>
+                    </div>
+                )
+        }else{
+
+        }
     }
 
     render(){
         return(
+            
             <div className="container">
+                {this.renderMarker}
                 <div className="row justify-content-center">
-                    <Map/>
+                    {this.renderMap()}
                 </div>
-                <br/>
+                <p>
+                <label><strong>Ultima localizacion:</strong> {this.state.device.lastLocation}</label>
+                </p>
                 <hr/>
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-md-6">

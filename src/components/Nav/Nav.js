@@ -22,14 +22,14 @@ class Nav extends Component{
                         </li>
                         
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            <a className="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
                                 Dropdown link
                             </a>
                             <div className="dropdown-menu">
                                 <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
-                                <a className="dropdown-item" href="#">Usuarios</a>
-                                <a className="dropdown-item" href="#">Dispositivos</a>
-                                <a className="dropdown-item" href="#">Reportes</a>
+                                <a className="dropdown-item">Usuarios</a>
+                                <a className="dropdown-item">Dispositivos</a>
+                                <a className="dropdown-item">Reportes</a>
                             </div>
                         </li>
 
