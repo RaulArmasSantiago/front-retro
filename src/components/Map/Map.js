@@ -42,7 +42,9 @@ class Map extends Component {
     let grados = longitud.substring(0,2)
     let min = longitud.substring(2,4)
     let seg = longitud.substring(4,6)
-
+    if(longitud.charAt(0) == 0){
+      grados = 1 + grados
+    }
     console.log(grados,min,seg)
     longitud = (-((Number(grados) * 60) + parseInt(min, 10) + (Number(seg) / 60))/60);
 
@@ -63,7 +65,7 @@ class Map extends Component {
    render() {
    const GoogleMapExample = withGoogleMap(props => (
       <GoogleMap
-        defaultCenter = {{ lat: 25.4333, lng: -101 }}
+        defaultCenter = {this.getLocation()}
         defaultZoom = { 11 }
       >
       <Marker options={{icon: "../img/taxi-yellow.png"}} position={this.getLocation()}/>
