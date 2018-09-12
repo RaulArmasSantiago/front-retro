@@ -1,18 +1,14 @@
 import React, {Component} from 'react';
 import "./style.css";
-import addUser from '../../services/addUser'
+import addDevice from '../../services/addDevice'
 
 class FormDevice extends Component{
     
     constructor(props){
         super(props)
         this.state = {
+            _id:"",
             name:"",
-            lastname:"",
-            email:"",
-            password:"",
-            check_password:"",
-            is_admin:false 
         }
     }
 
@@ -49,13 +45,13 @@ class FormDevice extends Component{
     onFormSubmit = (e) => {
         e.preventDefault();
         console.log(this.state);
-        if(this.validatePasswords(this.state.password,this.state.check_password)){
-            addUser(this.state).then((response) => {
+        if(this.state._id !== "" && this.state.name !== ""){
+            addDevice(this.state).then((response) => {
                 console.log(response.data)
-                this.props.history.push('/dashboard')
+                this.props.history.push('/devices')
             }).catch((err) => {
                 console.log(err)
-                alert("Hubo un problema")
+                alert(`Hubo un problema al agregar el dispositivo ${this.state.name}`)
             })
         }
     }
@@ -73,7 +69,7 @@ class FormDevice extends Component{
 							<div className="cols-sm-10">
 								<div className="input-group">
 									<span className="input-group-addon"><i className="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" className="form-control" name="id" id="id"  placeholder="ID. Backend Sig Fox" value={this.state.id} onChange={this.onInputCheck}/>
+									<input type="text" className="form-control" name="_id" id="_id"  placeholder="ID. Backend Sig Fox" value={this.state.id} onChange={this.onInputCheck}/>
 								</div>
 							</div>
 						</div>
