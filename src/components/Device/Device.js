@@ -21,7 +21,7 @@ class Device extends Component{
     }
 
     contCash(){
-        let efectivo = Number(this.state.device.contEfectivo);
+        let efectivo = this.state.device.contEfectivo;
         let efectivoDecimal = (Math.round(efectivo * 2) / 2).toFixed(2);
         return efectivoDecimal;
     }
