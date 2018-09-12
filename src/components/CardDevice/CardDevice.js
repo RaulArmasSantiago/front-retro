@@ -11,7 +11,7 @@ class CardDevice extends Component{
     render(){
         return (
             <div className="card col-sm-12 col-md-4 col-lg-3" style={{width: "14rem;"}}>
-                <h5 className="card-title" onClick={() => this.props.redirect(this.state.device._id)}>{this.state.device.name}</h5>
+                <h5 className="card-title bg-info" onClick={() => this.props.redirect(this.state.device._id)}>{this.state.device.name}</h5>
                 <div className="card-body">
                     <p className="card-text">
                         {this.state.device.user}

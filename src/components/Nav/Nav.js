@@ -16,17 +16,17 @@ class Nav extends Component{
             let pl = payload(token);
             if(pl.admin === true){
                 return (
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <Link className="nav-link" to="/profile">{pl.name}</Link>
                         </li>
                         
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
-                                Dropdown link
+                                Servicios
                             </a>
                             <div className="dropdown-menu">
-                                <Link className="dropdown-item" to="/dashboard">Dashboard</Link>
+                                <Link className="dropdown-item" to="/dashboard">Tablero</Link>
                                 <a className="dropdown-item">Usuarios</a>
                                 <a className="dropdown-item">Dispositivos</a>
                                 <a className="dropdown-item">Reportes</a>
@@ -34,7 +34,7 @@ class Nav extends Component{
                         </li>
 
                         <li className="nav-item">
-                            <Link className="nav-link" to="/logout">Logout</Link>
+                            <Link className="nav-link" to="/logout">Cerrar sesión</Link>
                         </li>
                     </ul>
                 )
@@ -42,10 +42,10 @@ class Nav extends Component{
                 return (
                     <ul className="navbar-nav ml-auto" id="items">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/info">Inforación de las conceciones.</Link>
+                            <Link className="nav-link" to="/info">Inforación de las conceciones</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/logout">Logout</Link>
+                            <Link className="nav-link" to="/logout">Cerrar sesin</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/profile">{pl.name}</Link>

@@ -49,7 +49,7 @@ class Map extends Component {
     longitud = (-((Number(grados) * 60) + parseInt(min, 10) + (Number(seg) / 60))/60);
 
    console.log(longitud)
-   longitud = longitud.toFixed(3)
+   //longitud = longitud.toFixed(5)
 
     //this.setState({lat: (((grados * 60) + parseInt(min, 10) + (seg / 60))/60)})
     return(Number(longitud))
