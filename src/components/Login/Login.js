@@ -27,7 +27,7 @@ class Login extends Component{
             if(resp.status === 201){
                 let token = resp.data.token
                 localStorage.setItem('token',token);
-                this.props.history.push('/devices')
+                this.props.history.push('/')
             }else{
                 alert(resp.data)
             }

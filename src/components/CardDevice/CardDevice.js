@@ -10,16 +10,20 @@ class CardDevice extends Component{
 
     render(){
         return (
-            <div className="card col-sm-12 col-md-4 col-lg-3" style={{width: "14rem;"}}>
-                <h5 className="card-title bg-info" onClick={() => this.props.redirect(this.state.device._id)}>{this.state.device.name}</h5>
-                <div className="card-body">
-                    <p className="card-text">
+            <div className="col-sm-12 col-md-4 col-lg-3" style={{width: "14rem;"}}>
+            <div className="card">
+                <div className="card-header bg-dark text-white"><h5 className="card-title" onClick={() => this.props.redirect(this.state.device._id)}>{this.state.device.name}</h5></div>
+                <div className="card-body bg-retro text-white">
                         {this.state.device.user}
                         <b>Ultima Localizacion:</b>
                         <br/>
                         {this.state.device.lastLocation}
-                    </p>
                 </div>
+                <div className="card-footer bg-warning">
+                    <button className="btn btn-dark" onClick={() => this.props.redirect(this.state.device._id)}> Ver mas </button>
+                </div>
+            </div>
+            <br/>
             </div>
         )
     }
