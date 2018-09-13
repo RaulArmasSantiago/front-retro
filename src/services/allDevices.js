@@ -17,13 +17,7 @@ export default () => {
                         modeloVehicle,
                         placaVehicle,
                         conductorFullName,
-                        conductorAddress,
-                        conductorDistrict,
-                        conductorNumExnpmt,
-                        conductorNumExt,
-                        conductorNumInt,
-                        conductorTel,
-                        lastLocation
+                        lastLocation                       
                     }
                 }
             `
