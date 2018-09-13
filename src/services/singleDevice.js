@@ -15,7 +15,7 @@ export default (id) => {
                         marcaVehicle,
                         modeloVehicle,
                         placaVehicle,
-                        conductorName:
+                        conductorName,
                         conductorAddress,
                         conductorDistrict,
                         conductorNumExt,

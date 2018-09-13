@@ -35,6 +35,7 @@ class Home extends Component{
                         <img src="img/logo_retro.png" alt="retro.png" width="70%"/>
                     </div>
                     </p>
+                    
                     <p>
                     <div className="row show-grid container-fluid">
                         <div className="col-sm-12">

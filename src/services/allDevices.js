@@ -13,6 +13,16 @@ export default () => {
                     allDevice{
                         _id,
                         name,
+                        marcaVehicle,
+                        modeloVehicle,
+                        placaVehicle,
+                        conductorName,
+                        conductorAddress,
+                        conductorDistrict,
+                        conductorNumExt,
+                        conductorNumExt,
+                        conductorNumInt,
+                        conductorTel,
                         lastLocation
                     }
                 }
