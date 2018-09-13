@@ -71,8 +71,8 @@ class Device extends Component{
                                 <label><strong>Telefono:</strong>{this.state.device.conductorTel}</label>
 
                             </div>
-                            <br/>
                         </div>
+                        <br/>
                     </div>
                     <div className="col-sm-12 col-md-5 ">
                     {this.renderMap()}
