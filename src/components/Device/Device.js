@@ -15,7 +15,7 @@ class Device extends Component{
 
     componentDidMount(){
         singleDevice(this.state.id).then((device) => {
-            //console.log(device.data.data.singleDevice)
+            console.log(device.data.data.singleDevice)
             this.setState({device:device.data.data.singleDevice})
         }) 
     }
@@ -38,18 +38,49 @@ class Device extends Component{
         }
     }
 
+    getNumExt(){
+        if(this.state.device.conductorNumExt === null){
+            return "S/N"
+        }else{
+            return this.state.device.conductorNumExt ;
+        }
+    }
+
+    getNumInt(){
+        if(this.state.device.conductorNumInt === null){
+            return ", Int. S/N"
+        }else{
+            return ", Int. " + this.state.device.conductorNumInt
+        }
+        
+    }
+
     render(){
         return(
             
-            <div className="container">
+            <div className="container-fluid">
                 {this.renderMarker}
                 <div className="row justify-content-center">
+                    <div className="col-sm-12 col-md-7">
+                        <div className="card">
+                            <div className="card-header bg-dark text-white"><h3>Datos del vehiculo</h3></div>
+                            <div className="card-body text-left">
+                                <label><strong>Conductor:</strong>{this.state.device.conductorFullName}</label><br/>
+                                <label><strong>Domicilio:</strong>{this.state.device.conductorAddress}, #{this.getNumExt()}{this.getNumInt()}</label>
+                                <label><strong>Colonia:</strong>{this.state.device.conductorDistrict}</label>
+                                <label><strong>Telefono:</strong>{this.state.device.conductorTel}</label>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-12 col-md-5 ">
                     {this.renderMap()}
-                </div>
-                <p>
-                <label><strong>Ultima localizacion:</strong> {this.state.device.lastLocation}</label>
-                </p>
-                <hr/>
+                    <br/>
+                    <label><strong>Ultima localizacion:</strong> {this.state.device.lastLocation}</label>
+                    </div>
+                    
+                </div>           
+                <br/>
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-md-6">
                         <div className="card">
@@ -90,10 +121,10 @@ class Device extends Component{
                     
                     <div className="col-sm-12 col-md-6">
                         <div className="card">
-                            <div className="card-header bg-dark text-white"><h4>Numero de viajes realizados</h4></div>
+                            <div className="card-header bg-dark text-white"><h4>Viajes realizados</h4></div>
                             <div className="card-body bg-retro">
                             <div>
-                                <h1 className="text-white">Viajes totales: {this.state.device.contTravel}</h1>
+                                <h1 className="text-white">Viajes: {this.state.device.contTravel}</h1>
                             </div>
                             </div>
                         </div>
