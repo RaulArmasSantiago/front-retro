@@ -42,7 +42,7 @@ class Map extends Component {
     let grados = longitud.substring(0,2)
     let min = longitud.substring(2,4)
     let seg = longitud.substring(4,6)
-    if(longitud.charAt(0) == 0){
+    if(longitud.charAt(0) === 0){
       grados = 1 + grados
     }
     console.log(grados,min,seg)

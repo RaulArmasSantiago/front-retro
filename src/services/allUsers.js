@@ -1,0 +1,24 @@
+import axios from 'axios';
+import getToken from '../resolvers/getToken';
+import constantes from '../const';
+
+export default () => {
+
+    return axios({
+        url:constantes.url+'graphql',
+        method:'post',
+        data:{
+            query:`
+                query{
+                    allUsers{
+                        _id,
+                        name,
+                        lastname,
+                        email,
+                        is_admin
+                    }
+                }
+            `
+        },headers:{'Authorization':'JWT '+getToken()}
+    })
+}

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './style.css';
 import singleDevice from '../../services/singleDevice';
 import Map from '../Map/Map';
+import {Link} from 'react-dom';
+
 
 class Device extends Component{
     
@@ -55,6 +57,10 @@ class Device extends Component{
         
     }
 
+    redirect = (id) => {
+        this.props.history.push(`/device/update/${id}`)
+    }
+
     render(){
         return(
             
@@ -66,10 +72,12 @@ class Device extends Component{
                             <div className="card-header bg-dark text-white"><h3>Datos del vehiculo</h3></div>
                             <div className="card-body text-left">
                                 <label><strong>Conductor:</strong>{this.state.device.conductorFullName}</label><br/>
-                                <label><strong>Domicilio:</strong>{this.state.device.conductorAddress}, #{this.getNumExt()}{this.getNumInt()}</label>
-                                <label><strong>Colonia:</strong>{this.state.device.conductorDistrict}</label>
+                                <label><strong>Domicilio:</strong>{this.state.device.conductorAddress}, #{this.getNumExt()}{this.getNumInt()}</label><br/>
+                                <label><strong>Colonia:</strong>{this.state.device.conductorDistrict}</label><br/>
                                 <label><strong>Telefono:</strong>{this.state.device.conductorTel}</label>
-
+                                <div className="text-right">
+                                    <button className="btn btn-primary btn-sm" onClick={() => this.redirect(this.state.device._id)}><img src="../img/Users-Edit-User-icon-24.png" alt="editar conductor"/> Editar</button>
+                                </div>
                             </div>
                         </div>
                         <br/>

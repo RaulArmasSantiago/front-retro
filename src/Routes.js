@@ -14,6 +14,8 @@ import FormDevice from './components/FormDevice/FormDevice';
 import Profile from './components/Profile/Profile';
 import Devices from './components/Devices/Devices';
 import Device from './components/Device/Device';
+import Users from './components/Users/Users';
+import User from './components/User/User';
 
 class Routes extends Component{
     render(){
@@ -36,6 +38,8 @@ class Routes extends Component{
                     <PrivateRoute exact path='/profile' component={Profile}/>
                     <PrivateRoute exact path='/devices' component={Devices}/>
                     <PrivateRoute exact path='/device/:id' component={Device}/>
+                    <PrivateRoute exact path='/users' component={Users}/>
+                    <PrivateRoute exact path='/user/:id' component={User}/>
                 </main>
             </Router>
         )

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import allDevices from '../../services/allDevices';
 import CardDevice from '../CardDevice/CardDevice';
-import './style.css'
-
+import './style.css';
+import {Link}  from "react-router-dom";
 
 
 
@@ -51,11 +51,13 @@ class Devices extends Component{
     render(){
         return(
             <div className="container">
+                <div className="row">
+                    <div className="col-md-12 text-right"><Link to="/addDevice"><button className="btn btn-success">Nuevo</button></Link></div>
+                </div>
                 <div className="row justify-content-center">
-                    <div className="text-center">
-                    <p>
-                        <h3 className="movies-title text-center">Todos los  Dispositivos</h3>
-                    </p>
+                    <div className="text-center col-sm-12">
+                        <h3 className="devices-title text-center">Todos los  Dispositivos</h3>
+                        
                     </div>
                     <div className="row">
                         {this.renderDevices()}

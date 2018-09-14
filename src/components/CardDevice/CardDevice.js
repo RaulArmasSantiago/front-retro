@@ -16,19 +16,19 @@ class CardDevice extends Component{
             <div className="card">
                 <div className="card-header bg-dark text-white"><h5 className="card-title" onClick={() => this.props.redirect(this.state.device._id)}>{this.state.device.name}</h5></div>
                 <div className="card-body bg-retro text-white">
-                        {this.state.device.user}
-                        <b>Ultima Localizacion:</b>
-                        <br/>
-                        {this.state.device.lastLocation}
-                        <br/>
-                        <strong>Constructor:</strong><br/> 
-                        {this.state.device.conductorFullName}
-                        <br/>
-                        <strong> Vehiculo: </strong> <br/>
-                        {this.state.device.marcaVehicle} ({this.state.device.modeloVehicle})
-                        <br/>
-                        <strong> Placa: </strong> <br/>
-                        {this.state.device.placaVehicle}
+                    {this.state.device.user}
+                    <b>Ultima Localizacion:</b>
+                    <br/>
+                    {this.state.device.lastLocation}
+                    <br/>
+                    <strong>Constructor:</strong><br/> 
+                    {this.state.device.conductorFullName}
+                    <br/>
+                    <strong> Vehiculo: </strong> <br/>
+                    {this.state.device.marcaVehicle} ({this.state.device.modeloVehicle})
+                    <br/>
+                    <strong> Placa: </strong> <br/>
+                    {this.state.device.placaVehicle}
                 </div>
                 <div className="card-footer bg-warning">
                     <button className="btn btn-dark" onClick={() => this.props.redirect(this.state.device._id)}> Ver mas </button>

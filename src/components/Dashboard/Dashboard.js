@@ -35,7 +35,7 @@ class Dashboard extends Component{
                         </div>
                         <div className="card-body bg-retro text-left text-white">
                             <ul>
-                                <li>Ver Usuarios</li>
+                                <Link className="link link-hover" to="/users"><li>Ver Usuarios</li></Link>
                                 <Link className="link link-hover" to="/addUser"><li>Agregar usuarios</li></Link>
                                 <li>Modificar usuarios</li>
                                 <li>Eliminar usuarios</li>
