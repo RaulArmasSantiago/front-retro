@@ -16,7 +16,7 @@ import Devices from './components/Devices/Devices';
 import Device from './components/Device/Device';
 import Users from './components/Users/Users';
 import User from './components/User/User';
-
+import UpdateDevice from './components/UpdateDeviceFrom/UpdateDeviceForm';
 class Routes extends Component{
     render(){
         const PrivateRoute = ({component:Component, ...rest}) => (
@@ -38,6 +38,7 @@ class Routes extends Component{
                     <PrivateRoute exact path='/profile' component={Profile}/>
                     <PrivateRoute exact path='/devices' component={Devices}/>
                     <PrivateRoute exact path='/device/:id' component={Device}/>
+                    <PrivateRoute exact path='/device/update/:id' component={UpdateDevice}/>
                     <PrivateRoute exact path='/users' component={Users}/>
                     <PrivateRoute exact path='/user/:id' component={User}/>
                 </main>
