@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './style.css';
 import singleDevice from '../../services/singleDevice';
 import Map from '../Map/Map';
-import {Link} from 'react-dom';
+
 
 
 class Device extends Component{
@@ -17,7 +17,7 @@ class Device extends Component{
 
     componentDidMount(){
         singleDevice(this.state.id).then((device) => {
-            console.log(device.data.data.singleDevice)
+            //console.log(device.data.data.singleDevice)
             this.setState({device:device.data.data.singleDevice})
         }) 
     }
@@ -65,7 +65,7 @@ class Device extends Component{
         return(
             
             <div className="container-fluid">
-                {this.renderMarker}
+                
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-md-7">
                         <div className="card">

@@ -26,10 +26,10 @@ class Map extends Component {
      let min = latitud.substring(2,4)
      let seg = latitud.substring(4,6)
 
-     console.log(grados,min,seg)
+     //console.log(grados,min,seg)
     latitud = (((Number(grados) * 60) + parseInt(min, 10) + (Number(seg) / 60))/60);
 
-    console.log(latitud)
+    //console.log(latitud)
      //this.setState({lat: (((grados * 60) + parseInt(min, 10) + (seg / 60))/60)})
     return(latitud)
 
@@ -42,14 +42,15 @@ class Map extends Component {
     let grados = longitud.substring(0,2)
     let min = longitud.substring(2,4)
     let seg = longitud.substring(4,6)
-    if(longitud.charAt(0) === 0){
+    if(longitud.charAt(0) === "0"){
+      //console.log("entro al 0")
       grados = 1 + grados
     }
-    console.log(grados,min,seg)
+    //console.log(grados,min,seg)
     longitud = (-((Number(grados) * 60) + parseInt(min, 10) + (Number(seg) / 60))/60);
 
-   console.log(longitud)
-   //longitud = longitud.toFixed(5)
+   //console.log(longitud)
+   longitud = longitud.toFixed(5)
 
     //this.setState({lat: (((grados * 60) + parseInt(min, 10) + (seg / 60))/60)})
     return(Number(longitud))
@@ -57,7 +58,7 @@ class Map extends Component {
   }
 
    getLocation(){
-     console.log(this.getLatitud(), this.getLongitud());
+     //console.log(this.getLatitud(), this.getLongitud());
      let cordenadas = {lat: this.getLatitud(), lng: this.getLongitud()}
      return cordenadas;     
    }

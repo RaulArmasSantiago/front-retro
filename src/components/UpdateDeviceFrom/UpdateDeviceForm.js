@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import "./style.css";
-import updateDevice from '../../services/addDevice';
+import updateDevice from '../../services/updateDevice';
 import singleDevice from '../../services/singleDevice';
 
 class UpdateDeviceForm extends Component{
@@ -23,7 +23,7 @@ class UpdateDeviceForm extends Component{
 
     componentDidMount(){
         singleDevice(this.state._id).then((device) => {
-            console.log(device.data.data.singleDevice)
+            //console.log(device.data.data.singleDevice)
             this.setState({device:device.data.data.singleDevice})
             this.setState({
                 conductorFullName:this.state.device.conductorFullName,
@@ -36,7 +36,7 @@ class UpdateDeviceForm extends Component{
                 conductorNumInt:this.state.device.conductorNumInt,
                 conductorTel:this.state.device.conductorTel
             })
-            console.log(this.state)
+            //console.log(this.state)
             
         })
     }
@@ -48,14 +48,15 @@ class UpdateDeviceForm extends Component{
         this.setState(
             {[name]:value}
         )
-        console.log(this.state)
+        //console.log(this.state)
     }
 
     onFormSubmit = (e) => {
          e.preventDefault();
-         console.log(this.state);
-         updateDevice(this.state.id,this.state).then((response) => {
-             console.log(response.data)
+         //console.log(this.state);
+         updateDevice(this.state).then((response) => {
+             console.log("entro chido")
+             console.log(response.data )
              this.props.history.push(`/device/${this.state._id}`)
          })
     }
@@ -92,6 +93,10 @@ class UpdateDeviceForm extends Component{
                         <div className="form-group">      
                             <label className="text-white col-md-3" htmlFor="conductorNumInt">Num. Int:</label>    
                             <input type="text" className="form-control" name="conductorNumInt" id="conductorNumInt" value={this.state.conductorNumInt} onChange={this.onInputCheck} size="30"/>
+                        </div>
+                        <div className="form-group">      
+                            <label className="text-white col-md-3" htmlFor="conductorTel">Telefono de contacto:</label>    
+                            <input type="text" className="form-control" name="conductorTel" id="conductorTel" value={this.state.conductorTel} onChange={this.onInputCheck} size="30"/>
                         </div>
                         <hr/>
                         <h3 className="text-white">Datos del vehiculo</h3>

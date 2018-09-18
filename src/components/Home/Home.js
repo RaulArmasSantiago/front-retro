@@ -6,7 +6,7 @@ import payload from '../../resolvers/payload';
 
 class Home extends Component{
     constructor(){
-        super()
+        super('foo')
     }
 
     chargeProfile = () => {
