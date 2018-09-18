@@ -109,7 +109,7 @@ class UpdateDeviceForm extends Component{
                             <input type="text" className="form-control" name="modeloVehicle" id="modeloVehicle" value={this.state.modeloVehicle} onChange={this.onInputCheck} size="30"/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="placaVehicle" className="text-white col-md-3">Marca</label>
+                            <label htmlFor="placaVehicle" className="text-white col-md-3">Placas</label>
                             <input type="text" className="form-control" name="placaVehicle" id="placaVehicle" value={this.state.placaVehicle} onChange={this.onInputCheck} size="30"/>
                         </div>
                         <br/>
