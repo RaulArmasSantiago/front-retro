@@ -67,14 +67,31 @@ class Device extends Component{
             <div className="container-fluid">
                 
                 <div className="row justify-content-center">
-                    <div className="col-sm-12 col-md-7">
+                    <div className=" col-sm-12 col-md-7">
                         <div className="card">
-                            <div className="card-header bg-dark text-white"><h3>Datos del vehiculo</h3></div>
+                            <div className="card-header bg-dark text-white"><h3>Datos del taxi</h3></div>
                             <div className="card-body text-left">
-                                <label><strong>Conductor:</strong>{this.state.device.conductorFullName}</label><br/>
-                                <label><strong>Domicilio:</strong>{this.state.device.conductorAddress}, #{this.getNumExt()}{this.getNumInt()}</label><br/>
-                                <label><strong>Colonia:</strong>{this.state.device.conductorDistrict}</label><br/>
-                                <label><strong>Telefono:</strong>{this.state.device.conductorTel}</label>
+                            <div className="row">
+                                <div className="col-sm-6">
+                                    <center><h4>Datos del Conductor</h4></center>
+                                    <label><strong>Conductor:</strong>{this.state.device.conductorFullName}</label><br/>
+                                    <label><strong>Domicilio:</strong>{this.state.device.conductorAddress}, #{this.getNumExt()}{this.getNumInt()}</label><br/>
+                                    <label><strong>Colonia:</strong>{this.state.device.conductorDistrict}</label><br/>
+                                    <label><strong>Telefono:</strong>{this.state.device.conductorTel}</label>
+                                    <hr/>
+                                </div>
+                                <div className="col-sm-6">
+                                    <center><h4>Datos del vehiculo</h4></center>
+                                    <label><strong>Concesión:</strong>{this.state.device.concesion}</label><br/>
+                                    <label><strong>Alias:</strong>{this.state.device.name}</label><br/>
+                                    <label><strong>Marca:</strong>{this.state.device.marcaVehicle}</label><br/>
+                                    <label><strong>Modelo:</strong>{this.state.device.modeloVehicle}</label><br/>
+                                    <label><strong>Placa:</strong>{this.state.device.placaVehicle}</label><br/>
+                                    <hr/>
+                                </div>
+                            </div>
+                            </div>
+                            <div className="card-footer">
                                 <div className="text-right">
                                     <button className="btn btn-primary btn-sm" onClick={() => this.redirect(this.state.device._id)}><img src="../img/Users-Edit-User-icon-24.png" alt="editar conductor"/> Editar</button>
                                 </div>
