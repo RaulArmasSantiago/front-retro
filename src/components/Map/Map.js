@@ -81,7 +81,8 @@ class Map extends Component {
         />
 
       </div>
-     <strong>Ultima localizacion(cordenadas geograficas): </strong>{this.getLatitud()}, {this.getLongitud()}
+     <strong>Ultima localizacion(cordenadas geograficas): </strong><br/>
+     {this.getLatitud()}, {this.getLongitud()}
     </div>
    );
    }
