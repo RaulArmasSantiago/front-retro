@@ -11,6 +11,7 @@ export default (id) => {
                 query{
                     singleDevice(id:"${id}"){
                         _id,
+                        concesion,
                         name,
                         marcaVehicle,
                         modeloVehicle,

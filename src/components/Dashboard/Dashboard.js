@@ -14,14 +14,14 @@ class Dashboard extends Component{
                     <div className="col-xsm-11 col-md-4 ml-3">
                     <div className="card">
                         <div className="card-header bg-dark">
-                        <Link to="/devices"><h4 className="card-title color">Dispisitivo</h4></Link>
+                        <Link to="/devices"><h4 className="card-title color">Taxis</h4></Link>
                         </div>
                         <div className="card-body text-left text-white bg-retro">
                             <ul>
-                                <Link className="link link-hover" to="/devices"><li>Ver dispositivos</li></Link>
-                                <Link className="link link-hover" to="/addDevice"><li>Agregar dispositivos</li></Link>
-                                <li>Modificar dispositivos</li>
-                                <li>Eliminar dispositivos</li>
+                                <Link className="link link-hover" to="/devices"><li>Ver taxis</li></Link>
+                                <Link className="link link-hover" to="/addDevice"><li>Agregar taxi</li></Link>
+                                <li>Modificar taxi</li>
+                                <li>Eliminar taxi</li>
                             </ul>
                             
                         </div>
@@ -53,10 +53,10 @@ class Dashboard extends Component{
                         </div>
                         <div className="card-body text-left text-white bg-retro">
                             <ul>
-                                <li>Ver dispositivos</li>
-                                <li>Agregar dispositivos</li>
-                                <li>Modificar dispositivos</li>
-                                <li>Eliminar dispositivos</li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
                             </ul>
                             
                         </div>

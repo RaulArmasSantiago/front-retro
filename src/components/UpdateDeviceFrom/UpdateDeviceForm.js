@@ -18,12 +18,13 @@ class UpdateDeviceForm extends Component{
             conductorNumExt:"",
             conductorNumInt:"",
             conductorTel:"",
+            concesion:"",
         }
     }
 
     componentDidMount(){
         singleDevice(this.state._id).then((device) => {
-            //console.log(device.data.data.singleDevice)
+            console.log(device.data.data.singleDevice)
             this.setState({device:device.data.data.singleDevice})
             this.setState({
                 conductorFullName:this.state.device.conductorFullName,
@@ -34,7 +35,8 @@ class UpdateDeviceForm extends Component{
                 conductorDistrict:this.state.device.conductorDistrict,
                 conductorNumExt:this.state.device.conductorNumExt,
                 conductorNumInt:this.state.device.conductorNumInt,
-                conductorTel:this.state.device.conductorTel
+                conductorTel:this.state.device.conductorTel,
+                concesion:this.state.device.concesion
             })
             //console.log(this.state)
             
@@ -53,7 +55,6 @@ class UpdateDeviceForm extends Component{
 
     onFormSubmit = (e) => {
          e.preventDefault();
-         //console.log(this.state);
          updateDevice(this.state).then((response) => {
              console.log("entro chido")
              console.log(response.data )
@@ -95,17 +96,21 @@ class UpdateDeviceForm extends Component{
                             <input type="text" className="form-control" name="conductorNumInt" id="conductorNumInt" value={this.state.conductorNumInt} onChange={this.onInputCheck} size="30"/>
                         </div>
                         <div className="form-group">      
-                            <label className="text-white col-md-3" htmlFor="conductorTel">Telefono de contacto:</label>    
+                            <label className="text-white col-md-5" htmlFor="conductorTel">Telefono de contacto:</label>    
                             <input type="text" className="form-control" name="conductorTel" id="conductorTel" value={this.state.conductorTel} onChange={this.onInputCheck} size="30"/>
                         </div>
                         <hr/>
-                        <h3 className="text-white">Datos del vehiculo</h3>
+                        <h3 className="text-white">Datos de la concesion</h3>
+                        <div className="form-group">
+                            <label htmlFor="concesion" className="text-white col-md-3">Concesion</label>
+                            <input type="text" className="form-control" name="concesion" id="concesion" value={this.state.concesion} onChange={this.onInputCheck} size="30"/>
+                        </div>
                         <div className="form-group">
                             <label htmlFor="marcaVehicle" className="text-white col-md-3">Marca</label>
                             <input type="text" className="form-control" name="marcaVehicle" id="marcaVehicle" value={this.state.marcaVehicle} onChange={this.onInputCheck} size="30"/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="modeloVehicle" className="text-white col-md-3">Marca</label>
+                            <label htmlFor="modeloVehicle" className="text-white col-md-3">Modelo</label>
                             <input type="text" className="form-control" name="modeloVehicle" id="modeloVehicle" value={this.state.modeloVehicle} onChange={this.onInputCheck} size="30"/>
                         </div>
                         <div className="form-group">

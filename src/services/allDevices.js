@@ -12,6 +12,7 @@ export default () => {
                 query{
                     allDevice{
                         _id,
+                        concesion,
                         name,
                         marcaVehicle,
                         modeloVehicle,
