@@ -100,9 +100,7 @@ class Device extends Component{
                         <br/>
                     </div>
                     <div className="col-sm-12 col-md-5 ">
-                    {this.renderMap()}
-                    <br/>
-                    <label><strong>Ultima localizacion:</strong> {this.state.device.lastLocation}</label>
+                        {this.renderMap()}                    
                     </div>
                     
                 </div>           
