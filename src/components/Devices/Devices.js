@@ -56,7 +56,7 @@ class Devices extends Component{
                 </div>
                 <div className="row justify-content-center">
                     <div className="text-center col-sm-12">
-                        <h3 className="devices-title text-center">Todos los  Dispositivos</h3>
+                        <h3 className="devices-title text-center">Todos los Taxis</h3>
                         
                     </div>
                     <div className="row">

@@ -73,12 +73,16 @@ class Map extends Component {
       </GoogleMap>
    ));
    return(
+     <div>
       <div className="row justify-content-center">
         <GoogleMapExample className="col-sm-12"
-          containerElement={ <div style={{ height: '300px', width: '300px' }} /> }
+          containerElement={ <div style={{ height: '400px', width: '500px' }} /> }
           mapElement={ <div style={{ height: `100%` }} /> }
         />
+
       </div>
+     <strong>Ultima localizacion(cordenadas geograficas): </strong>{this.getLatitud()}, {this.getLongitud()}
+    </div>
    );
    }
 };

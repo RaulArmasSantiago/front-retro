@@ -9,6 +9,7 @@ class FormDevice extends Component{
         this.state = {
             _id:"",
             name:"",
+            concesion:""
         }
     }
 
@@ -60,7 +61,7 @@ class FormDevice extends Component{
         return(
             <div className="row container-fluid justify-content">
                 <div className=" col-sm-12 col-md-4 main-login main-center bg-dark">
-                    <h2 className="text-white">Registro de dispositivos</h2>
+                    <h2 className="text-white">Registro de taxis</h2>
                     <hr/>
 					<form onSubmit={this.onFormSubmit}>
 						
@@ -80,6 +81,16 @@ class FormDevice extends Component{
 								<div className="input-group">
 									<span className="input-group-addon"><i className="fa fa-user fa" aria-hidden="true"></i></span>
 									<input type="text" className="form-control" name="name" id="name"  placeholder="Nombre del dispositivo" value={this.state.name} onChange={this.onInputCheck}/>
+								</div>
+							</div>
+						</div>
+
+                        <div className="form-group">
+							<label htmlFor="name" className="cols-sm-2 control-label sr-only">Concesion</label>
+							<div className="cols-sm-10">
+								<div className="input-group">
+									<span className="input-group-addon"><i className="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" className="form-control" name="concesion" id="concesion"  placeholder="No. de la concesion" value={this.state.concesion} onChange={this.onInputCheck}/>
 								</div>
 							</div>
 						</div>
