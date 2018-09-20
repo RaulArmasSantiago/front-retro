@@ -74,7 +74,7 @@ class UpdateDeviceForm extends Component{
         Firebase.storage().ref('images').child(filename)
             .getDownloadURL().then((url) => {
                 console.log(url)
-                this.setState({image_url:url})
+                this.setState({image_url_conductor:url})
             })
 
     }
@@ -84,7 +84,7 @@ class UpdateDeviceForm extends Component{
         Firebase.storage().ref('images').child(filename)
             .getDownloadURL().then((url) => {
                 console.log(url)
-                this.setState({image_url:url})
+                this.setState({image_url_fvehicle:url})
             })
 
     }
@@ -94,7 +94,7 @@ class UpdateDeviceForm extends Component{
         Firebase.storage().ref('images').child(filename)
             .getDownloadURL().then((url) => {
                 console.log(url)
-                this.setState({image_url:url})
+                this.setState({image_url_lvehicle:url})
             })
 
     }
@@ -104,7 +104,7 @@ class UpdateDeviceForm extends Component{
         Firebase.storage().ref('images').child(filename)
             .getDownloadURL().then((url) => {
                 console.log(url)
-                this.setState({image_url:url})
+                this.setState({image_url_rvehicle:url})
             })
 
     }
@@ -114,7 +114,7 @@ class UpdateDeviceForm extends Component{
         Firebase.storage().ref('images').child(filename)
             .getDownloadURL().then((url) => {
                 console.log(url)
-                this.setState({image_url:url})
+                this.setState({image_url_bvehicle:url})
             })
 
     }
@@ -189,7 +189,7 @@ class UpdateDeviceForm extends Component{
                         </div>
                         <div className="form-group">
                             <label className="btn btn-primary">
-                            Agregar foto del conductor
+                            Agregar foto delantera
                                 <FileUploader
                                     hidden
                                     accept="image/*"
@@ -202,7 +202,7 @@ class UpdateDeviceForm extends Component{
                         </div>
                         <div className="form-group">
                             <label className="btn btn-primary">
-                            Agregar foto del conductor
+                            Agregar foto lateral izquierda
                                 <FileUploader
                                     hidden
                                     accept="image/*"
@@ -215,7 +215,7 @@ class UpdateDeviceForm extends Component{
                         </div>
                         <div className="form-group">
                             <label className="btn btn-primary">
-                            Agregar foto del conductor
+                            Agregar foto lateral derecha
                                 <FileUploader
                                     hidden
                                     accept="image/*"
@@ -228,7 +228,7 @@ class UpdateDeviceForm extends Component{
                         </div>
                         <div className="form-group">
                             <label className="btn btn-primary">
-                            Agregar foto del conductor
+                            Agregar foto trasera
                                 <FileUploader
                                     hidden
                                     accept="image/*"

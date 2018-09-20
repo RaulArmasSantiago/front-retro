@@ -26,10 +26,17 @@ export default (id) => {
                         contTravel,
                         contTime,
                         contKm,
-                        contEfectivo
+                        contEfectivo,
+                        image_url_conductor,
+                        image_url_fvehicle,
+                        image_url_bvehicle,
+                        image_url_lvehicle,
+                        image_url_rvehicle
+                    
                         user{
                             name,lastname,telefono
-                        }
+                        },
+                        
                     }
                 }
             `

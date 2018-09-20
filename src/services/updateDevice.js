@@ -4,6 +4,7 @@ import getToken from '../resolvers/getToken';
 
 
 export default (data) => {
+    /*
     console.log(data);
     let updateDevice = `{
         conductorFullName:"${data.conductorFullName}",
@@ -30,7 +31,7 @@ export default (data) => {
         data:{
             query:`
                 mutation{
-                    updateDevice(id:${data._id},data:${updateDevice}){
+                    updateDevice(id:${data._id},data:${updateDevice}),{
                         _id,
                         concesion,
                         name,
@@ -38,6 +39,6 @@ export default (data) => {
                 }
             `
         },headers:{'Authorization':'JWT '+getToken()}
-    })
-    //return axios.post(constantes.url+"updateDevice/",data)
+    })*/
+    return axios.post(constantes.url+"updateDevice/",data)
 }

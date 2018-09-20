@@ -1,11 +1,12 @@
 import * as firebase from 'firebase';
 
-const config = {
-    apiKey: "AIzaSyAR0VPcX6971XxrvEq1RM1CC4bQBbhdS-U",
-    authDomain: "retro-tx3.firebaseapp.com",
-    databaseURL: "https://retro-tx3.firebaseio.com",
-    projectId: "retro-tx3",
-    storageBucket: "retro-tx3.appspot.com",
-    messagingSenderId: "965895599352"
+  // Initialize Firebase
+  const config = {
+    apiKey: "AIzaSyD5gu_YkydDTYdartT-Ix7IDlKSZ3guCKo",
+    authDomain: "retro-c901c.firebaseapp.com",
+    databaseURL: "https://retro-c901c.firebaseio.com",
+    projectId: "retro-c901c",
+    storageBucket: "retro-c901c.appspot.com",
+    messagingSenderId: "514826411466"
   };
 export default firebase.initializeApp(config);

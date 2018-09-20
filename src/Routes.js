@@ -17,8 +17,12 @@ import Device from './components/Device/Device';
 import Users from './components/Users/Users';
 import User from './components/User/User';
 import UpdateDevice from './components/UpdateDeviceFrom/UpdateDeviceForm';
+
+
 class Routes extends Component{
+    
     render(){
+        
         const PrivateRoute = ({component:Component, ...rest}) => (
             <Route {...rest} render = {(props) => (
                 checkToken() === true ? <Component {...props}/> : <Redirect to="/login"/>
