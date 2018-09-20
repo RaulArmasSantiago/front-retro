@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import "./style.css";
 import updateDevice from '../../services/updateDevice';
 import singleDevice from '../../services/singleDevice';
+import FileUploader from 'react-firebase-file-uploader';
+import Firebase from '../../Firebase';
 
 class UpdateDeviceForm extends Component{
     constructor(props){
@@ -12,6 +14,11 @@ class UpdateDeviceForm extends Component{
             marcaVehicle:"",
             modeloVehicle:"",
             placaVehicle:"",
+            image_url_fvehicle:"",
+            image_url_lvehicle:"",
+            image_url_rvehicle:"",
+            image_url_bvehicle:"",
+            image_url_conductor:"",
             conductorFullName:"",
             conductorAddress:"",
             conductorDistrict:"",
@@ -62,6 +69,56 @@ class UpdateDeviceForm extends Component{
          })
     }
 
+    handleUploadSuccess = (filename) =>{
+        console.log(filename)
+        Firebase.storage().ref('images').child(filename)
+            .getDownloadURL().then((url) => {
+                console.log(url)
+                this.setState({image_url:url})
+            })
+
+    }
+
+    handleUploadSuccessFv = (filename) =>{
+        console.log(filename)
+        Firebase.storage().ref('images').child(filename)
+            .getDownloadURL().then((url) => {
+                console.log(url)
+                this.setState({image_url:url})
+            })
+
+    }
+
+    handleUploadSuccessLv = (filename) =>{
+        console.log(filename)
+        Firebase.storage().ref('images').child(filename)
+            .getDownloadURL().then((url) => {
+                console.log(url)
+                this.setState({image_url:url})
+            })
+
+    }
+
+    handleUploadSuccessRv = (filename) =>{
+        console.log(filename)
+        Firebase.storage().ref('images').child(filename)
+            .getDownloadURL().then((url) => {
+                console.log(url)
+                this.setState({image_url:url})
+            })
+
+    }
+
+    handleUploadSuccessBv = (filename) =>{
+        console.log(filename)
+        Firebase.storage().ref('images').child(filename)
+            .getDownloadURL().then((url) => {
+                console.log(url)
+                this.setState({image_url:url})
+            })
+
+    }
+
     render(){
         return(
             <div className="container">
@@ -99,6 +156,19 @@ class UpdateDeviceForm extends Component{
                             <label className="text-white col-md-5" htmlFor="conductorTel">Telefono de contacto:</label>    
                             <input type="text" className="form-control" name="conductorTel" id="conductorTel" value={this.state.conductorTel} onChange={this.onInputCheck} size="30"/>
                         </div>
+                        <div className="form-group">
+                            <label className="btn btn-primary">
+                            Agregar foto del conductor
+                                <FileUploader
+                                    hidden
+                                    accept="image/*"
+                                    randomizeFilename
+                                    storageRef={Firebase.storage().ref('images')}
+                                    onUploadError={error => console.log(error)}
+                                    onUploadSuccess={this.handleUploadSuccess}
+                                />
+                            </label>
+                        </div>
                         <hr/>
                         <h3 className="text-white">Datos de la concesion</h3>
                         <div className="form-group">
@@ -116,6 +186,58 @@ class UpdateDeviceForm extends Component{
                         <div className="form-group">
                             <label htmlFor="placaVehicle" className="text-white col-md-3">Placas</label>
                             <input type="text" className="form-control" name="placaVehicle" id="placaVehicle" value={this.state.placaVehicle} onChange={this.onInputCheck} size="30"/>
+                        </div>
+                        <div className="form-group">
+                            <label className="btn btn-primary">
+                            Agregar foto del conductor
+                                <FileUploader
+                                    hidden
+                                    accept="image/*"
+                                    randomizeFilename
+                                    storageRef={Firebase.storage().ref('images')}
+                                    onUploadError={error => console.log(error)}
+                                    onUploadSuccess={this.handleUploadSuccessFv}
+                                />
+                            </label>
+                        </div>
+                        <div className="form-group">
+                            <label className="btn btn-primary">
+                            Agregar foto del conductor
+                                <FileUploader
+                                    hidden
+                                    accept="image/*"
+                                    randomizeFilename
+                                    storageRef={Firebase.storage().ref('images')}
+                                    onUploadError={error => console.log(error)}
+                                    onUploadSuccess={this.handleUploadSuccessLv}
+                                />
+                            </label>
+                        </div>
+                        <div className="form-group">
+                            <label className="btn btn-primary">
+                            Agregar foto del conductor
+                                <FileUploader
+                                    hidden
+                                    accept="image/*"
+                                    randomizeFilename
+                                    storageRef={Firebase.storage().ref('images')}
+                                    onUploadError={error => console.log(error)}
+                                    onUploadSuccess={this.handleUploadSuccessRv}
+                                />
+                            </label>
+                        </div>
+                        <div className="form-group">
+                            <label className="btn btn-primary">
+                            Agregar foto del conductor
+                                <FileUploader
+                                    hidden
+                                    accept="image/*"
+                                    randomizeFilename
+                                    storageRef={Firebase.storage().ref('images')}
+                                    onUploadError={error => console.log(error)}
+                                    onUploadSuccess={this.handleUploadSuccessBv}
+                                />
+                            </label>
                         </div>
                         <br/>
                         <div className="form-group">
