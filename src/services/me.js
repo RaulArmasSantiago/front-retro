@@ -10,6 +10,7 @@ export default () => {
             query:`
             query{
                 me{
+                    _id,
                     name,
                     lastname,
                     email,
@@ -20,7 +21,8 @@ export default () => {
                     city,
                     country,
                     cc,
-                    telefono
+                    telefono,
+                    image_url
                 }
             }
         `

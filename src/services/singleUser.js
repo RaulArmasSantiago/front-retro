@@ -11,17 +11,18 @@ export default (id) => {
                 query{
                     singleUser(id:"${id}"){
                         _id,
-                        name,
-                        lastname,
-                        email,
-                        street,
-                        district,
-                        numExt,
-                        numInt,
-                        city,
-                        country,
-                        cc,
-                        tel
+                    name,
+                    lastname,
+                    email,
+                    street,
+                    district,
+                    numExt,
+                    numInt,
+                    city,
+                    country,
+                    cc,
+                    telefono,
+                    image_url
                     }
                 }
             `

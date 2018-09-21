@@ -53,7 +53,7 @@ class Device extends Component{
             return ", Int. S/N"
         }else{
             return ", Int. " + this.state.device.conductorNumInt
-        }
+        } 
         
     }
 

@@ -42,14 +42,15 @@ class Nav extends Component{
                 return (
                     <ul className="navbar-nav ml-auto" id="items">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/info">Inforación de las conceciones</Link>
+                            <Link className="nav-link" to="/profile">{pl.name}</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/info">Conceciones</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/logout">Cerrar sesin</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/profile">{pl.name}</Link>
-                        </li>
+                        
                     </ul>
                 ) 
             }
