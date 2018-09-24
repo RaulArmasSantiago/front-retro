@@ -22,7 +22,12 @@ export default (id) => {
                     country,
                     cc,
                     telefono,
-                    image_url
+                    image_url,
+                    devices{
+                        _id,
+                        concesion,
+                        name,
+                    }
                     }
                 }
             `

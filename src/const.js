@@ -1,3 +1,3 @@
 export default {
-    url:"https://retrotx3back.herokuapp.com/",
+    url:"https://backretro.herokuapp.com//",
 }
