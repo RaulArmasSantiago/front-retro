@@ -28,25 +28,11 @@ class FormDevice extends Component{
             conductorDistrict:"",
             conductorTell:"",
             user:"",
-            email:"",
-            query:""
         }
     }
 
     componentWillMount(){
         console.log(this.state);
-    }
-
-    hand
-
-    _handleChange(){
-        console.log(this.state)
-        singleUserMail(this.state.email).then((user)=>{
-            
-            this.setState({query:user.data.data.singleUserMail})
-            this.setState({user:this.state.query._id})
-            console.log(this.state)
-        })
     }
 
     toggle = (e) => {
