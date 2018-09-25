@@ -17,6 +17,7 @@ class Profile extends Component{
     }
 
     componentDidMount(){
+        console.log(this.state)
         me().then((user) => {
             console.log(user.data.data.me)
             this.setState({user:user.data.data.me})
@@ -58,6 +59,7 @@ class Profile extends Component{
                         </div>
                         <div className="col-sm-12 col-md-8">
                         <h3>{this.state.user.name} {this.state.user.lastname}</h3>
+                        <label><strong>Id usuario:</strong>{this.state.id}</label>
                         {this.state.user.email}<br/>
                         <strong>Telefono:</strong> {this.state.user.telefono}
                         {this.getDireeccion()}

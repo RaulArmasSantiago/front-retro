@@ -26,6 +26,7 @@ class UpdateDeviceForm extends Component{
             conductorNumInt:"",
             conductorTel:"",
             concesion:"",
+            user:""
         }
     }
 

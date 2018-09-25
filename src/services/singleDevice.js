@@ -31,11 +31,8 @@ export default (id) => {
                         image_url_fvehicle,
                         image_url_bvehicle,
                         image_url_lvehicle,
-                        image_url_rvehicle
-                    
-                        user{
-                            name,lastname,telefono
-                        },
+                        image_url_rvehicle,
+                        user,
                         
                     }
                 }

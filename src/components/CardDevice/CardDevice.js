@@ -14,7 +14,7 @@ class CardDevice extends Component{
             
             <div className="col-sm-12 col-md-6 col-lg-4" style={{width: "14rem;"}}>
             <div className="card">
-                <div className="card-header bg-dark text-white"><h5 className="card-title" onClick={() => this.props.redirect(this.state.device._id)}>Concesion #: {this.state.device.concesion}</h5></div>
+                <div className="card-header bg-dark text-white"><h5 className="card-title" onClick={() => this.props.redirect(this.state.device._id)}>Concesion #:{this.state.device.concesion} </h5></div>
                 <div className="card-body bg-retro text-white">
                     {this.state.device.user}
                     <b>Ultima Localizacion:</b>
