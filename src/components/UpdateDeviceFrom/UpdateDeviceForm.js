@@ -44,7 +44,12 @@ class UpdateDeviceForm extends Component{
                 conductorNumExt:this.state.device.conductorNumExt,
                 conductorNumInt:this.state.device.conductorNumInt,
                 conductorTel:this.state.device.conductorTel,
-                concesion:this.state.device.concesion
+                concesion:this.state.device.concesion,
+                image_url_bvehicle:this.state.device.image_url_bvehicle,
+                image_url_conductor:this.state.device.image_url_conductor,
+                image_url_fvehicle:this.state.device.image_url_fvehicle,
+                image_url_lvehicle:this.state.device.image_url_lvehicle,
+                image_url_rvehicle:this.state.device.image_url_rvehicle
             })
             //console.log(this.state)
             

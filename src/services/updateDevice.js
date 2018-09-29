@@ -4,7 +4,7 @@ import getToken from '../resolvers/getToken';
 
 
 export default (data) => {
-    /*
+    
     console.log(data);
     let updateDevice = `{
         conductorFullName:"${data.conductorFullName}",
@@ -24,14 +24,14 @@ export default (data) => {
         image_url_bvehicle:"${data.image_url_bvehicle}"
     }
     `;
-
+    console.log(updateDevice, data._id);
     return axios({
         url:constantes.url+'graphql',
         method:'post',
         data:{
             query:`
-                mutation{
-                    updateDevice(id:${data._id},data:${updateDevice}),{
+            mutation{
+                    updateDevice(id:"${data._id}",data:${updateDevice}){
                         _id,
                         concesion,
                         name,
@@ -39,6 +39,6 @@ export default (data) => {
                 }
             `
         },headers:{'Authorization':'JWT '+getToken()}
-    })*/
-    return axios.post(constantes.url+"updateDevice/",data)
+    })/*
+    return axios.post(constantes.url+"updateDevice/",data)*/
 }

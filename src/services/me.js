@@ -22,7 +22,17 @@ export default () => {
                     country,
                     cc,
                     telefono,
-                    image_url
+                    image_url,
+                    devices{
+                        _id,
+                        concesion,
+                        name,
+                        conductorFullName,
+                        sigfox,
+                        marcaVehicle,
+                        modeloVehicle,
+                        placaVehicle
+                    }
                 }
             }
         `

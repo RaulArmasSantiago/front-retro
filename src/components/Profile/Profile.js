@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 import './style.css';
 import me from '../../services/me';
 
-
-
-
 class Profile extends Component{
     constructor(props){
         super(props);
@@ -17,11 +14,9 @@ class Profile extends Component{
     }
 
     componentDidMount(){
-        console.log(this.state)
         me().then((user) => {
-            console.log(user.data.data.me)
             this.setState({user:user.data.data.me})
-            this.setState({id:this.state.user._id,active:"true"})
+            
             console.log(this.state)
         })
     }
@@ -59,7 +54,7 @@ class Profile extends Component{
                         </div>
                         <div className="col-sm-12 col-md-8">
                         <h3>{this.state.user.name} {this.state.user.lastname}</h3>
-                        <label><strong>Id usuario:</strong>{this.state.id}</label><br/>
+                        <label><strong>Id usuario:</strong>{this.state.user._id}</label><br/>
                         {this.state.user.email}<br/>
                         <strong>Telefono:</strong> {this.state.user.telefono}
                         {this.getDireeccion()}
