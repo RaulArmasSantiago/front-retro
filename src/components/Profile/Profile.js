@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import './style.css';
 import me from '../../services/me';
+import CardDevice from '../CardDevice/CardDevice';
 
 class Profile extends Component{
     constructor(props){
         super(props);
         this.state = {
-            id:"", 
+            _id:"", 
             user:"",
             allDevices:[],
             active:"false"
@@ -18,12 +19,32 @@ class Profile extends Component{
             this.setState({user:user.data.data.me})
             
             console.log(this.state)
+            console.log(this.state.user.devices._id)
         })
     }
 
-    redirect = (id) => {
+    redirect2 = (id) => {
+        this.props.history.push(`/device/${id}`)
+    }
+
+    renderDevices = () => {
+        if(this.state.user !== ""){
+            let devices = this.state.user.devices.map((device,index) => {
+                return (
+                    <CardDevice device={device} redirect={this.redirect2}/>
+                )
+            })
+            return devices
+        }else{
+            return(
+                <div></div>
+            )
+        }
+    }
+
+    redirect = (_id) => {
         console.log(this.state)
-        this.props.history.push(`/me/update/${id}`)
+        this.props.history.push(`/me/update/${_id}`)
     }
 
     getDireeccion(){
@@ -45,6 +66,7 @@ class Profile extends Component{
     
     render() {
         return(
+            <div className="container">
             <div className="row justify-content">
                 <div className="card col-sm-11 container-fluid">
                     <div className="card-body fondo">
@@ -66,6 +88,10 @@ class Profile extends Component{
                     </div>
                     </div>
                 </div>
+            </div>
+            <br/><br/>
+
+            {this.renderDevices()}
             </div>
         )
     }
