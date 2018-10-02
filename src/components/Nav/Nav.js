@@ -45,9 +45,6 @@ class Nav extends Component{
                             <Link className="nav-link" to="/profile">{pl.name}</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/info">Conceciones</Link>
-                        </li>
-                        <li className="nav-item">
                             <Link className="nav-link" to="/logout">Cerrar sesin</Link>
                         </li>
                         
