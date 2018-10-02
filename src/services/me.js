@@ -31,7 +31,9 @@ export default () => {
                         sigfox,
                         marcaVehicle,
                         modeloVehicle,
-                        placaVehicle
+                        placaVehicle,
+                        image_url_lvehicle,
+                        lastLocation
                     }
                 }
             }

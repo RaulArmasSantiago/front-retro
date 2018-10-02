@@ -83,15 +83,17 @@ class Profile extends Component{
                         <p>
                             
                         </p>
-                        <button className="btn btn-primary btn-sm" onClick={() => this.redirect(this.state.user._id)} active={this.state.active}>Editar Perfil <img src="img/Users-Edit-User-icon.png" alt="editprofile.png"/></button>
+                        <button className="btn btn-primary btn-sm" onClick={() => this.redirect(this.state.user._id)} active={this.state.active}>Editar Perfil <img src="../img/Users-Edit-User-icon.png" alt="editprofile.png"/></button>
                         </div>
                     </div>
                     </div>
                 </div>
             </div>
             <br/><br/>
-
+            <div className="row">
             {this.renderDevices()}
+            </div>
+            
             </div>
         )
     }
