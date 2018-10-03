@@ -65,7 +65,20 @@ class Device extends Component{
         return(
             
             <div className="container-fluid">
-                
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="card">
+                            <div className="card-header bg-dark text-white">
+                                <div className="row">
+                                    <div className="col-md-6"><h3> Conductor: {this.state.device.conductorFullName}</h3></div>
+                                    <div className="col-md-6"><h4> Concesión: {this.state.device.concesion}</h4></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br/><br/>
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-md-6">
                         <div className="card">

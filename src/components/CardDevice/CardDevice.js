@@ -14,17 +14,17 @@ class CardDevice extends Component{
             
             <div className="col-sm-12 col-md-6 col-lg-4" style={{width: "14rem;"}}>
             <div className="card">
-                <div className="card-header bg-dark text-white"><h5 className="card-title" onClick={() => this.props.redirect(this.state.device._id)}>Concesion #:{this.state.device.concesion} </h5></div>
-                <div className="card-body bg-retro text-white">
+                <div className="card-header bg-dark text-white"><h5 className="card-title" onClick={() => this.props.redirect(this.state.device._id)}>Concesión #: {this.state.device.concesion} </h5></div>
+                <div className="card-body bg-retroyellow text-dark">
                     {this.state.device.user}
-                    <b>Ultima Localizacion:</b>
+                    <b>Ultima Localización:</b>
                     <br/>
                     {this.state.device.lastLocation}
                     <br/>
-                    <strong>Constructor:</strong><br/> 
+                    <strong>Conductor:</strong><br/> 
                     {this.state.device.conductorFullName}
                     <br/>
-                    <strong> Vehiculo: </strong> <br/>
+                    <strong> Vehículo: </strong> <br/>
                     {this.state.device.marcaVehicle} ({this.state.device.modeloVehicle})
                     <br/>
                     <strong> Placa: </strong> <br/>
