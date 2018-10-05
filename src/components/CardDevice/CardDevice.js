@@ -30,7 +30,7 @@ class CardDevice extends Component{
                     <strong> Placa: </strong> <br/>
                     {this.state.device.placaVehicle}
                 </div>
-                <div className="card-footer bg-warning">
+                <div className="card-footer bg-grey">
                     <button className="btn btn-dark" onClick={() => this.props.redirect(this.state.device._id)}> Ver mas </button>
                 </div>
             </div>

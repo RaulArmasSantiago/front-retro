@@ -28,11 +28,10 @@ class Login extends Component{
                 let token = resp.data.token
                 localStorage.setItem('token',token);
                 this.props.history.push('/profile')
-            }else{
-                alert(resp.data)
             }
 
         }).catch((err) => {
+            alert("El usuario o la contraseña son incorrectos.")
             console.log(err)
         })
     }
