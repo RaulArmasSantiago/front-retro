@@ -66,33 +66,36 @@ class Profile extends Component{
     
     render() {
         return(
-            <div className="container">
-            <div className="row justify-content">
-                <div className="card col-sm-11 container-fluid">
-                    <div className="card-body fondo">
-                    <div className="row">
-                        <div className="col-sm-12 col-md-4">
-                            <img src={this.state.user.image_url} alt="photo.png" width="200px" className="img-rounded"/>
+            <div>
+                <div className="row">
+                    <div className="card col-sm-12 container-fluid">
+                        <div className="card-body fondo">
+                        <div className="row">
+                            <div className="col-sm-12 col-md-4">
+                                <img src={this.state.user.image_url} alt="photo.png" width="200px" className="img-rounded"/>
+                            </div>
+                            <div className="col-sm-12 col-md-8">
+                            <h3>{this.state.user.name} {this.state.user.lastname}</h3>
+                            <label><strong>Id usuario:</strong>{this.state.user._id}</label><br/>
+                            {this.state.user.email}<br/>
+                            <strong>Telefono:</strong> {this.state.user.telefono}
+                            {this.getDireeccion()}
+                            <p>
+                                
+                            </p>
+                            <button className="btn btn-primary btn-sm" onClick={() => this.redirect(this.state.user._id)} active={this.state.active}>Editar Perfil <img src="../img/Users-Edit-User-icon.png" alt="editprofile.png"/></button>
+                            </div>
                         </div>
-                        <div className="col-sm-12 col-md-8">
-                        <h3>{this.state.user.name} {this.state.user.lastname}</h3>
-                        <label><strong>Id usuario:</strong>{this.state.user._id}</label><br/>
-                        {this.state.user.email}<br/>
-                        <strong>Telefono:</strong> {this.state.user.telefono}
-                        {this.getDireeccion()}
-                        <p>
-                            
-                        </p>
-                        <button className="btn btn-primary btn-sm" onClick={() => this.redirect(this.state.user._id)} active={this.state.active}>Editar Perfil <img src="../img/Users-Edit-User-icon.png" alt="editprofile.png"/></button>
                         </div>
-                    </div>
                     </div>
                 </div>
-            </div>
-            <br/><br/>
-            <div className="row">
-            {this.renderDevices()}
-            </div>
+                
+                <br/><br/>
+                <div className="container-fluid">
+                    <div className="row">
+                        {this.renderDevices()}
+                    </div>
+                </div>
             
             </div>
         )

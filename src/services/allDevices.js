@@ -19,7 +19,8 @@ export default () => {
                         modeloVehicle,
                         placaVehicle,
                         conductorFullName,
-                        lastLocation                       
+                        lastLocation,
+                        image_url_conductor                       
                     }
                 }
             `

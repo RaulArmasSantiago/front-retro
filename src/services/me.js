@@ -34,6 +34,7 @@ export default () => {
                         placaVehicle,
                         image_url_lvehicle,
                         lastLocation
+                        image_url_conductor
                     }
                 }
             }

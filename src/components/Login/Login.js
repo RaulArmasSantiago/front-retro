@@ -47,7 +47,7 @@ class Login extends Component{
             </div>
             <br/>
             <div className="row justify-content-center" >
-                <div className="col-xsm-8">
+                <div className="col-xsm-10">
                 <form onSubmit={this.submitForm}>
                     <div className="form-group">
                         <label for="exampleInputEmail1" className="sr-only">Email address</label>
@@ -58,7 +58,7 @@ class Login extends Component{
                         <input type="password" className="form-control" name="password" value={this.state.password}  onChange={this.onInpuntCheck} id="exampleInputPassword1" placeholder="Password"/>
                     </div>
   
-                    <button type="submit" className="btn btn-dark">Entrar</button>
+                    <button type="submit" className="btn btn-block btn-dark">Entrar</button>
                 </form>       
                 </div>
             </div>
