@@ -17,8 +17,10 @@ export default () => {
                         name,
                         marcaVehicle,
                         modeloVehicle,
+                        anioVehicle,
                         placaVehicle,
-                        conductorFullName,
+                        conductorName,
+                        conductorLastname,
                         lastLocation,
                         image_url_conductor                       
                     }

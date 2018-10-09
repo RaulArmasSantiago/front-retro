@@ -15,13 +15,15 @@ class FormDevice extends Component{
             concesion:"",
             marcaVehicle:"",
             modeloVehicle:"",
+            anioVehicle:"",
             placaVehicle:"",
             image_url_fvehicle:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2F36896668_1750269811746792_3119577760905822208_n.png?alt=media&token=12ba2653-6705-40b1-8d39-64d43403bc4b",
             image_url_lvehicle:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2F36896668_1750269811746792_3119577760905822208_n.png?alt=media&token=12ba2653-6705-40b1-8d39-64d43403bc4b",
             image_url_rvehicle:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2F36896668_1750269811746792_3119577760905822208_n.png?alt=media&token=12ba2653-6705-40b1-8d39-64d43403bc4b",
             image_url_bvehicle:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2F36896668_1750269811746792_3119577760905822208_n.png?alt=media&token=12ba2653-6705-40b1-8d39-64d43403bc4b",
             image_url_conductor:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2F36896668_1750269811746792_3119577760905822208_n.png?alt=media&token=12ba2653-6705-40b1-8d39-64d43403bc4b",
-            conductorFullName:"",
+            conductorName:"",
+            conductorLastname:"",
             conductorAddress:"",
             conductorNumExt:"",
             conductorNumInt:"",
@@ -51,14 +53,6 @@ class FormDevice extends Component{
             {[name]:value}
         )
         console.log(this.state)
-    }
-
-    validatePasswords(password,verify_password){
-        if(password === verify_password){
-            return true
-        }else{
-            alert("Tu password no coincide")
-        }
     }
 
     onFormSubmit = (e) => {
@@ -155,8 +149,12 @@ class FormDevice extends Component{
                             <div className=" row card-body">
                                 <div className="col-md-6">
                                     <div className="form-group">
-                                        <label htmlFor="conductorFullName" className="sr-only">Nombre:</label>
-                                        <input className="form-control" type="text" name="conductorFullName" id="consutorFullName" value={this.state.conductorFullName} onChange={this.onInputCheck} placeholder="Nombre completo"/>
+                                        <label htmlFor="conductorName" className="sr-only">Nombre:</label>
+                                        <input className="form-control" type="text" name="conductorName" id="conductorName" value={this.state.conductorName} onChange={this.onInputCheck} placeholder="Nombre"/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="conductorFullName" className="sr-only">Apellido:</label>
+                                        <input className="form-control" type="text" name="conductorLastname" id="consutorLastname" value={this.state.conductorLastname} onChange={this.onInputCheck} placeholder="Apellidos"/>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="conductorAddress" className="sr-only">Dirección:</label>
@@ -216,6 +214,10 @@ class FormDevice extends Component{
                                     <div className="form-group">
                                         <label htmlFor="modeloVehicle" className="sr-only">Modelo:</label>
                                         <input className="form-control" type="text" name="modeloVehicle" id="modeloVehicle" value={this.state.modeloVehicle} onChange={this.onInputCheck} placeholder="Modelo"/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="anioVehicle" className="sr-only">Modelo:</label>
+                                        <input className="form-control" type="text" name="anioVehicle" id="anioVehicle" value={this.state.anioVehicle} onChange={this.onInputCheck} placeholder="Año de fabricación"/>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="placaVehicle" className="sr-only">Placas:</label>

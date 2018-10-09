@@ -19,17 +19,18 @@ class CardDevice extends Component{
                     <div className="row">
                         <div className="col-sm-6 text-left ">
                         <p className="fontbold">
-                            {this.state.device.conductorFullName} <br/>
-                            {this.state.device.marcaVehicle} ({this.state.device.modeloVehicle}) - 2018<br/>
+                            {this.state.device.conductorName} <br/>
+                            {this.state.device.conductorLastname} <br/>
+                            {this.state.device.marcaVehicle} ({this.state.device.modeloVehicle})<br/>
+                            {this.state.device.anioVehicle}<br/>
                             {this.state.device.placaVehicle}
                         </p>
                         </div>
                         <div className="col-sm-6">
-                            <img src={this.state.device.image_url_conductor} alt="" width="100px"/>
+                            <img src={this.state.device.image_url_conductor} alt="" width="100px"/><br/>
+                            Operador
                         </div>
                     </div>
-                    
-                    <br/><br/>
                     <button className="btn btn-block btn-dark" onClick={() => this.props.redirect(this.state.device._id)}> Ver mas </button>
                 </div>
                 

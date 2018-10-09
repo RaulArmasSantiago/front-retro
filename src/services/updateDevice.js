@@ -7,7 +7,8 @@ export default (data) => {
     
     console.log(data);
     let updateDevice = `{
-        conductorFullName:"${data.conductorFullName}",
+        conductorName:"${data.conductorName}",
+        conductorLastname:"${data.conductorLastname}",
         conductorAddress:"${data.conductorAddress}",
         conductorDistrict:"${data.conductorDistrict}",
         conductorNumExt:"${data.conductorNumExt}",
@@ -15,6 +16,7 @@ export default (data) => {
         conductorTel:"${data.conductorTel}",
         marcaVehicle:"${data.marcaVehicle}",
         modeloVehicle:"${data.modeloVehicle}",
+        anioVehicle:"${data.anioVehicle}",
         placaVehicle:"${data.placaVehicle}",
         concesion:"${data.concesion}",
         image_url_conductor:"${data.image_url_conductor}",

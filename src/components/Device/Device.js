@@ -23,8 +23,9 @@ class Device extends Component{
     }
 
     contCash(){
-        let efectivo = this.state.device.contEfectivo;
-        let efectivoDecimal = (Math.round(efectivo * 2) / 2).toFixed(2);
+        let efectivo = Number(this.state.device.contEfectivo);
+
+        let efectivoDecimal = efectivo.toFixed(2);
         return efectivoDecimal;
     }
 
@@ -141,12 +142,10 @@ class Device extends Component{
                             <div className="card-body text-left">
                             <div className="row">
                                 <div className=" card col-sm-6">
-                                    <center><h4>Datos del vehiculo</h4></center>
-                                    Concesión:{this.state.device.concesion}<br/>
-                                    Alias:{this.state.device.name}<br/>
-                                    Marca:{this.state.device.marcaVehicle}<br/>
-                                    Modelo:{this.state.device.modeloVehicle}<br/>
-                                    Placa:{this.state.device.placaVehicle}<br/>
+                                    <center><h4>{this.state.device.concesion}</h4></center>
+                                    {this.state.device.marcaVehicle} ( {this.state.device.modeloVehicle} )<br/>
+                                    {this.state.device.anioVehicle}<br/>
+                                    {this.state.device.placaVehicle}<br/>
                                 </div>
                                 <div className="card col-sm-6">
                                     <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">

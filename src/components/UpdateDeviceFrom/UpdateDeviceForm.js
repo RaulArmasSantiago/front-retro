@@ -13,13 +13,15 @@ class UpdateDeviceForm extends Component{
             device:"",
             marcaVehicle:"",
             modeloVehicle:"",
+            anioVehicle:"",
             placaVehicle:"",
             image_url_fvehicle:"",
             image_url_lvehicle:"",
             image_url_rvehicle:"",
             image_url_bvehicle:"",
             image_url_conductor:"",
-            conductorFullName:"",
+            conductorName:"",
+            conductorLastname:"",
             conductorAddress:"",
             conductorDistrict:"",
             conductorNumExt:"",
@@ -35,9 +37,11 @@ class UpdateDeviceForm extends Component{
             console.log(device.data.data.singleDevice)
             this.setState({device:device.data.data.singleDevice})
             this.setState({
-                conductorFullName:this.state.device.conductorFullName,
+                conductorName:this.state.device.conductorName,
+                conductorLastname:this.state.device.conductorLastname,
                 marcaVehicle:this.state.device.marcaVehicle,
                 modeloVehicle: this.state.device.modeloVehicle,
+                anioVehicle:this.state.device.anioVehicle,
                 placaVehicle:this.state.device.placaVehicle,
                 conductorAddress:this.state.device.conductorAddress,
                 conductorDistrict:this.state.device.conductorDistrict,
@@ -134,28 +138,33 @@ class UpdateDeviceForm extends Component{
                     <form onSubmit={this.onFormSubmit}>
                         <h3 className="text-white">Datos del conductor</h3>
                         <div className="form-group">
-                            <label className="text-white" htmlFor="conductorFullName">Nombre:</label>
-                            <input type="text" className="form-control" name="conductorFullName" id="conductorFullName" value={this.state.conductorFullName} onChange={this.onInputCheck} size="30"/>
+                            <label className="text-white" htmlFor="conductorName">Nombre:</label>
+                            <input type="text" className="form-control" name="conductorName" id="conductorName" value={this.state.conductorName} onChange={this.onInputCheck} size="30"/>
+                        </div>
+
+                        <div className="form-group">
+                            <label className="text-white" htmlFor="conductorLastname">Apellidos:</label>
+                            <input type="text" className="form-control" name="conductorLastname" id="conductorLastname" value={this.state.conductorLastname} onChange={this.onInputCheck} size="30"/>
                         </div>
                         
                         <div className="form-group">      
-                            <label className="text-white col-md-3 left" htmlFor="conductorAddress">Domicilio:</label>    
+                            <label className="text-white col-md-4 left" htmlFor="conductorAddress">Domicilio:</label>    
                             <input type="text" className="form-control" name="conductorAddress" id="conductorAddress" value={this.state.conductorAddress} onChange={this.onInputCheck} size="30
                             "/>
                         </div>
                         
                         <div className="form-group">      
-                            <label className="text-white col-md-3" htmlFor="conductorDistrict">Colonia: </label>    
+                            <label className="text-white col-md-4" htmlFor="conductorDistrict">Colonia: </label>    
                             <input type="text" className="form-control" name="conductorDistrict" id="conductorDistrict" value={this.state.conductorDistrict} onChange={this.onInputCheck} size="30"/>
                         </div>
                         
                         <div className="form-group">      
-                            <label className="text-white col-md-3" htmlFor="conductorNumExt">Num. Ext:</label>    
+                            <label className="text-white col-md-4" htmlFor="conductorNumExt">Num. Ext:</label>    
                             <input type="text" className="form-control" name="conductorNumExt" id="conductorNumExt" value={this.state.conductorNumExt} onChange={this.onInputCheck} size="30"/>
                         </div>
                         
                         <div className="form-group">      
-                            <label className="text-white col-md-3" htmlFor="conductorNumInt">Num. Int:</label>    
+                            <label className="text-white col-md-4" htmlFor="conductorNumInt">Num. Int:</label>    
                             <input type="text" className="form-control" name="conductorNumInt" id="conductorNumInt" value={this.state.conductorNumInt} onChange={this.onInputCheck} size="30"/>
                         </div>
                         <div className="form-group">      
@@ -188,6 +197,10 @@ class UpdateDeviceForm extends Component{
                         <div className="form-group">
                             <label htmlFor="modeloVehicle" className="text-white col-md-3">Modelo</label>
                             <input type="text" className="form-control" name="modeloVehicle" id="modeloVehicle" value={this.state.modeloVehicle} onChange={this.onInputCheck} size="30"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="anioVehicle" className="text-white col-md-3">Modelo</label>
+                            <input type="text" className="form-control" name="anioVehicle" id="anioVehicle" value={this.state.anioVehicle} onChange={this.onInputCheck} size="30"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="placaVehicle" className="text-white col-md-3">Placas</label>

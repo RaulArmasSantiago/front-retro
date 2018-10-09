@@ -50,6 +50,7 @@ class Devices extends Component{
     }
     render(){
         return(
+            <div>
             <div className="container">
                 <div className="row">
                     <div className="col-md-12 text-right"><Link to="/addDevice"><button className="btn btn-success">Nuevo</button></Link></div>
@@ -57,8 +58,11 @@ class Devices extends Component{
                 <div className="row justify-content-center">
                     <div className="text-center col-sm-12">
                         <h3 className="devices-title text-center">Todos los Taxis</h3>                        
-                    </div>
-                    <div className="row">
+                    </div>                    
+                </div>
+            </div>
+                <div className="container-fluid">
+                     <div className="row">
                         {this.renderDevices()}
                     </div>
                 </div>

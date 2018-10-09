@@ -27,10 +27,12 @@ export default () => {
                         _id,
                         concesion,
                         name,
-                        conductorFullName,
+                        conductorName,
+                        conductorLastname,
                         sigfox,
                         marcaVehicle,
                         modeloVehicle,
+                        anioVehicle,
                         placaVehicle,
                         image_url_lvehicle,
                         lastLocation

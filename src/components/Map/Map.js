@@ -67,7 +67,7 @@ class Map extends Component {
    const GoogleMapExample = withGoogleMap(props => (
       <GoogleMap
         defaultCenter = {this.getLocation()}
-        defaultZoom = { 11 }
+        defaultZoom = { 17 }
       >
       <Marker options={{icon: "../img/taxi-yellow.png"}} position={this.getLocation()}/>
       </GoogleMap>
