@@ -17,7 +17,7 @@ class CardDevice extends Component{
                 <div className="card-header bg-dark text-white"><h1 className="card-title" onClick={() => this.props.redirect(this.state.device._id)}>{this.state.device.concesion} </h1></div>
                 <div className="card-body bg-retroyellow text-dark">
                     <div className="row">
-                        <div className="col-sm-6 text-left ">
+                        <div className="col-sm-6">
                         <p className="fontbold">
                             {this.state.device.conductorName} <br/>
                             {this.state.device.conductorLastname} <br/>
