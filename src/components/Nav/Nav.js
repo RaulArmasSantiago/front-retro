@@ -45,7 +45,7 @@ class Nav extends Component{
                             <Link className="nav-link" to="/profile">{pl.name}</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/logout">Cerrar sesin</Link>
+                            <Link className="nav-link" to="/logout">Cerrar sesión</Link>
                         </li>
                         
                     </ul>
@@ -68,7 +68,7 @@ class Nav extends Component{
     render () {
         return(
             <nav className="navbar navbar-expand-md bg-dark navbar-dark">
-                <Link className="navbar-brand" to="/"><img src="../img/retro_BCO.png" width="100px" alt="logo.png"/></Link>
+                <Link className="navbar-brand" to="#"><img src="../img/retro_BCO.png" width="100px" alt="logo.png"/></Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span className="navbar-toggler-icon"></span>
                 </button>

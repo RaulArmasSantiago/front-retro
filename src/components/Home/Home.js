@@ -52,8 +52,21 @@ class Home extends Component{
     render(){
         return(
             <div>
-                {this.chargeProfile()}
-            </div>
+                    <p>
+                    <div className="col-sm-8 container-fluid">
+                        <img src="img/logo_retro.png" alt="retro.png" width="70%"/>
+                    </div>
+                    </p>
+                    
+                    <p>
+                    <div className="row show-grid container-fluid">
+                        <div className="col-sm-12">
+                            <Link to="/login"><button className="btn btn-dark" width="30%">Iniciar Sesión</button></Link>
+                        </div>
+                    </div>
+                    </p>
+                    <img src="img/retro.jpeg" alt="retro.png" width="60%"/>
+                </div>
         )
     }
 }

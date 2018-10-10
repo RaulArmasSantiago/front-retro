@@ -27,7 +27,7 @@ class CardDevice extends Component{
                         </p>
                         </div>
                         <div className="col-sm-6">
-                            <img src={this.state.device.image_url_conductor} alt="" width="100px"/><br/>
+                            <img src={this.state.device.image_url_conductor} alt="" width="200px"/><br/>
                             Operador
                         </div>
                     </div>
