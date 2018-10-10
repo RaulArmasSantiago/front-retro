@@ -71,8 +71,10 @@ class Device extends Component{
                         <div className="card">
                             <div className="card-header bg-dark text-white">
                                 <div className="row">
-                                    <div className="col-md-6"><h3> Conductor: {this.state.device.conductorFullName}</h3></div>
-                                    <div className="col-md-6"><h4> Concesión: {this.state.device.concesion}</h4></div>
+                                    <div className="col-md-2"></div>
+                                    <div className="col-md-2 bg-retro"><label className="bg-retro font"><strong>{this.state.device.concesion}</strong></label></div>
+                                    <div className="col-md-2"></div>
+                                    <div className="col-md-6"><label className="font">{this.state.device.conductorName} {this.state.device.conductorLastname} </label></div>
                                 </div>
                             </div>
                         </div>
@@ -81,30 +83,54 @@ class Device extends Component{
                 </div>
                 <br/><br/>
                 <div className="row justify-content-center">
-                    <div className="col-sm-12 col-md-6">
+                <div className="col-sm-12 col-md-6">
                         <div className="card">
-                            <div className="card-header bg-dark text-white"><h4>Km Trabajados</h4></div>
+                            <div className="card-header bg-dark text-white"><h4>Carreras realizados</h4></div>
                             <div className="card-body bg-retroyellow">
                             <div>
-                                <h1 className="text-dark0 ">Km: {this.state.device.contKm}</h1>
+                                <h1 className="text-dark">{this.state.device.contTravel}</h1>
                             </div>
-                            </div>  
+                            </div>
                         </div>
-                        <br className="col-sm-12"/>
                     </div>
-                    
+
                     <div className="col-sm-12 col-md-6">
                         <div className="card">
                             <div className="card-header bg-dark text-white"><h4>Tiempo Trabajado</h4></div>
                             <div className="card-body bg-retroyellow">
                             <div>
-                                <h1 className="text-dark">Minutos: {this.state.device.contTime}</h1>
+                                <h1 className="text-dark">{this.state.device.contTime} min</h1>
                             </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <br/>
+                <div className="row justify-content-center">
+                <div className="col-sm-12 col-md-6">
+                        <div className="card">
+                            <div className="card-header bg-dark text-white"><h4>km Trabajados</h4></div>
+                            <div className="card-body bg-retroyellow">
+                            <div>
+                                <h1 className="text-dark0 ">km: {this.state.device.contKm}</h1>
+                            </div>
+                            </div>  
+                        </div>
+                        <br className="col-sm-12"/>
+                    </div>
+                    <div className="col-sm-12 col-md-6">
+                        <div className="card">
+                            <div className="card-header bg-dark text-white"><h4>Velocidad Maxima</h4></div>
+                            <div className="card-body bg-retroyellow">
+                            <div>
+                                <h1 className="text-dark">70 km/h</h1>
+                            </div>
+                            </div>
+                        </div>
+                        <br className="col-sm-12"/>
+                    </div>
+                </div>
+
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-md-6">
                         <div className="card">
@@ -116,17 +142,6 @@ class Device extends Component{
                             </div>
                         </div>
                         <br className="col-sm-12"/>
-                    </div>
-                    
-                    <div className="col-sm-12 col-md-6">
-                        <div className="card">
-                            <div className="card-header bg-dark text-white"><h4>Viajes realizados</h4></div>
-                            <div className="card-body bg-retroyellow">
-                            <div>
-                                <h1 className="text-dark">Viajes: {this.state.device.contTravel}</h1>
-                            </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -141,11 +156,15 @@ class Device extends Component{
                             <div className="card-header bg-dark text-white"><h3>Datos del taxi</h3></div>
                             <div className="card-body text-left">
                             <div className="row">
-                                <div className=" card col-sm-6">
-                                    <center><h4>{this.state.device.concesion}</h4></center>
-                                    {this.state.device.marcaVehicle} ( {this.state.device.modeloVehicle} )<br/>
-                                    {this.state.device.anioVehicle}<br/>
-                                    {this.state.device.placaVehicle}<br/>
+                                <div className=" card col-sm-6 font">
+                                    <center>
+                                        <h3>{this.state.device.concesion}</h3>
+                                        <strong>
+                                        {this.state.device.marcaVehicle} ( {this.state.device.modeloVehicle} )<br/>
+                                        {this.state.device.anioVehicle}<br/>
+                                        {this.state.device.placaVehicle}<br/>
+                                        </strong>
+                                    </center>
                                 </div>
                                 <div className="card col-sm-6">
                                     <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
