@@ -19,11 +19,13 @@ class CardDevice extends Component{
                     <div className="row">
                         <div className="col-sm-6">
                         <p className="fontbold">
+                        <strong>
                             {this.state.device.conductorName} <br/>
                             {this.state.device.conductorLastname} <br/>
                             {this.state.device.marcaVehicle} ({this.state.device.modeloVehicle})<br/>
                             {this.state.device.anioVehicle}<br/>
                             {this.state.device.placaVehicle}
+                        </strong>
                         </p>
                         </div>
                         <div className="col-sm-6">
