@@ -142,6 +142,7 @@ class Device extends Component{
                             <div>
                                 <h1 className="text-dark">$ {this.contCash()}</h1>
                             </div>
+                            <br className="col-sm-12"/>
                             </div>
                         </div>
                         <br className="col-sm-12"/>
