@@ -64,6 +64,18 @@ class Device extends Component{
         this.props.history.push(`/device/update/${id}`)
     }
 
+    getHrs(){
+        let hrs = Number(this.state.device.contTime);
+        hrs = Math.trunc(hrs/60);
+        console.log(hrs * 60);
+        let min = Number(this.state.device.contTime)
+        let min2 = hrs * 60
+        min = min - min2;
+        console.log(min)
+        let tiempo = String(hrs) + " hrs. " + String(min) + " min.";
+        return tiempo
+    }
+
     render(){
         return(
             
@@ -102,7 +114,7 @@ class Device extends Component{
                             <div className="card-header bg-dark text-white"><h4>Tiempo Trabajado</h4></div>
                             <div className="card-body bg-retroyellow">
                             <div>
-                                <h1 className="text-dark">{this.state.device.contTime} min</h1>
+                                <h1 className="text-dark">{this.getHrs()}</h1>
                             </div>
                             </div>
                         </div>
