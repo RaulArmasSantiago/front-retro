@@ -41,21 +41,21 @@ class Login extends Component{
         return(
             <div className="container">
             <div className="row justify-content-center" >
-                <div className="col-sm-8 container-fluid">
+                <div className="col-sm-8 col-md-10 container-fluid">
                     <img src="img/logo_retro.png" alt="retro.png" width="70%"/>
                 </div>
             </div>
             <br/>
             <div className="row justify-content-center" >
-                <div className="col-xsm-10">
+                <div className="col-sm-12 col-md-5 text-center">
                 <form onSubmit={this.submitForm}>
                     <div className="form-group">
                         <label for="exampleInputEmail1" className="sr-only">Email address</label>
-                        <input type="email" className="form-control" name="email" value={this.state.email} onChange={this.onInpuntCheck} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email"/>
+                        <input type="email" className="form-control font-input" name="email" value={this.state.email} onChange={this.onInpuntCheck} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email"/>
                     </div>
                     <div className="form-group">
                         <label for="exampleInputPassword1" className="sr-only">Password</label>
-                        <input type="password" className="form-control" name="password" value={this.state.password}  onChange={this.onInpuntCheck} id="exampleInputPassword1" placeholder="Password"/>
+                        <input type="password" className="form-control font-input" name="password" value={this.state.password}  onChange={this.onInpuntCheck} id="exampleInputPassword1" placeholder="Password"/>
                     </div>
   
                     <button type="submit" className="btn btn-block btn-dark">Entrar</button>
