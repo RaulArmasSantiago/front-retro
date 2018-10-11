@@ -80,7 +80,6 @@ class Device extends Component{
                                 </div>
                             </div>
                         </div>
-                        <br className="col-sm-12"/>
                     </div>
                     
                 </div>
@@ -95,6 +94,7 @@ class Device extends Component{
                             </div>
                             </div>
                         </div>
+                        <br className="col-sm-12"/>
                     </div>
 
                     <div className="col-sm-12 col-md-6">
