@@ -152,7 +152,8 @@ class Device extends Component{
 
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-md-5 ">
-                        {this.renderMap()}                    
+                        {this.renderMap()}  
+                        <br className="col-sm-12"/>                  
                     </div>
                     
                     <div className=" col-sm-12 col-md-7">
