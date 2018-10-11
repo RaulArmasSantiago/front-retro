@@ -79,10 +79,7 @@ class Map extends Component {
           containerElement={ <div style={{ height: '400px', width: '500px' }} /> }
           mapElement={ <div style={{ height: `100%` }} /> }
         />
-
       </div>
-     <strong>Ultima localizacion(cordenadas geograficas): </strong><br/>
-     {this.getLatitud()}, {this.getLongitud()}
     </div>
    );
    }

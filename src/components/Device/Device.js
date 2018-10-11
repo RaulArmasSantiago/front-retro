@@ -37,7 +37,9 @@ class Device extends Component{
                     </div>
                 )
         }else{
-
+            return(
+                <div></div>
+            )
         }
     }
 
@@ -78,6 +80,7 @@ class Device extends Component{
                                 </div>
                             </div>
                         </div>
+                        <br className="col-sm-12"/>
                     </div>
                     
                 </div>
