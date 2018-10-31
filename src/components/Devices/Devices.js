@@ -52,7 +52,7 @@ class Devices extends Component{
         return(
             <div>
             <div className="container">
-                <div className="row">
+                <div className="row justify-content-center">
                     <div className="col-md-12 text-right"><Link to="/addDevice"><button className="btn btn-success">Nuevo</button></Link></div>
                 </div>
                 <div className="row justify-content-center">
@@ -62,7 +62,7 @@ class Devices extends Component{
                 </div>
             </div>
                 <div className="container-fluid">
-                     <div className="row">
+                     <div className="row justify-content-center">
                         {this.renderDevices()}
                     </div>
                 </div>
