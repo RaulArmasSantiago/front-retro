@@ -20,14 +20,14 @@ class CardDevice extends Component{
                     <div className="row">
                         <div className="col-sm-6 text-left">
                         <p className="fontbold">
-                        <strong>
-                            {this.state.device.conductorName} <br/>
-                            {this.state.device.conductorLastname} <br/>
-                            {this.state.device.marcaVehicle}<br/>
-                            ({this.state.device.modeloVehicle})<br/>
-                            {this.state.device.anioVehicle}<br/>
-                            {this.state.device.placaVehicle}
-                        </strong>
+                        
+                        <strong>{this.state.device.conductorName}</strong> <br/>
+                        <strong>{this.state.device.conductorLastname}</strong> <br/>
+                        <strong>{this.state.device.marcaVehicle}</strong><br/>
+                        <strong>({this.state.device.modeloVehicle})</strong><br/>
+                        <strong>{this.state.device.anioVehicle}</strong><br/>
+                        <strong>{this.state.device.placaVehicle}</strong>
+                        
                         </p>
                         </div>
                         <div className="col-sm-6">
