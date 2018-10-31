@@ -59,7 +59,7 @@ class Records extends Component{
                         <td>{record.contTravel}</td>
                         <td>{this.getHrs(record.contTime)}</td>
                         <td>{record.velocidadMaxima}70 km/h</td>
-                        <td>{this.contCash(record.contEfectivo)}</td>
+                        <td>$ {this.contCash(record.contEfectivo)}</td>
                     </tr>
                 )
             })

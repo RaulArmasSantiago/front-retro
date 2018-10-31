@@ -10,8 +10,6 @@
     background: #909090
 }
 
-.fontbold{
-    font-size: 2em;
-    font: bold;
+.cardTam{
+    height: 15rem;
 }
-

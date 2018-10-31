@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style.css'
 
 class CardDevice extends Component{
     constructor(props){
@@ -13,9 +14,9 @@ class CardDevice extends Component{
         return (
             
             <div className="col-sm-12 col-md-6 col-lg-4" style={{width: "14rem;"}}>
-            <div className="card">
+            <div className="card ">
                 <div className="card-header bg-dark text-white"><h1 className="card-title" onClick={() => this.props.redirect(this.state.device._id)}>{this.state.device.concesion} </h1></div>
-                <div className="card-body bg-retroyellow text-dark">
+                <div className="card-body bg-retroyellow text-dark cardTam">
                     <div className="row">
                         <div className="col-sm-6 text-left">
                         <p className="fontbold">
@@ -34,6 +35,9 @@ class CardDevice extends Component{
                             Operador
                         </div>
                     </div>
+                    
+                </div>
+                <div className="card-footer bg-retroyellow">
                     <button className="btn btn-block btn-dark" onClick={() => this.props.redirect(this.state.device._id)}> Ver mas </button>
                 </div>
                 
