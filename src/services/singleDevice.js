@@ -35,6 +35,7 @@ export default (id) => {
                         image_url_lvehicle,
                         image_url_rvehicle,
                         user,
+                        initTravel
                         
                     }
                 }

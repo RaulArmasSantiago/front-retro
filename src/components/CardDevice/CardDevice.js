@@ -17,19 +17,20 @@ class CardDevice extends Component{
                 <div className="card-header bg-dark text-white"><h1 className="card-title" onClick={() => this.props.redirect(this.state.device._id)}>{this.state.device.concesion} </h1></div>
                 <div className="card-body bg-retroyellow text-dark">
                     <div className="row">
-                        <div className="col-sm-6">
+                        <div className="col-sm-6 text-left">
                         <p className="fontbold">
                         <strong>
                             {this.state.device.conductorName} <br/>
                             {this.state.device.conductorLastname} <br/>
-                            {this.state.device.marcaVehicle} ({this.state.device.modeloVehicle})<br/>
+                            {this.state.device.marcaVehicle}<br/>
+                            ({this.state.device.modeloVehicle})<br/>
                             {this.state.device.anioVehicle}<br/>
                             {this.state.device.placaVehicle}
                         </strong>
                         </p>
                         </div>
                         <div className="col-sm-6">
-                            <img src={this.state.device.image_url_conductor} alt="" width="200px"/><br/>
+                            <img src={this.state.device.image_url_conductor} alt="" width="150px"/><br/>
                             Operador
                         </div>
                     </div>

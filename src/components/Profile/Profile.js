@@ -16,6 +16,7 @@ class Profile extends Component{
 
     componentDidMount(){
         me().then((user) => {
+            console.log(user)
             this.setState({user:user.data.data.me})
             
             console.log(this.state)

@@ -11,7 +11,8 @@ class Device extends Component{
         super(props);
         this.state = {
             id:props.match.params.id,
-            device:""
+            device:"",
+            velocidad:[]
         }
     }
 
@@ -33,7 +34,7 @@ class Device extends Component{
         if(this.state.device !== ""){
                 return(
                     <div>
-                        <Map data={this.state.device.lastLocation}/>
+                        <Map data={this.state.device.lastLocation} data2={this.state.device.initTravel}/>
                     </div>
                 )
         }else{
@@ -60,9 +61,7 @@ class Device extends Component{
         
     }
 
-    redirect = (id) => {
-        this.props.history.push(`/device/update/${id}`)
-    }
+    
 
     getHrs(){
         let hrs = Number(this.state.device.contTime);
@@ -76,19 +75,56 @@ class Device extends Component{
         return tiempo
     }
 
+    getColor(){
+        let velocidad = {
+            vel:0,
+            color:"",
+            porcentaje:""
+        }
+        velocidad.vel = Math.floor(Math.random() * 161);
+        console.log(velocidad)
+        velocidad.porcentaje = (velocidad.vel / 160)*100;
+        console.log(velocidad.porcentaje)
+        velocidad.porcentaje= velocidad.porcentaje + "%"
+        if(velocidad.vel <= 60){
+            velocidad.color = "progress-bar bg-success"
+        }else{
+            if(velocidad.vel > 60 && velocidad.vel <= 100){
+                velocidad.color = "progress-bar bg-warning"
+            }else{
+                velocidad.color = "progress-bar bg-danger"
+            }
+        }
+
+        console.log(velocidad)
+        this.setState({
+            velocidad:velocidad
+        })
+        return velocidad.color; 
+        
+    }
+    
+    redirect = (id) => {
+        this.props.history.push(`/device/update/${id}`)
+    }
+
+    redirect2 = (id) => {
+        this.props.history.push(`/records/${id}`)
+    }
+
     render(){
         return(
-            
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-12">
                         <div className="card">
                             <div className="card-header bg-dark text-white">
                                 <div className="row">
+                                
                                     <div className="col-md-2"></div>
                                     <div className="col-md-2 bg-retro"><label className="bg-retro font"><strong>{this.state.device.concesion}</strong></label></div>
-                                    <div className="col-md-2"></div>
-                                    <div className="col-md-6"><label className="font">{this.state.device.conductorName} {this.state.device.conductorLastname} </label></div>
+                                    <div className="col-md-4"><label className="font">{this.state.device.conductorName} {this.state.device.conductorLastname} </label></div>
+                                    <div className="col-md-4"><button className="btn btn-primary" onClick={() => this.redirect2(this.state.device._id)}> Ver reportes anteriores</button></div>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +134,7 @@ class Device extends Component{
                 <br/><br/>
                 <div className="row justify-content-center">
                 <div className="col-sm-12 col-md-6">
-                        <div className="card">
+                        <div className="card animated fadeInLeft">
                             <div className="card-header bg-dark text-white"><h4>Carreras realizados</h4></div>
                             <div className="card-body bg-retroyellow">
                             <div>
@@ -110,7 +146,7 @@ class Device extends Component{
                     </div>
 
                     <div className="col-sm-12 col-md-6">
-                        <div className="card">
+                        <div className="card animated fadeInRight delay-2s">
                             <div className="card-header bg-dark text-white"><h4>Tiempo Trabajado</h4></div>
                             <div className="card-body bg-retroyellow">
                             <div>
@@ -123,7 +159,7 @@ class Device extends Component{
                 <br/>
                 <div className="row justify-content-center">
                 <div className="col-sm-12 col-md-6">
-                        <div className="card">
+                        <div className="card animated fadeInLeft delay-3s">
                             <div className="card-header bg-dark text-white"><h4>km Trabajados</h4></div>
                             <div className="card-body bg-retroyellow">
                             <div>
@@ -134,12 +170,12 @@ class Device extends Component{
                         <br className="col-sm-12"/>
                     </div>
                     <div className="col-sm-12 col-md-6">
-                        <div className="card">
+                        <div className="card animated fadeInRight delay-4s">
                             <div className="card-header bg-dark text-white"><h4>Velocidad Maxima</h4></div>
                             <div className="card-body bg-retroyellow">
-                            <div>
+                                <div>
                                 <h1 className="text-dark">70 km/h</h1>
-                            </div>
+                                </div>
                             </div>
                         </div>
                         <br className="col-sm-12"/>
@@ -148,19 +184,19 @@ class Device extends Component{
 
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-md-6">
-                        <div className="card">
+                        <div className="card animated fadeInUp delay-5s">
                             <div className="card-header bg-dark text-white"><h4>Ganancias del día</h4></div>
                             <div className="card-body bg-retroyellow">
                             <div>
                                 <h1 className="text-dark">$ {this.contCash()}</h1>
                             </div>
-                            <br className="col-sm-12"/>
                             </div>
                         </div>
                         <br className="col-sm-12"/>
                     </div>
                 </div>
 
+                
 
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-md-5 ">
@@ -242,3 +278,33 @@ class Device extends Component{
 }
 
 export default Device;
+
+/*
+<div className="progress">
+                                    <div className="bar-step" style={{left: "12.5%"}}>
+                                        <div className="label-percent">20</div>
+                                        <div className="label-line"></div>                                        
+                                    </div>
+                                    <div className="bar-step" style={{left: "25%"}}>
+                                        <div className="label-percent">40</div>
+                                        <div className="label-line"></div>
+                                    </div>
+                                    <div className="bar-step" style={{left: "37.5%"}}>
+                                        <div className="label-percent">60</div>                                        
+                                        <div className="label-line"></div>
+                                    </div>
+                                    <div className="bar-step" style={{left: "50%"}}>
+                                        <div className="label-percent">80</div>                                        
+                                        <div className="label-line"></div>
+                                    </div>
+                                    <div className="bar-step" style={{left: "62.5%"}}>
+                                        <div className="label-percent">100</div>                                        
+                                        <div className="label-line"></div>
+                                    </div>
+                                    <div className="bar-step" style={{left: "95.5%"}}>
+                                    <div className="label-percent">160</div>                                        
+                                        <div className="label-line"></div>
+                                    </div>                                     
+                                    <div className={this.getColor} style={{width: this.state.velocidad.porcentaje }}>{this.state.velocidad.porcentaje}</div>
+                                </div>
+*/

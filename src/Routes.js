@@ -19,6 +19,7 @@ import User from './components/User/User';
 import UpdateDevice from './components/UpdateDeviceFrom/UpdateDeviceForm';
 import UpdateMe from './components/FormMe/FormMe';
 import galeriaDevices from './components/galeriaDevices/galeriaDevices';
+import Records from './components/Records/Records';
 
 
 class Routes extends Component{
@@ -49,6 +50,7 @@ class Routes extends Component{
                     <PrivateRoute exact path='/user/:id' component={User}/>
                     <PrivateRoute exact path='/me/update/:id' component={UpdateMe}/>
                     <PrivateRoute exact path='/misDevices' component={galeriaDevices}/>
+                    <PrivateRoute exact path='/records/:id' component={Records}/>
                 </main>
             </Router>
         )

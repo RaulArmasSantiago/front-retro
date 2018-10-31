@@ -8,6 +8,7 @@ class Map extends Component {
      super(props);
      this.state = {
        device:this.props,
+       travels:[],
        pos:"",
        lng:"",
        lat:""
@@ -15,12 +16,12 @@ class Map extends Component {
    } 
 
    componentDidMount(){
-     this.setState({pos:this.state.device.data})
+     this.setState({pos:this.state.device.data,travels:this.state.device.data2})
    }
 
-   getLatitud(){
+   getLatitud(loc){
      
-     let pos = this.state.pos;
+     let pos = loc;
      let latitud = String(pos).substring(0,6)
      let grados = latitud.substring(0,2)
      let min = latitud.substring(2,4)
@@ -35,9 +36,9 @@ class Map extends Component {
 
    }
 
-   getLongitud(){
+   getLongitud(loc){
      
-    let pos = this.state.pos;
+    let pos = loc;
     let longitud = String(pos).substring(6,12)
     let grados = longitud.substring(0,2)
     let min = longitud.substring(2,4)
@@ -57,19 +58,33 @@ class Map extends Component {
 
   }
 
-   getLocation(){
+   getLocation(loc){
      //console.log(this.getLatitud(), this.getLongitud());
-     let cordenadas = {lat: this.getLatitud(), lng: this.getLongitud()}
+     let cordenadas = {lat: this.getLatitud(loc), lng: this.getLongitud(loc)}
      return cordenadas;     
+   }
+
+   renderTravels = () => {
+     if(this.state.device !== ""){
+       let travel = this.state.device.data2.map((travel,index)=>{
+         console.log("viaje " + index, travel)
+         let i = index + 1
+         return(
+           <Marker title={"Viaje # "+ i} options={{icon: "../img/checkered-flag-icon.png"}} position={this.getLocation(travel)}/>
+         )
+       })
+       return travel
+     }
    }
 
    render() {
    const GoogleMapExample = withGoogleMap(props => (
       <GoogleMap
-        defaultCenter = {this.getLocation()}
+        defaultCenter = {this.getLocation(this.state.pos)}
         defaultZoom = { 17 }
       >
-      <Marker options={{icon: "../img/taxi-yellow.png"}} position={this.getLocation()}/>
+      {this.renderTravels()}
+      <Marker title={"Posicion Actual"} options={{icon: "../img/taxi-yellow.png"}} position={this.getLocation(this.state.pos)}/>
       </GoogleMap>
    ));
    return(
