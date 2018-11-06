@@ -161,7 +161,8 @@ class Device extends Component{
                     <br/>
                     <center><h2 className="text-white">DATOS DEL TAXI</h2></center>
                     <img src="../img/driver-icon.png" alt="iconos.png" className="img-fluid"/><label className="text-driver ml-2">{this.state.device.conductorName} {this.state.device.conductorLastname} </label><br/>
-                    <img src="../img/addres-icon.png" alt="iconos.png" className="img-fluid"/><label className="text-driver ml-2">{this.state.device.conductorAddress} {this.state.device.conductorNumExt} col. {this.state.device.conductorDistrict} <br/>
+                    <img src="../img/addres-icon.png" alt="iconos.png" className="img-fluid"/><label className="text-driver ml-2">{this.state.device.conductorAddress} {this.state.device.conductorNumExt} <br/>
+                    col. {this.state.device.conductorDistrict} <br/>
                     </label><br/>
                     <img src="../img/vehicle-icon.png" alt="iconos.png" className="img-fluid"/><label className="text-driver ml-2">{this.state.device.marcaVehicle}, {this.state.device.modeloVehicle} ({this.state.device.anioVehicle}) - {this.state.device.placaVehicle}</label><br/>
                     <img src="../img/cel-icon.png" alt="iconos.png" className="img-fluid"/><label className="text-driver ml-2">{this.state.device.conductorTel}</label><br/>
