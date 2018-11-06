@@ -16,6 +16,12 @@
     color: #FEE510;
 }
 
+.imgRedonda {
+    width:300px;
+    border-radius:160px;
+    border:10px solid #000;
+}
+
 .head{
     position: fixed;
     width:100%;

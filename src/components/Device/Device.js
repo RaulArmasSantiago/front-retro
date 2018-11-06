@@ -118,7 +118,7 @@ class Device extends Component{
             <div className="container-fluid">
                 <div className="row justify-content-center head">
                     <div className="col-sm-4 text-center">
-                        <label className="text-white"><strong>{this.state.device.conductorName}</strong></label>
+                        <label className="text-white"><strong>{this.state.device.conductorName} {this.state.device.conductorLastname}</strong></label>
                     </div>
                     <div className="col-sm-4 text-center">
                         <label className="text-white"><strong>{this.state.device.concesion}-T</strong></label>
@@ -158,14 +158,62 @@ class Device extends Component{
                         {this.renderMap()}
                     </div>
                     <div className="col-sm-12 col-md-6 text-left">
-                    <br/>
-                    <center><h2 className="text-white">DATOS DEL TAXI</h2></center>
-                    <img src="../img/driver-icon.png" alt="iconos.png" className="img-fluid"/><label className="text-driver ml-2">{this.state.device.conductorName} {this.state.device.conductorLastname} </label><br/>
-                    <img src="../img/addres-icon.png" alt="iconos.png" className="img-fluid"/><label className="text-driver ml-2">{this.state.device.conductorAddress} {this.state.device.conductorNumExt} <br/>
-                    col. {this.state.device.conductorDistrict} <br/>
-                    </label><br/>
-                    <img src="../img/vehicle-icon.png" alt="iconos.png" className="img-fluid"/><label className="text-driver ml-2">{this.state.device.marcaVehicle}, {this.state.device.modeloVehicle} ({this.state.device.anioVehicle}) - {this.state.device.placaVehicle}</label><br/>
-                    <img src="../img/cel-icon.png" alt="iconos.png" className="img-fluid"/><label className="text-driver ml-2">{this.state.device.conductorTel}</label><br/>
+                    
+                        <br/>
+                        <center><h2 className="text-white">DATOS DEL TAXI</h2></center>
+                        <center><img src={this.state.device.image_url_conductor} className="imgRedonda" alt="Operador" width="200px"/></center>
+                        <table>
+                            <tr>
+                                <td><img src="../img/driver-icon.png" alt="iconos.png" className="img-fluid"/></td>
+                                <td><strong><label className="text-driver ml-2">{this.state.device.conductorName} {this.state.device.conductorLastname} </label></strong></td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/addres-icon.png" alt="iconos.png" className="img-fluid"/></td>
+                                <td><strong><label className="text-driver ml-2">{this.state.device.conductorAddress} {this.state.device.conductorNumExt} <br/>
+                                    col. {this.state.device.conductorDistrict} <br/>
+                                    </label></strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/vehicle-icon.png" alt="iconos.png" className="img-fluid"/></td>
+                                <td><strong><label className="text-driver ml-2">{this.state.device.marcaVehicle}, {this.state.device.modeloVehicle} ({this.state.device.anioVehicle}) - {this.state.device.placaVehicle}</label></strong></td>
+                            </tr>
+                            <tr>
+                                <td><img src="../img/cel-icon.png" alt="iconos.png" className="img-fluid"/></td>
+                                <td><strong><label className="text-driver ml-2">{this.state.device.conductorTel}</label></strong></td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+                                        <ol className="carousel-indicators">
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                        </ol>
+                                        <div className="carousel-inner">
+                                            <div className="carousel-item active">
+                                            <img className="d-block w-100" src={this.state.device.image_url_fvehicle} alt="Second slide"/>
+                                            </div>
+                                            <div className="carousel-item">
+                                            <img className="d-block w-100" src={this.state.device.image_url_lvehicle} alt="Third slide"/>
+                                            </div>
+                                            <div className="carousel-item">
+                                            <img className="d-block w-100" src={this.state.device.image_url_rvehicle} alt="Third slide"/>
+                                            </div>
+                                            <div className="carousel-item">
+                                            <img className="d-block w-100" src={this.state.device.image_url_bvehicle} alt="Third slide"/>
+                                            </div>
+                                        </div>
+                                        <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span className="sr-only">Previous</span>
+                                        </a>
+                                        <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span className="sr-only">Next</span>
+                                        </a>
+                                    </div>
                     </div>
                 </div>
 
