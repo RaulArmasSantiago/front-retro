@@ -40,28 +40,33 @@ class Login extends Component{
 
         return(
             <div className="container">
+                <img src="img/copete.png" alt="retro.png" className="img-fluid"/>
+                <br/><br/>
             <div className="row justify-content-center" >
-                <div className="col-sm-8 col-md-10 container-fluid">
-                    <img src="img/logo_retro.png" alt="retro.png" width="70%"/>
+                <div className="col-sm-8 col-md-10 container-fluid animated fadeIn delay-2s">
+                    <img src="img/taxi-conectado.png" alt="retro.png" className="img-fluid"/>
                 </div>
             </div>
             <br/>
             <div className="row justify-content-center" >
-                <div className="col-sm-12 col-md-5 text-center">
+                <div className="col-sm-12 col-md-4">
                 <form onSubmit={this.submitForm}>
                     <div className="form-group">
-                        <label for="exampleInputEmail1" className="sr-only">Email address</label>
-                        <input type="email" className="form-control font-input" name="email" value={this.state.email} onChange={this.onInpuntCheck} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email"/>
+                        <label for="exampleInputEmail1" className="text-left fontlalogin">Email</label>
+                        <input type="email" className="form-control" name="email" value={this.state.email} onChange={this.onInpuntCheck} id="exampleInputEmail1"/>
                     </div>
                     <div className="form-group">
-                        <label for="exampleInputPassword1" className="sr-only">Password</label>
-                        <input type="password" className="form-control font-input" name="password" value={this.state.password}  onChange={this.onInpuntCheck} id="exampleInputPassword1" placeholder="Password"/>
+                        <label className="text-left fontlalogin">Contraseña</label>
+                        <input type="password" className="form-control" name="password" value={this.state.password}  onChange={this.onInpuntCheck} id="exampleInputPassword1"/>
                     </div>
-  
-                    <button type="submit" className="btn btn-block btn-dark">Entrar</button>
+                    <br/>
+                    <button type="submit" className="btn btn
+                     btn-yellow">Entrar</button>
                 </form>       
                 </div>
             </div>
+            <br/>
+            <img src="img/iconosLog.png" alt="iconos.png" className="img-fluid animated slower delay-2s animated bounceInDown"/>
             </div>
         )
     }

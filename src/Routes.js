@@ -34,9 +34,8 @@ class Routes extends Component{
         return(
             <Router>
                 <main>
-                    <Nav/>
-                    <br/>
-                    <Route exact path='/' component={Home}/>
+                    
+                    <Route exact path='/' component={Login}/>
                     <Route exact path='/login' component={Login}/>
                     <PrivateRoute exact path='/logout' component={Logout}/>
                     <PrivateRoute exact path='/dashboard' component={Dashboard}/>

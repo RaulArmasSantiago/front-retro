@@ -67,13 +67,13 @@ class Profile extends Component{
     
     render() {
         return(
-            <div>
+            <div className="bodyProfile">
                 <div className="row">
                     <div className="card col-sm-12 container-fluid">
                         <div className="card-body fondo">
                         <div className="row">
                             <div className="col-sm-12 col-md-4">
-                                <img src={this.state.user.image_url} alt="photo.png" width="200px" className="img-rounded"/>
+                                <img src={this.state.user.image_url} alt="photo.png" className="imgRedonda"/>
                             </div>
                             <div className="col-sm-12 col-md-8">
                             <h3>{this.state.user.name} {this.state.user.lastname}</h3>

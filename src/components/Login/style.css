@@ -1,3 +1,19 @@
+body{
+    background: #000;
+}
+
 .font-input {
     font-size: 1em;
+}
+
+.fontlalogin{
+    color: #FEE510;
+}
+
+.btn-yellow{
+    background: #FEE510;
+}
+
+.trans{
+    transition:all 0.3s ease;
 }

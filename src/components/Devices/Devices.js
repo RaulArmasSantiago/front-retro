@@ -53,7 +53,15 @@ class Devices extends Component{
             <div>
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-md-12 text-right"><Link to="/addDevice"><button className="btn btn-success">Nuevo</button></Link></div>
+                    <div className="col-md-8 text-left"><Link to="/addDevice"><button className="btn btn-success">Agregar concesión</button></Link></div>
+                    <div className="col-md-4 text-right">
+                        <form action="">
+                            <div className="form-group form-inline">
+                                <input className="form-control" type="text" name="concesion" id="concesion" placeholder="Ingresa los 4 digtos de la concesión" required="true" maxLength="4"/>
+                                <button className="btn btn-success btn-sm ml-2" onClick><img src="../img/search-icon.png" alt=""/></button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div className="row justify-content-center">
                     <div className="text-center col-sm-12">

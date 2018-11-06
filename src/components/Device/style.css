@@ -1,3 +1,39 @@
+ .contenedor {
+    background: #000;
+ }
+
+ .bodyData{
+     background: #E9CE12;
+     color: #FEFEFF;
+     padding-top: 85px
+ }
+
+.text-data{ 
+    font-size: 2em;
+}
+
+.text-driver{
+    color: #FEE510;
+}
+
+.head{
+    position: fixed;
+    width:100%;
+    z-index: 100;
+    background: #000;
+    
+}
+
+ .bodyDevice{
+    background: #fff
+ }
+
+ .bg-negro{
+     background: #000;
+ }
+
+
+
  .bg-retro{
      background: #a12025;
  }
@@ -9,38 +45,3 @@
  .font{
      font-size: 1.5em;
  }
-
-
-
- .bar-step {
-    position:absolute;
-    margin-top:-20px;
-	z-index:1;
-    font-size:12px;
-    left: 10%
-}
-
-.label-txt {
-    float: left;
-}
-
-.label-line {
-    float: right;
-    background: #000;
-    height:50px;
-	width:1px;
-    margin-left: 5px;
-}
-
-.label-percent {
-    float: right;
-    margin-left: 5px;   
-}
-
-.llenado{
-    width: 46%;
-}
-
-.progress{
-    margin: 0%;
-}

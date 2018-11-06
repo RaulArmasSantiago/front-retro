@@ -70,7 +70,7 @@ class Map extends Component {
          console.log("viaje " + index, travel)
          let i = index + 1
          return(
-           <Marker title={"Viaje # "+ i} description={"Viaje # "+i}  options={{icon: "../img/checkered-flag-icon.png"}} position={this.getLocation(travel)}/>
+           <Marker title={"Viaje # "+ i} description={"Viaje # "+i}  options={{icon: "../img/"+i+".png"}} position={this.getLocation(travel)}/>
          )
        })
        return travel
