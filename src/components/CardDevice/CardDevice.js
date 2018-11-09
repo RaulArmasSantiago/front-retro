@@ -17,7 +17,7 @@ class CardDevice extends Component{
                     <a onClick={() => this.props.redirect(this.state.device._id)} class="list-group-item list-group-item-action">
                             <div className="row">
                                 <div className="col-sm-1">
-                                    <img src={this.state.device.image_url_conductor} alt="" width="50px"/>
+                                    <img src={this.state.device.image_url_conductor} alt="Operador" className="imgRedondacard"/>
                                 </div>
                                 <div className="col-sm-8">
                                     <strong>{this.state.device.conductorName} {this.state.device.conductorLastname}</strong><br/>
