@@ -5,7 +5,7 @@
  .bodyData{
      background: #E9CE12;
      color: #FEFEFF;
-     padding-top: 85px
+     padding-top: 90px
  }
 
 .text-data{ 
@@ -16,10 +16,10 @@
     color: #FEE510;
 }
 
-.imgRedonda {
+.imgRedonda2 {
     width:300px;
     border-radius:160px;
-    border:10px solid #000;
+    border:10px solid #E9CE12;
 }
 
 .head{

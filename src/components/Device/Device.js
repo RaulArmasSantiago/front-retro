@@ -155,13 +155,14 @@ class Device extends Component{
 
                 <div className="row">
                     <div className="col-sm-12 col-md-6">
+                        <br/><br/>
                         {this.renderMap()}
                     </div>
                     <div className="col-sm-12 col-md-6 text-left">
                     
                         <br/>
                         <center><h2 className="text-white">DATOS DEL TAXI</h2></center>
-                        <center><img src={this.state.device.image_url_conductor} className="imgRedonda" alt="Operador" width="200px"/></center>
+                        <center><img src={this.state.device.image_url_conductor} className="imgRedonda2" alt="Operador" width="200px"/></center>
                         <table>
                             <tr>
                                 <td><img src="../img/driver-icon.png" alt="iconos.png" className="img-fluid"/></td>

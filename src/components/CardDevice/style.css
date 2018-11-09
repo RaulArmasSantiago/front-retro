@@ -9,3 +9,11 @@
 .bg-grey{
     background: #909090
 }
+
+.border{
+    border-radius: 10%;
+}
+
+cite{
+    font-size: .5em;
+}

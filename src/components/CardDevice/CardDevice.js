@@ -11,7 +11,27 @@ class CardDevice extends Component{
 
     render(){
         console.log(this.state.device)
-        return (
+        return(
+            <div className="row">
+                <div className="col-sm-12">
+                    <a onClick={() => this.props.redirect(this.state.device._id)} class="list-group-item list-group-item-action">
+                            <div className="row">
+                                <div className="col-sm-1">
+                                    <img src={this.state.device.image_url_conductor} alt="" width="50px"/>
+                                </div>
+                                <div className="col-sm-8">
+                                <strong>{this.state.device.conductorName} {this.state.device.conductorLastname}</strong><br/>
+                                <cite>{this.state.device.marcaVehicle} ({this.state.device.modeloVehicle}) {this.state.device.anioVehicle} {this.state.device.placaVehicle}</cite>
+                                </div>
+                                <div className="col-sm-3">
+                                    <button className="btn- btn-yellow border"><strong>{this.state.device.concesion}-T</strong></button>
+                                </div>
+                            </div>
+                    </a>
+                </div>
+            </div>
+        )
+        /*return (
             
             <div className="col-sm-12 col-md-6">
             <div className="card ">
@@ -44,7 +64,7 @@ class CardDevice extends Component{
             </div>
             <br/>
             </div>
-        )
+        )*/
     }
 }
 
