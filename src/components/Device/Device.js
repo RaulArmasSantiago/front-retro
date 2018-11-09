@@ -177,13 +177,14 @@ class Device extends Component{
                             </tr>
                             <tr>
                                 <td><img src="../img/vehicle-icon.png" alt="iconos.png" className="img-fluid"/></td>
-                                <td><strong><label className="text-driver ml-2">{this.state.device.marcaVehicle}, {this.state.device.modeloVehicle} ({this.state.device.anioVehicle}) - {this.state.device.placaVehicle}</label></strong></td>
+                                <td><strong><label className="text-driver ml-2">{this.state.device.marcaVehicle}, ({this.state.device.modeloVehicle} {this.state.device.anioVehicle}) - {this.state.device.placaVehicle}</label></strong></td>
                             </tr>
                             <tr>
                                 <td><img src="../img/cel-icon.png" alt="iconos.png" className="img-fluid"/></td>
                                 <td><strong><label className="text-driver ml-2">{this.state.device.conductorTel}</label></strong></td>
                             </tr>
                         </table>
+                        <center><button className="btn btn-primary btn-sm" onClick={() => this.redirect(this.state.device._id)}><img src="../img/Users-Edit-User-icon-24.png" alt="editar conductor"/> Editar</button></center>
                         <br/>
                         <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                                         <ol className="carousel-indicators">
