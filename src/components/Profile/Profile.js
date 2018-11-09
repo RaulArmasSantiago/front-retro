@@ -85,10 +85,11 @@ class Profile extends Component{
                         <div className="col-sm-12">
                             <h3>OPERADORES</h3>
                         </div>
-                        <div className="list-group">
-                            {this.renderDevices()}
+                        <div className="col-sm-12">
+                            <div className="list-group">
+                                {this.renderDevices()}
+                            </div>
                         </div>
-                        
                     </div>
 
 

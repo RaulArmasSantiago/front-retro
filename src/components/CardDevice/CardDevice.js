@@ -20,8 +20,8 @@ class CardDevice extends Component{
                                     <img src={this.state.device.image_url_conductor} alt="" width="50px"/>
                                 </div>
                                 <div className="col-sm-8">
-                                <strong>{this.state.device.conductorName} {this.state.device.conductorLastname}</strong><br/>
-                                <cite>{this.state.device.marcaVehicle} ({this.state.device.modeloVehicle}) {this.state.device.anioVehicle} {this.state.device.placaVehicle}</cite>
+                                    <strong>{this.state.device.conductorName} {this.state.device.conductorLastname}</strong><br/>
+                                    <cite>{this.state.device.modeloVehicle} {this.state.device.anioVehicle}</cite>
                                 </div>
                                 <div className="col-sm-3">
                                     <button className="btn- btn-yellow border"><strong>{this.state.device.concesion}-T</strong></button>
