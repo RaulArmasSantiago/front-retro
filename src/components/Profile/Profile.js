@@ -69,7 +69,7 @@ class Profile extends Component{
         return(
             <div className="bodyProfile">
                 <div className="headProfile">
-                sideBar y search
+                    sideBar y search
                 </div>
                 <div className="row bodyUser justify-content-center">
                     <div className="col-sm-12">

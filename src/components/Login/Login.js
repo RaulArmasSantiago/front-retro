@@ -4,13 +4,24 @@ import login from '../../services/login';
 import checkToken from '../../resolvers/checkToken';
 import payload from '../../resolvers/payload';
 import Profile from '../Profile/Profile';
+import Modal from 'react-modal';
+
+const customStyles = {
+    content : {
+      top                   : '50px',
+      left                  : '50px',
+      right                 : '50px',
+      bottom                : '50px'
+    }
+  };
 
 class Login extends Component{
     constructor(props){
         super(props);
         this.state = {
             email:"",
-            password:""
+            password:"",
+            showModal: false
         }
     }
 
@@ -34,6 +45,7 @@ class Login extends Component{
             }
 
         }).catch((err) => {
+            this.handleCloseModal()
             alert("El usuario o la contraseña son incorrectos.")
             console.log(err)
         })
@@ -69,8 +81,7 @@ class Login extends Component{
                             <input type="password" className="form-control" name="password" value={this.state.password}  onChange={this.onInpuntCheck} id="exampleInputPassword1"/>
                         </div>
                         <br/>
-                        <button type="submit" className="btn btn
-                         btn-yellow">Entrar</button>
+                        <button type="submit" className="btn btn btn-yellow" onClick={this.handleOpenModal}>Entrar</button>
                     </form>       
                     </div>
                 </div>
@@ -81,12 +92,47 @@ class Login extends Component{
         }
     }
 
+    handleOpenModal = () => {
+        this.setState({ showModal: true });
+    }
+      
+    handleCloseModal = () => {
+        this.setState({ showModal: false });
+    }
     
 
     render() {
         return(
             <div>
                 {this.chargeProfile()}
+
+                <Modal className="modal-main" isOpen={this.state.showModal} contentLabel="Minimal Modal Example" className="Modal">
+                <div className="row justify-content-center">
+                    <div className="col-md-12">
+                        <img src="img/taxi-conectado.png" alt="retro.png" className="img-fluid"/><br/><br/>
+                        <h3>Iniciando Sesión ...</h3>
+                    </div>
+                    <div className="col-sm-12">
+                    <center>
+                        <div class="lds-spinner">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </center>
+                    </div>
+                </div>
+                
+                </Modal>
             </div>
         )
         
