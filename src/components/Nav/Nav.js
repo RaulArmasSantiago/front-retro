@@ -67,8 +67,8 @@ class Nav extends Component{
 
     render () {
         return(
-            <nav className="navbar navbar-expand-md bg-dark navbar-dark">
-                <img src="../img/retro_BCO.png" width="100px" alt="logo.png"/>
+            <nav id="sidebar" className="navbar navbar-expand-md bg-dark navbar-dark">
+                <img src="../img/taxi-conectado.png" width="100px" alt="logo.png"/>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span className="navbar-toggler-icon"></span>
                 </button>

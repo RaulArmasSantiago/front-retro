@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './style.css';
 import me from '../../services/me';
 import CardDevice from '../CardDevice/CardDevice';
+import Nav from '../Nav/Nav';
 
 class Profile extends Component{
     constructor(props){
@@ -20,7 +21,6 @@ class Profile extends Component{
             this.setState({user:user.data.data.me})
             
             console.log(this.state)
-            console.log(this.state.user.devices._id)
         })
     }
 
@@ -67,10 +67,9 @@ class Profile extends Component{
     
     render() {
         return(
+            
             <div className="bodyProfile">
-                <div className="headProfile">
-                    sideBar y search
-                </div>
+                <Nav/>    
                 <div className="row bodyUser justify-content-center">
                     <div className="col-sm-12">
                         <img src={this.state.user.image_url} alt="photo.png" className="imgRedonda"/>

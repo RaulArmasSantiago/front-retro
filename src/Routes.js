@@ -20,6 +20,7 @@ import UpdateDevice from './components/UpdateDeviceFrom/UpdateDeviceForm';
 import UpdateMe from './components/FormMe/FormMe';
 import galeriaDevices from './components/galeriaDevices/galeriaDevices';
 import Records from './components/Records/Records';
+import Sidebar from './components/SideBar/SideBar';
 
 
 class Routes extends Component{
@@ -34,7 +35,6 @@ class Routes extends Component{
         return(
             <Router>
                 <main>
-                    
                     <Route exact path='/' component={Login}/>
                     <Route exact path='/login' component={Login}/>
                     <PrivateRoute exact path='/logout' component={Logout}/>

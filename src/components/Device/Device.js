@@ -20,6 +20,7 @@ class Device extends Component{
         singleDevice(this.state.id).then((device) => {
             //console.log(device.data.data.singleDevice)
             this.setState({device:device.data.data.singleDevice})
+            console.log(this.state)
         }) 
     }
 
@@ -163,15 +164,18 @@ class Device extends Component{
                         <br/>
                         <center><h2 className="text-white">DATOS DEL TAXI</h2></center>
                         <center><img src={this.state.device.image_url_conductor} className="imgRedonda2" alt="Operador" width="200px"/></center>
-                        <table>
+                        <br/>
+                        <table className="table font-tabel">
                             <tr>
                                 <td><img src="../img/driver-icon.png" alt="iconos.png" className="img-fluid"/></td>
                                 <td><strong><label className="text-driver ml-2">{this.state.device.conductorName} {this.state.device.conductorLastname} </label></strong></td>
                             </tr>
                             <tr>
                                 <td><img src="../img/addres-icon.png" alt="iconos.png" className="img-fluid"/></td>
-                                <td><strong><label className="text-driver ml-2">{this.state.device.conductorAddress} {this.state.device.conductorNumExt} <br/>
-                                    col. {this.state.device.conductorDistrict} <br/>
+                                <td><strong><label className="text-driver ml-2">{this.state.device.conductorAddress} # {this.state.device.conductorNumExt} <br/>
+                                    Col. {this.state.device.conductorDistrict} <br/>
+                                    C.P. {this.state.device.conductorCC} <br/>
+                                    {this.state.device.conductorCity}, {this.state.device.conductorCountry}
                                     </label></strong>
                                 </td>
                             </tr>
