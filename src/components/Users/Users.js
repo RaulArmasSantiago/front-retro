@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './style.css';
 import allUsers from '../../services/allUsers';
 import CardUser from '../CardUser/CardUser';
+import Nav from '../Nav/Nav';
 
 class Users extends Component{
     constructor(props){
@@ -42,8 +43,11 @@ class Users extends Component{
 
     render(){
         return(
-            <div className="constainer">
-                <div className="row justify-content-center">
+            <div className="bodyProfile">
+                <Nav/>
+                <br/>
+                <div className="container">
+                <div className="row justify-content-center container">
                     <div className="text-center col-md-12">
                     <p>
                         <h3 className="user-title text-center">Todos los usuarios</h3>
@@ -53,6 +57,8 @@ class Users extends Component{
                         {this.renderUsers()}
                     </div>
                 </div>
+                </div>
+                
             </div>
         )
     }

@@ -3,6 +3,7 @@ import allDevices from '../../services/allDevices';
 import CardDevice from '../CardDevice/CardDevice';
 import './style.css';
 import {Link}  from "react-router-dom";
+import Nav from '../Nav/Nav';
 
 
 
@@ -50,9 +51,10 @@ class Devices extends Component{
     }
     render(){
         return(
-            <div>
+            <div className="bodyProfile">
+                <Nav/>
             <div className="container">
-                <div className="row justify-content-center">
+                <div className="row bodyUser justify-content-center">
                     <div className="col-md-8 text-left"><Link to="/addDevice"><button className="btn btn-success">Agregar concesión</button></Link></div>
                     <div className="col-md-4 text-right">
                         <form action="">
@@ -63,18 +65,21 @@ class Devices extends Component{
                         </form>
                     </div>
                 </div>
+            </div>
+            <div className="container">
                 <div className="row justify-content-center">
-                    <div className="text-center col-sm-12">
-                        <h3 className="devices-title text-center">Todos los Taxis</h3>                        
+                    <div className="col-sm-12">
+                        <h3>Todos los Taxis</h3>
+                        <br/>
+                    </div>
+                    <div className="col-sm-12 col-md-10">
+                        <div className="list-group">
+                            {this.renderDevices()}
+                        </div>
                     </div>                    
                 </div>
             </div>
-                <div className="container-fluid">
-                     <div className="row justify-content-center">
-                        {this.renderDevices()}
-                    </div>
-                </div>
-            </div>
+        </div>
         )
     }
 }

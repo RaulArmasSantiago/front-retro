@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 import records from '../../services/records';
+import Nav from '../Nav/Nav';
 
 class Records extends Component{
     constructor(props){
@@ -69,12 +70,13 @@ class Records extends Component{
 
     render(){
         return(
-            <div className="container-fluid">
+            <div className="bodyProfile">
+                <Nav/>
                 <div className="row justify-content-center">
                     <div className="col-md-12">
                         <div className="card">
                             <div className="card-header bg-dark">
-                                <h3 className="text-white">{this.state.device.concesion} Historial de carreras por día</h3>
+                                <h3 className="text-white">{this.state.device.concesion}-T Historial</h3>
                             </div>
                         </div>
                     </div>

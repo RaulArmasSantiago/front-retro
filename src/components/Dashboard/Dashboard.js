@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './style.css';
 import {Link} from "react-router-dom"
+import Nav from '../Nav/Nav';
 
 class Dashboard extends Component{
     constructor(){
@@ -9,8 +10,16 @@ class Dashboard extends Component{
 
     render(){
         return(
-            <div className="container-fluid ">
-                <div className="row justify-content-center">
+            <div>
+                <Nav/>
+                <div className="row justify-content-center bg-white">
+                    <div className="col-md-4">
+                        
+                    </div>
+                    <div className="col-md-8">
+                        hola
+                    </div>
+
                     <div className="col-xsm-11 col-md-4 ml-3">
                     <div className="card">
                         <div className="card-header bg-dark">

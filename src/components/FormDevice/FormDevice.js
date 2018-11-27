@@ -4,6 +4,9 @@ import addDevice from '../../services/addDevice';
 import singleUserMail from '../../services/singleUserMail';
 import FileUploader from 'react-firebase-file-uploader';
 import Firebase from '../../Firebase';
+import Nav from '../Nav/Nav';
+import {Link} from "react-router-dom"
+
 
 class FormDevice extends Component{
     
@@ -121,8 +124,12 @@ class FormDevice extends Component{
 
     render(){
         return(
-            <div className="container">
-            <h1>Registro de taxis</h1>
+            <div className="bodyProfile">
+            <Nav/>
+            <br/>
+                <div className="container">
+            <h2>Registro de taxis</h2>
+            <br/>
             <form onSubmit={this.onFormSubmit}>
 
                 <div className="row justify-content-center">
@@ -318,6 +325,8 @@ class FormDevice extends Component{
 
             </form>
             </div>
+            </div>
+            
         )
     }
 }

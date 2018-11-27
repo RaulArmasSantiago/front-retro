@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './style.css';
 import singleDevice from '../../services/singleDevice';
 import Map from '../Map/Map';
+import Nav from '../Nav/Nav';
 
 
 
@@ -122,13 +123,13 @@ class Device extends Component{
                         <label className="text-white"><strong>{this.state.device.conductorName} {this.state.device.conductorLastname}</strong></label>
                     </div>
                     <div className="col-sm-4 text-center">
-                        <label className="text-white"><strong>{this.state.device.concesion}-T</strong></label>
+                        <label className="text-white"><strong>{this.state.device.concesion}-T</strong><button className="btn btn-yellow ml-4" onClick={() => this.redirect2(this.state.device._id)}>Historial</button></label>
                     </div>
                 </div>
 
                 <div className="row justify-content-center bodyData">
                     <div className="col-sm-12 col-md-1">
-                        <label className="text-data"><strong>{this.state.device.contTravel}</strong></label>
+                        <label className="text-data"><strong>{this.state.device.contTravel}</strong></label> 
                         <br/>
                         <label className="text-dark"><strong>CARRERAS</strong></label>
                     </div>

@@ -3,6 +3,8 @@ import './style.css';
 import me from '../../services/me';
 import CardDevice from '../CardDevice/CardDevice';
 import Nav from '../Nav/Nav';
+import checkToken from '../../resolvers/checkToken';
+import payload from '../../resolvers/payload';
 
 class Profile extends Component{
     constructor(props){
@@ -64,6 +66,7 @@ class Profile extends Component{
              )
          }
     }
+
     
     render() {
         return(
@@ -72,7 +75,9 @@ class Profile extends Component{
                 <Nav/>    
                 <div className="row bodyUser justify-content-center">
                     <div className="col-sm-12">
-                        <img src={this.state.user.image_url} alt="photo.png" className="imgRedonda"/>
+                        <img src={this.state.user.image_url} alt="photo.png" className="imgRedonda"/><br/><br/>
+
+                        <button className="btn bg-retroyellow btn-sm" onClick={() => this.redirect(this.state.user._id)} active={this.state.active}>Editar Perfil</button>
                     </div>
                     <div className="col-sm-12">
                         <br/>
