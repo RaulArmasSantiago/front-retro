@@ -1,0 +1,25 @@
+.bg-retro{
+    background: #a12025;
+}
+
+.bg-retroyellow{
+    background: #f9d31e;
+}
+
+.bg-grey{
+    background: #909090
+}
+
+.border{
+    border-radius: 10%;
+}
+
+cite{
+    font-size: 1em;
+}
+
+.imgRedondacard {
+    width:80px;
+    border-radius:150px;
+    border:1px solid #000;
+}

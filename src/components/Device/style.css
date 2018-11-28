@@ -1,0 +1,53 @@
+ .contenedor {
+    background: #000;
+ }
+
+ .bodyData{
+     background: #E9CE12;
+     color: #FEFEFF;
+     padding-top: 90px
+ }
+
+.text-data{ 
+    font-size: 2em;
+}
+
+.text-driver{
+    color: #FEE510;
+}
+
+.imgRedonda2 {
+    width:300px;
+    border-radius:160px;
+    border:10px solid #E9CE12;
+}
+
+.head{
+    position: fixed;
+    width:100%;
+    z-index: 100;
+    background: #000;
+    
+}
+
+ .bodyDevice{
+    background: #fff
+ }
+
+ .bg-negro{
+     background: #000;
+ }
+
+
+
+ .bg-retro{
+     background: #a12025;
+ }
+
+ .bg-retroyellow{
+     background: #f9d31e;
+ }
+
+ .font{
+     font-size: 1.5em;
+ }
