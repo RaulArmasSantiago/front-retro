@@ -15,7 +15,28 @@ class CardDevice extends Component{
             <div className="row">
                 <div className="col-sm-12">
                     <a onClick={() => this.props.redirect(this.state.device._id)} class="list-group-item list-group-item-action">
-                            <div className="row">
+                    <div className="row">
+                                <div className="col-sm-12">
+                                    <table className="table table-sm">
+                                        <tr>
+                                            <td><img src={this.state.device.image_url_conductor} alt="Operador" className="imgRedondacard"/></td>
+                                            <td>
+                                                <strong className="text-longest">{this.state.device.conductorName} {this.state.device.conductorLastname}</strong><br/>
+                                                <cite className="text-longest">{this.state.device.modeloVehicle} {this.state.device.anioVehicle}</cite>
+                                            </td>
+                                            <td>
+                                                <button className="btn-sm btn-yellow border"><strong className="text-longest">{this.state.device.concesion}-T</strong></button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                    </a>
+                </div>
+            </div>
+        )
+        /*
+        <div className="row">
                                 <div className="col-sm-1">
                                     <img src={this.state.device.image_url_conductor} alt="Operador" className="imgRedondacard"/>
                                 </div>
@@ -27,11 +48,8 @@ class CardDevice extends Component{
                                     <button className="btn- btn-yellow border"><strong>{this.state.device.concesion}-T</strong></button>
                                 </div>
                             </div>
-                    </a>
-                </div>
-            </div>
-        )
-        /*return (
+        
+        return (
             
             <div className="col-sm-12 col-md-6">
             <div className="card ">

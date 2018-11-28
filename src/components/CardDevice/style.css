@@ -19,7 +19,11 @@ cite{
 }
 
 .imgRedondacard {
-    width:80px;
+    width:30px;
     border-radius:150px;
     border:1px solid #000;
+}
+
+.text-longest {
+    font-size: 12px;
 }
