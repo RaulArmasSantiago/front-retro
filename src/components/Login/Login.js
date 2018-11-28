@@ -99,6 +99,12 @@ class Login extends Component{
     handleCloseModal = () => {
         this.setState({ showModal: false });
     }
+
+    windows = () =>{
+        let h = window.screen.availHeight;
+        let w = window.screen.availWidth;
+        return `El tamaño de la pantalla es de : ${w} x ${h}`
+    }
     
 
     render() {
@@ -107,10 +113,13 @@ class Login extends Component{
                 {this.chargeProfile()}
 
                 <Modal className="modal-main" isOpen={this.state.showModal} contentLabel="Minimal Modal Example" className="Modal">
-                <div className="row justify-content-center">
+                <div className="row">
                     <div className="col-md-12">
-                        <img src="img/taxi-conectado.png" alt="retro.png" className="img-fluid"/><br/><br/>
-                        <h3>Iniciando Sesión ...</h3>
+                        <center><br/>
+                            <img src="img/taxi-conectado.png" alt="retro.png" className="img-fluid"/><br/><br/>
+                            <h3 className="insesion">Iniciando Sesión ...</h3>
+                            <h2>{this.windows()}</h2>
+                        </center>
                     </div>
                     <div className="col-sm-12">
                     <center>
