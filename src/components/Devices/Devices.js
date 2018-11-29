@@ -73,9 +73,9 @@ class Devices extends Component{
                         <br/>
                     </div>
                     <div className="col-sm-12 col-md-10">
-                        <div className="list-group">
+                        <table className="table table-sm table-strpied table-hover">
                             {this.renderDevices()}
-                        </div>
+                        </table>
                     </div>                    
                 </div>
             </div>
@@ -85,3 +85,9 @@ class Devices extends Component{
 }
 
 export default Devices;
+
+/*
+<div className="list-group">
+                            
+                        </div>
+                        */

@@ -12,28 +12,20 @@ class CardDevice extends Component{
     render(){
         console.log(this.state.device)
         return(
-            <div className="row">
-                <div className="col-sm-12">
-                    <a onClick={() => this.props.redirect(this.state.device._id)} class="list-group-item list-group-item-action">
-                    <div className="row">
-                                <div className="col-sm-12">
-                                    <table className="table table-sm">
-                                        <tr>
-                                            <td><img src={this.state.device.image_url_conductor} alt="Operador" className="imgRedondacard"/></td>
-                                            <td>
-                                                <strong className="text-longest">{this.state.device.conductorName} {this.state.device.conductorLastname}</strong><br/>
-                                                <cite className="text-longest">{this.state.device.modeloVehicle} {this.state.device.anioVehicle}</cite>
-                                            </td>
-                                            <td>
-                                                <button className="btn-sm btn-yellow border"><strong className="text-longest">{this.state.device.concesion}-T</strong></button>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                    </a>
-                </div>
-            </div>
+
+            <tr onClick={() => this.props.redirect(this.state.device._id)}>
+                <td><img src={this.state.device.image_url_conductor} alt="Operador" className="imgRedondacard"/></td>
+                <td>
+                    <p className="text-longest"><b>{this.state.device.conductorName} {this.state.device.conductorLastname}</b><br/>
+                    <cite>{this.state.device.modeloVehicle} {this.state.device.anioVehicle}</cite></p>
+                </td>
+                <td>
+                    <button className="btn-sm btn-yellow border"><strong className="text-longest">{this.state.device.concesion}-T</strong></button>
+                </td>
+                <td>
+                    <img src="../img/arrow-right.png" alt=""/>
+                </td>
+            </tr>
         )
         /*
         <div className="row">
@@ -87,3 +79,27 @@ class CardDevice extends Component{
 }
 
 export default CardDevice;
+
+/*
+<div className="row">
+                <div className="col-sm-12">
+                    <a onClick={() => this.props.redirect(this.state.device._id)} class="list-group-item list-group-item-action">
+                    <div className="row">
+                                <div className="col-sm-12">
+                                        <tr>
+                                            <td><img src={this.state.device.image_url_conductor} alt="Operador" className="imgRedondacard"/></td>
+                                            <td>
+                                                <strong className="text-longest">{this.state.device.conductorName} {this.state.device.conductorLastname}</strong><br/>
+                                                <cite className="text-longest">{this.state.device.modeloVehicle} {this.state.device.anioVehicle}</cite>
+                                            </td>
+                                            <td>
+                                                <button className="btn-sm btn-yellow border"><strong className="text-longest">{this.state.device.concesion}-T</strong></button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                    </a>
+                </div>
+            </div>
+            */

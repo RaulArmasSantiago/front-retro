@@ -90,9 +90,9 @@ class Profile extends Component{
                             <h3>OPERADORES</h3>
                         </div>
                         <div className="col-sm-12">
-                            <div className="list-group">
+                            <table className="table table-sm table-striped">
                                 {this.renderDevices()}
-                            </div>
+                            </table>
                         </div>
                     </div>
 
