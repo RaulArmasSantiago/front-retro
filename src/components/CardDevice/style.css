@@ -29,7 +29,7 @@ cite{
 }
 
 .img-medium{
-    width:80px;
+    width:70px;
     border-radius:150px;
     border:1px solid #000;
 }
@@ -42,7 +42,7 @@ cite{
     font-size: 18px;
 }
 
-.alineaFoto{
+td{
     align:center;
 }
 
