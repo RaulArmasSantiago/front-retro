@@ -55,7 +55,7 @@ class Records extends Component{
                 console.log(index + 1)
                 return(
                     <tr>
-                        <td>{index + 1}</td>
+                        
                         <td>{this.convertDate(record.date)}</td>
                         <td>{record.contTravel}</td>
                         <td>{this.getHrs(record.contTime)}</td>
@@ -84,10 +84,10 @@ class Records extends Component{
                 <br/>
                 <div className="row justify-content-center">
                     <div className="col-sm-10">
-                        <table className="table table-striped table-hover">
+                        <table className="table table-striped table-hover table-responsive">
                             <thead className="bg-retroyellow">
                                 <tr>
-                                    <th>Reporte</th>
+                                    
                                     <th>Fecha</th>
                                     <th>Carreras</th>
                                     <th>Tiempo</th>
@@ -101,8 +101,6 @@ class Records extends Component{
                         </table>
                     </div>
                 </div>
-                
-                
             </div>
         )
     }
