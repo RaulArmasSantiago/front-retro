@@ -6,6 +6,26 @@ class CardDevice extends Component{
         super(props);
         this.state = {
             device:props.device,
+            typeText:"",
+            typeImg:""
+        }
+    }
+
+    componentDidMount(){
+        if(window.screen.availWidth <= 500){
+            this.setState(
+                {
+                    typeText:"text-longest",
+                    typeImg:"img-longest"
+                }
+            )
+        }else{
+            this.setState(
+                {
+                    typeText:"text-medium",
+                    typeImg:"img-medium"
+                }
+            )
         }
     }
 
@@ -14,13 +34,17 @@ class CardDevice extends Component{
         return(
 
             <tr onClick={() => this.props.redirect(this.state.device._id)}>
-                <td><img src={this.state.device.image_url_conductor} alt="Operador" className="imgRedondacard"/></td>
+                <td><img src={this.state.device.image_url_conductor} alt="Operador" className={this.state.typeImg}/></td>
                 <td>
-                    <p className="text-longest"><b>{this.state.device.conductorName} {this.state.device.conductorLastname}</b><br/>
-                    <cite>{this.state.device.modeloVehicle} {this.state.device.anioVehicle}</cite></p>
+                    <div id="contenido">
+                        <p className={this.state.typeText}><b>{this.state.device.conductorName} {this.state.device.conductorLastname}</b></p>
+                    </div>
+                    <div>
+                        <p><cite>{this.state.device.modeloVehicle} {this.state.device.anioVehicle}</cite></p>
+                    </div>
                 </td>
                 <td>
-                    <button className="btn-sm btn-yellow border"><strong className="text-longest">{this.state.device.concesion}-T</strong></button>
+                    <button className="btn-sm btn-yellow border"><strong className={this.state.typeText}>{this.state.device.concesion}-T</strong></button>
                 </td>
                 <td>
                     <img src="../img/arrow-right.png" alt=""/>

@@ -18,12 +18,22 @@ cite{
     font-size: 1em;
 }
 
-.imgRedondacard {
+.img-longest {
     width:40px;
+    border-radius:150px;
+    border:1px solid #000;
+}
+
+.img-medium{
+    width:80px;
     border-radius:150px;
     border:1px solid #000;
 }
 
 .text-longest {
     font-size: 12px;
+}
+
+.text-medium {
+    font-size: 18px;
 }
