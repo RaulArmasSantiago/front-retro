@@ -37,10 +37,8 @@ class CardDevice extends Component{
                 <td><img src={this.state.device.image_url_conductor} alt="Operador" className={this.state.typeImg}/></td>
                 <td>
                     <div id="contenido">
-                        <p className={this.state.typeText}><b>{this.state.device.conductorName} {this.state.device.conductorLastname}</b></p>
-                    </div>
-                    <div>
-                        <p><cite>{this.state.device.modeloVehicle} {this.state.device.anioVehicle}</cite></p>
+                        <p className={this.state.typeText}><b>{this.state.device.conductorName} {this.state.device.conductorLastname}</b><br/>
+                        <cite>{this.state.device.modeloVehicle} {this.state.device.anioVehicle}</cite></p>
                     </div>
                 </td>
                 <td>
