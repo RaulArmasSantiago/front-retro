@@ -18,6 +18,10 @@ cite{
     font-size: 1em;
 }
 
+.alingFoto{
+    text-align: center
+}
+
 .img-longest {
     width:40px;
     border-radius:150px;
@@ -36,4 +40,14 @@ cite{
 
 .text-medium {
     font-size: 18px;
+}
+
+.alineaFoto{
+    align:center;
+}
+
+#contenido {
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
 }

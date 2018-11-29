@@ -34,7 +34,7 @@ class CardDevice extends Component{
         return(
 
             <tr onClick={() => this.props.redirect(this.state.device._id)}>
-                <td><img src={this.state.device.image_url_conductor} alt="Operador" className={this.state.typeImg}/></td>
+                <td className="alingFoto"><img src={this.state.device.image_url_conductor} alt="Operador" className={this.state.typeImg}/></td>
                 <td>
                     <div id="contenido">
                         <p className={this.state.typeText}><b>{this.state.device.conductorName} {this.state.device.conductorLastname}</b><br/>
