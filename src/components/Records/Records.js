@@ -83,7 +83,7 @@ class Records extends Component{
                 </div>
                 <br/>
 
-                <div className="table-responsive">
+                <div className=" col-sm-11 table-responsive">
                 <center>
                 <table className="table table-striped table-hover">
                             <thead className="bg-retroyellow">
