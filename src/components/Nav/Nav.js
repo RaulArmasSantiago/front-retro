@@ -16,7 +16,7 @@ class Nav extends Component{
             let pl = payload(token);
             if(pl.admin === true){
                 return (
-                    <ul className="navbar-nav ml-auto">
+                    <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link className="nav-link" to="/profile">{pl.name}</Link>
                         </li>
@@ -68,13 +68,18 @@ class Nav extends Component{
     render () {
         return(
             <nav id="sidebar" className="navbar navbar-expand-md bg-dark navbar-dark">
-                <img src="../img/taxi-conectado.png" width="100px" alt="logo.png"/>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span className="navbar-toggler-icon"></span>
                 </button>
+                
                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
+                    <img src="./img/taxi-conectado.png" width="100px" alt="logo.png"/>
                     {this.chargeProfile()}
-                </div>  
+                </div>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>  
             </nav>
             
         )
