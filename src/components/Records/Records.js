@@ -82,10 +82,10 @@ class Records extends Component{
                     </div>
                 </div>
                 <br/>
-                <div className="row justify-content-center">
-                    <div className="col-sm-12">
-                    <br/>
-                        <table className="table table-striped table-hover table-responsive">
+
+                <div className="table-responsive">
+                <center>
+                <table className="table table-striped table-hover">
                             <thead className="bg-retroyellow">
                                 <tr>
                                     <th>Fecha</th>
@@ -99,7 +99,7 @@ class Records extends Component{
                                 {this.renderRecords()}
                             </tbody>
                         </table>
-                    </div>
+                        </center>
                 </div>
             </div>
             </div>
