@@ -70,24 +70,24 @@ class Records extends Component{
 
     render(){
         return(
-            <div className="bodyProfile">
-                <Nav/>
-                <div className="row justify-content-center">
-                    <div className="col-md-12">
-                        <div className="card">
-                            <div className="card-header bg-dark">
-                                <h3 className="text-white">{this.state.device.concesion}-T Historial</h3>
-                            </div>
+            <div>
+            <Nav/>
+            <div className="row justify-content-center bodyRecord">
+                <div className="col-md-11">
+                <br/>
+                    <div className="card">
+                        <div className="card-header bg-dark">
+                            <h3 className="text-white">Historial {this.state.device.concesion}-T</h3>
                         </div>
                     </div>
                 </div>
                 <br/>
                 <div className="row justify-content-center">
-                    <div className="col-sm-10">
+                    <div className="col-sm-12">
+                    <br/>
                         <table className="table table-striped table-hover table-responsive">
                             <thead className="bg-retroyellow">
                                 <tr>
-                                    
                                     <th>Fecha</th>
                                     <th>Carreras</th>
                                     <th>Tiempo</th>
@@ -101,6 +101,7 @@ class Records extends Component{
                         </table>
                     </div>
                 </div>
+            </div>
             </div>
         )
     }
