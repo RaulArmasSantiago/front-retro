@@ -38,6 +38,7 @@ class Records extends Component{
         min = min - min2;
         console.log(min)
         let tiempo = String(hrs) + " hrs. " + String(min) + " min.";
+        
         return tiempo
     }
 
@@ -73,7 +74,7 @@ class Records extends Component{
             <div>
             <Nav/>
             <div className="row justify-content-center bodyRecord">
-                <div className="col-md-11">
+                <div className="col-sm-11">
                 <br/>
                     <div className="card">
                         <div className="card-header bg-dark">

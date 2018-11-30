@@ -82,7 +82,7 @@ class Profile extends Component{
                     <div className="col-sm-12">
                         <br/>
                         <h4>{this.state.user.name} {this.state.user.lastname}</h4>
-                        Administrador
+                        Concesionario
                         <br/><br/>
                     </div>
                     <div className="row justify-content-center">
