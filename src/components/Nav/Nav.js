@@ -77,7 +77,7 @@ class Nav extends Component{
                     {this.chargeProfile()}
                 </div>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Concesión" aria-label="Search" size="10" />
                     <button class="btn btn-sm btn-outline-light my-2 my-sm-0" type="submit"><img src="../img/search.png" alt=""/></button>
                 </form>  
             </nav>

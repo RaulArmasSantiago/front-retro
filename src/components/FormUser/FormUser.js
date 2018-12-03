@@ -42,7 +42,7 @@ class FormUser extends Component{
         if(password === verify_password){
             return true
         }else{
-            alert("Tu password no coincide")
+            return alert("Tu password no coincide");
         }
     }
 
@@ -50,13 +50,15 @@ class FormUser extends Component{
         e.preventDefault();
         console.log(this.state);
         if(this.validatePasswords(this.state.password,this.state.check_password)){
-            addUser(this.state).then((response) => {
+            let respuesta = addUser(this.state).then((response) => {
                 console.log(response.data)
                 this.props.history.push('/dashboard')
             }).catch((err) => {
                 console.log(err)
                 alert("Hubo un problema")
-            })
+            });
+
+            console.log(respuesta)
         }
     }
 

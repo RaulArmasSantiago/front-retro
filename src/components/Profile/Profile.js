@@ -75,15 +75,19 @@ class Profile extends Component{
                 <Nav/>    
                 <div className="row bodyUser justify-content-center">
                     <div className="col-sm-12">
-                        <img src={this.state.user.image_url} alt="photo.png" className="imgRedonda"/><br/><br/>
-
-                        <button className="btn bg-retroyellow btn-sm" onClick={() => this.redirect(this.state.user._id)} active={this.state.active}>Editar Perfil</button>
-                    </div>
-                    <div className="col-sm-12">
-                        <br/>
+                        <img src={this.state.user.image_url} alt="photo.png" className="imgRedonda"/><br/>
                         <h4>{this.state.user.name} {this.state.user.lastname}</h4>
                         Concesionario
-                        <br/><br/>
+                        <br/>
+                        <button className="btn bg-retroyellow btn-sm" onClick={() => this.redirect(this.state.user._id)} active={this.state.active}>Editar Perfil</button>
+                        <br/>
+                        <hr/>
+                    </div>
+                    <div className="col-sm-12">
+                    <h6>Colaboradores</h6>
+                    <img src={this.state.user.image_url} alt="photo.png" className="imgRedondasm"/>
+                    <img src={this.state.user.image_url} alt="photo.png" className="imgRedondasm"/>
+                    <hr/>
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-sm-12">
@@ -95,10 +99,7 @@ class Profile extends Component{
                             </table>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
         )
     }
