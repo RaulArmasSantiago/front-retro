@@ -95,7 +95,9 @@ class Profile extends Component{
                         </div>
                         <div className="col-sm-12">
                             <table className="table table-sm table-striped">
-                                {this.renderDevices()}
+                                <tbody>
+                                    {this.renderDevices()}
+                                </tbody>
                             </table>
                         </div>
                     </div>
