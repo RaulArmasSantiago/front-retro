@@ -15,10 +15,7 @@ class Records extends Component{
 
     componentDidMount(){
         records(this.state.id).then((device) => {
-            console.log(device)
-            console.log(this.state)
             this.setState({device:device.data.data.singleDevice})
-            console.log(this.state)
         })
     }
 

@@ -114,6 +114,10 @@ class Device extends Component{
     redirect2 = (id) => {
         this.props.history.push(`/records/${id}`)
     }
+    
+    redirect3 = (id) => {
+        this.props.history.push(`/report/${id}`)
+    }
 
     render(){
         return(
@@ -123,7 +127,12 @@ class Device extends Component{
                         <label className="text-white"><strong>{this.state.device.conductorName} {this.state.device.conductorLastname}</strong></label>
                     </div>
                     <div className="col-sm-4 text-center">
-                        <label className="text-white"><strong>{this.state.device.concesion}-T</strong><button className="btn btn-outline-warning btn-sm ml-4" onClick={() => this.redirect2(this.state.device._id)}>Historial</button></label>
+                        <label className="text-white"><strong>{this.state.device.concesion}-T</strong>
+                        <button className="btn btn-outline-warning btn-sm ml-4" onClick={() => this.redirect2(this.state.device._id)}>Historial</button>
+                        </label>
+                    </div>
+                    <div className="col-sm-2">
+                        <button className="btn btn-outline-danger btn-sm ml-4" onClick={() => this.redirect3(this.state.device._id)}>Reportar taxista</button>
                     </div>
                 </div>
 
