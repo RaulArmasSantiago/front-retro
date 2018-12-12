@@ -94,7 +94,7 @@ class Profile extends Component{
                             <h3>OPERADORES</h3>
                         </div>
                         <div className="col-sm-12">
-                            <table className="table table-sm table-striped">
+                            <table className="table table-sm table-striped table-hover">
                                 <tbody>
                                     {this.renderDevices()}
                                 </tbody>

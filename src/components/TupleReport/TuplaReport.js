@@ -1,0 +1,26 @@
+import React,{Component} from 'react';
+import './style.css';
+
+class TuplaReport extends Component{
+    constructor(props){
+        super(props);
+        this.state ={
+            reporte:props.reporte,
+            key:props.index
+        }
+    }
+
+    render(){
+        console.log(this.props)
+        return(
+            <tr onClick={()=> this.props.redirect(this.state.reporte._id)}>
+                
+                <td>{this.state.reporte.reporter}-T</td>
+                <td>{this.state.reporte.name} {this.state.reporte.lastname}</td>
+                
+            </tr>
+        )
+    }
+
+}
+export default TuplaReport;

@@ -3,6 +3,7 @@ import './style.css';
 import {Link}  from "react-router-dom"
 import payload from '../../resolvers/payload';
 import checkToken from '../../resolvers/checkToken';
+import TaxiConectado from '../../assets/taxi-conectado.png'
 
 
 class Nav extends Component{
@@ -16,17 +17,20 @@ class Nav extends Component{
             let pl = payload(token);
             if(pl.admin === true){
                 return (
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav ml-4">
                         <li className="nav-item">
                             <Link className="nav-link" to="/profile">{pl.name}</Link>
                         </li>
-                        
+                        <li>
+                            <Link className="nav-link" to="/reports">Malos Taxistas</Link>
+                        </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
                                 Servicios
                             </a>
                             <div className="dropdown-menu">
                                 <Link className="dropdown-item" to="/dashboard">Tablero</Link>
+                                
                                 <Link className="dropdown-item" to="/users">Usuarios</Link>
                                 <Link className="dropdown-item" to="/devices">Taxis</Link>
                                 <a className="dropdown-item">Reportes</a>
@@ -44,10 +48,12 @@ class Nav extends Component{
                         <li className="nav-item">
                             <Link className="nav-link" to="/profile">{pl.name}</Link>
                         </li>
+                        <li>
+                            <Link className="nav-link" to="/reports">Malos Taxistas</Link>
+                        </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/logout">Cerrar sesión</Link>
                         </li>
-                        
                     </ul>
                 ) 
             }
@@ -73,7 +79,7 @@ class Nav extends Component{
                 </button>
                 
                 <div className="collapse navbar-collapse" id="collapsibleNavbar">
-                    <img src="./img/taxi-conectado.png" width="100px" alt="logo.png"/>
+                    <img src={TaxiConectado} width="100px" alt="logo.png"/>
                     {this.chargeProfile()}
                 </div>
                 <form class="form-inline my-2 my-lg-0">

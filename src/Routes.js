@@ -20,7 +20,9 @@ import UpdateDevice from './components/UpdateDeviceFrom/UpdateDeviceForm';
 import UpdateMe from './components/FormMe/FormMe';
 import galeriaDevices from './components/galeriaDevices/galeriaDevices';
 import Records from './components/Records/Records';
-import Reports from './components/Report/Report'
+import ReportTax from './components/ReportTax/ReportTax';
+import Reports from './components/Reports/Reports';
+import Report from './components/Report/Report.js';
 
 
 class Routes extends Component{
@@ -50,7 +52,10 @@ class Routes extends Component{
                     <PrivateRoute exact path='/me/update/:id' component={UpdateMe}/>
                     <PrivateRoute exact path='/misDevices' component={galeriaDevices}/>
                     <PrivateRoute exact path='/records/:id' component={Records}/>
-                    <PrivateRoute exact path='/report/:id' component={Reports}/>
+                    <PrivateRoute exact path='/reportTax/:id' component={ReportTax}/>
+                    <PrivateRoute exact path='/reports' component={Reports}/>
+                    <PrivateRoute exact path='/report/:id' component={Report}/>
+
 
                 </main>
             </Router>

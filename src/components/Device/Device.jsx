@@ -116,7 +116,7 @@ class Device extends Component{
     }
     
     redirect3 = (id) => {
-        this.props.history.push(`/report/${id}`)
+        this.props.history.push(`/reportTax/${id}`)
     }
 
     render(){
