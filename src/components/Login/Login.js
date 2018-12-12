@@ -5,6 +5,7 @@ import checkToken from '../../resolvers/checkToken';
 import payload from '../../resolvers/payload';
 import Profile from '../Profile/Profile';
 import Modal from 'react-modal';
+import TaxiConectado from '../../assets/taxi-conectado.png'
 
 const customStyles = {
     content : {
@@ -65,7 +66,7 @@ class Login extends Component{
                     <br/><br/>
                 <div className="row justify-content-center" >
                     <div className="col-sm-8 col-md-10 container-fluid animated fadeIn delay-2s">
-                        <img src="img/taxi-conectado.png" alt="retro.png" className="img-fluid"/>
+                        <img src={TaxiConectado} alt="retro.png" className="img-fluid"/>
                     </div>
                 </div>
                 <br/>
