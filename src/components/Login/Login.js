@@ -119,7 +119,6 @@ class Login extends Component{
                         <center><br/>
                             <img src="img/taxi-conectado.png" alt="retro.png" className="img-fluid"/><br/><br/>
                             <h3 className="insesion">Iniciando Sesión ...</h3>
-                            <h2>{this.windows()}</h2>
                         </center>
                     </div>
                     <div className="col-sm-12">
