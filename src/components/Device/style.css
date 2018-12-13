@@ -5,7 +5,7 @@
  .bodyData{
      background: #E9CE12;
      color: #FEFEFF;
-     padding-top: 90px
+     padding-top: 140px;
  }
 
 .text-data{ 
@@ -23,6 +23,7 @@
 }
 
 .head{
+    padding-top: 70px;
     position: fixed;
     width:100%;
     z-index: 100;

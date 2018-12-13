@@ -3,18 +3,8 @@ import './style.css';
 import login from '../../services/login';
 import checkToken from '../../resolvers/checkToken';
 import payload from '../../resolvers/payload';
-import Profile from '../Profile/Profile';
 import Modal from 'react-modal';
 import TaxiConectado from '../../assets/taxi-conectado.png'
-
-const customStyles = {
-    content : {
-      top                   : '50px',
-      left                  : '50px',
-      right                 : '50px',
-      bottom                : '50px'
-    }
-  };
 
 class Login extends Component{
     constructor(props){
@@ -110,14 +100,14 @@ class Login extends Component{
 
     render() {
         return(
-            <div>
+            <div className="bodyLogin">
                 {this.chargeProfile()}
 
                 <Modal className="modal-main" isOpen={this.state.showModal} contentLabel="Minimal Modal Example" className="Modal">
                 <div className="row">
                     <div className="col-md-12">
                         <center><br/>
-                            <img src="img/taxi-conectado.png" alt="retro.png" className="img-fluid"/><br/><br/>
+                            <img src={TaxiConectado} alt="retro.png" className="img-fluid"/><br/><br/>
                             <h3 className="insesion">Iniciando Sesión ...</h3>
                         </center>
                     </div>

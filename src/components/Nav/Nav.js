@@ -7,9 +7,6 @@ import TaxiConectado from '../../assets/taxi-conectado.png'
 
 
 class Nav extends Component{
-    constructor(){
-        super();
-    }
 
     chargeProfile = ()=>{
         if(checkToken()){
@@ -73,7 +70,7 @@ class Nav extends Component{
 
     render () {
         return(
-            <nav id="sidebar" className="navbar navbar-expand-md bg-dark navbar-dark">
+            <nav id="sidebar" className="navbar fixed-top navbar-expand-md bg-dark navbar-dark">
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span className="navbar-toggler-icon"></span>
                 </button>

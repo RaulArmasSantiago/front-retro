@@ -85,6 +85,7 @@ class FormMe extends Component{
     render(){
         return (
             <div className="bodyFormMe">
+                <Nav/>
                 <br/>
                 <form onSubmit={this.onFormSubmit}>
                     <div className="row justify-content-center container-fluid">

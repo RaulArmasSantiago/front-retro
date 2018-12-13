@@ -3,8 +3,6 @@ import {
     Route,Redirect
 } from 'react-router-dom';
 import React, { Component } from 'react';
-import Nav from './components/Nav/Nav';
-import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -36,7 +34,9 @@ class Routes extends Component{
         )
         return(
             <Router>
+                
                 <main>
+                    
                     <Route exact path='/' component={Login}/>
                     <Route exact path='/login' component={Login}/>
                     <PrivateRoute exact path='/logout' component={Logout}/>

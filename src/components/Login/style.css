@@ -1,5 +1,6 @@
-body{
-    background: #000;
+.bodyLogin{
+  background: #000;
+  height: 100vh;
 }
 
 .font-input {

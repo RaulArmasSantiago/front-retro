@@ -3,8 +3,6 @@ import './style.css';
 import me from '../../services/me';
 import CardDevice from '../CardDevice/CardDevice';
 import Nav from '../Nav/Nav';
-import checkToken from '../../resolvers/checkToken';
-import payload from '../../resolvers/payload';
 
 class Profile extends Component{
     constructor(props){
@@ -75,7 +73,7 @@ class Profile extends Component{
                 <Nav/>    
                 <div className="row bodyUser justify-content-center">
                     <div className="col-sm-12">
-                        <img src={this.state.user.image_url} alt="photo.png" className="imgRedonda"/><br/>
+                        <img src={this.state.user.image_url} alt="img_profile" className="imgRedonda"/><br/>
                         <h4>{this.state.user.name} {this.state.user.lastname}</h4>
                         Concesionario
                         <br/>
@@ -85,8 +83,7 @@ class Profile extends Component{
                     </div>
                     <div className="col-sm-12">
                     <h6>Colaboradores</h6>
-                    <img src={this.state.user.image_url} alt="photo.png" className="imgRedondasm"/>
-                    <img src={this.state.user.image_url} alt="photo.png" className="imgRedondasm"/>
+                    <img src={this.state.user.image_url} alt="img-colaborador" className="imgRedondasm"/>
                     <hr/>
                     </div>
                     <div className="row justify-content-center">

@@ -122,6 +122,7 @@ class Device extends Component{
     render(){
         return(
             <div className="container-fluid">
+            <Nav/>
                 <div className="row justify-content-center head">
                     <div className="col-sm-4 text-center">
                         <label className="text-white"><strong>{this.state.device.conductorName} {this.state.device.conductorLastname}</strong></label>

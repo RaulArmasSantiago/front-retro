@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
 import "./style.css";
 import addDevice from '../../services/addDevice';
-import singleUserMail from '../../services/singleUserMail';
 import FileUploader from 'react-firebase-file-uploader';
 import Firebase from '../../Firebase';
 import Nav from '../Nav/Nav';
-import {Link} from "react-router-dom"
-
 
 class FormDevice extends Component{
     

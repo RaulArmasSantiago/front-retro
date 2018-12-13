@@ -53,6 +53,7 @@ class Report extends Component{
     render(){
         return(
             <div className="bodyReport">
+                <Nav/>
                 <br/>
                 <h3>Reportar Taxista</h3>
                 <br/>
