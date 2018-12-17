@@ -52,7 +52,7 @@ class Login extends Component{
         }else{
             return(
                 <div className="container">
-                    <img src="img/copete.png" alt="retro.png" className="img-fluid"/>
+                    <img src="./img/copete.png" alt="retro.png" className="img-fluid"/>
                     <br/><br/>
                 <div className="row justify-content-center" >
                     <div className="col-sm-8 col-md-10 container-fluid animated fadeIn delay-2s">
@@ -77,7 +77,7 @@ class Login extends Component{
                     </div>
                 </div>
                 <br/>
-                <img src="img/iconosLog.png" alt="iconos.png" className="img-fluid animated slower delay-2s animated bounceInDown"/>
+                <img src="../img/iconosLog.png" alt="iconos.png" className="img-fluid animated slower delay-2s animated bounceInDown"/>
                 </div>
             )
         }

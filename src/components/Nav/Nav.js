@@ -42,7 +42,7 @@ class Nav extends Component{
                 )
             }else{
                 return (
-                    <ul className="navbar-nav ml-auto" id="items">
+                    <ul className="navbar-nav ml-4" id="items">
                         <li className="nav-item">
                             <Link className="nav-link" to="/profile">{pl.name}</Link>
                         </li>
