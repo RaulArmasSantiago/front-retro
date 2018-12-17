@@ -124,16 +124,13 @@ class Device extends Component{
             <div className="container-fluid">
             <Nav/>
                 <div className="row justify-content-center head">
-                    <div className="col-sm-4 text-center">
+                    <div className="col-sm-12 col-md-6 text-center">
                         <label className="text-white"><strong>{this.state.device.conductorName} {this.state.device.conductorLastname}</strong></label>
                     </div>
-                    <div className="col-sm-4 text-center">
+                    <div className="col-sm-12 col-md-6 text-center">
                         <label className="text-white"><strong>{this.state.device.concesion}-T</strong>
                         <button className="btn btn-outline-warning btn-sm ml-4" onClick={() => this.redirect2(this.state.device._id)}>Historial</button>
                         </label>
-                    </div>
-                    <div className="col-sm-2">
-                        <button className="btn btn-outline-danger btn-sm ml-4" onClick={() => this.redirect3(this.state.device._id)}>Reportar taxista</button>
                     </div>
                 </div>
 
@@ -165,7 +162,7 @@ class Device extends Component{
                     </div>
                 </div>
 
-                <div className="row">
+                <div className="row bodyDataDev">
                     <div className="col-sm-12 col-md-6">
                         <br/><br/>
                         {this.renderMap()}
@@ -199,7 +196,11 @@ class Device extends Component{
                                 <td><strong><label className="text-driver ml-2">{this.state.device.conductorTel}</label></strong></td>
                             </tr>
                         </table>
-                        <center><button className="btn btn-primary btn-sm" onClick={() => this.redirect(this.state.device._id)}><img src="../img/Users-Edit-User-icon-24.png" alt="editar conductor"/> Editar</button></center>
+                        <div>
+                        <button className="btn btn-primary btn-sm" onClick={() => this.redirect(this.state.device._id)}><img src="../img/Users-Edit-User-icon-24.png" alt="editar conductor"/> Editar</button>
+                        <button className="btn btn-outline-danger btn-sm ml-auto" onClick={() => this.redirect3(this.state.device._id)}>Reportar taxista</button>
+                        </div>
+                        
                         <br/>
                         <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                                         <ol className="carousel-indicators">

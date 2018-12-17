@@ -8,6 +8,10 @@
      padding-top: 180px;
  }
 
+ .bodyDataDev{
+     background: #000;
+ }
+
 .text-data{ 
     font-size: 2em;
 }
