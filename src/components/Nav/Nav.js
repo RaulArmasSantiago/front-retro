@@ -4,6 +4,7 @@ import {Link}  from "react-router-dom"
 import payload from '../../resolvers/payload';
 import checkToken from '../../resolvers/checkToken';
 import TaxiConectado from '../../assets/taxi-conectado.png'
+import 'font-awesome/css/font-awesome.min.css';
 
 
 class Nav extends Component{
@@ -79,12 +80,17 @@ class Nav extends Component{
                     <img src={TaxiConectado} width="100px" alt="logo.png"/>
                     {this.chargeProfile()}
                 </div>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Concesión" aria-label="Search" size="10" />
-                    <button class="btn btn-sm btn-outline-light my-2 my-sm-0" type="submit"><img src="../img/search.png" alt=""/></button>
+                <form className="form-inline my-2 my-lg-0">
+                    <div className="input-group md-form form-sm form-2 pl-0">
+                        <input className="form-control my-0 py-1 lime-border" type="text" placeholder="Search" aria-label="Search"/>
+                        <div className="input-group-append">
+                            <span className="input-group-text lime lighten-2" id="basic-text1">
+                                <i className="fa fa-search text-grey" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
                 </form>  
             </nav>
-            
         )
     }
 }
