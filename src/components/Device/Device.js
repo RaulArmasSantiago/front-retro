@@ -196,9 +196,13 @@ class Device extends Component{
                                 <td><strong><label className="text-driver ml-2">{this.state.device.conductorTel}</label></strong></td>
                             </tr>
                         </table>
-                        <div>
-                        <button className="btn btn-primary btn-sm" onClick={() => this.redirect(this.state.device._id)}><img src="../img/Users-Edit-User-icon-24.png" alt="editar conductor"/> Editar</button>
-                        <button className="btn btn-outline-danger btn-sm ml-auto" onClick={() => this.redirect3(this.state.device._id)}>Reportar taxista</button>
+                        <div className="row justify-content-center">
+                            <div className="col-sm-6">
+                                <button className="btn btn-primary btn-sm" onClick={() => this.redirect(this.state.device._id)}><img src="../img/Users-Edit-User-icon-24.png" alt="editar conductor"/> Editar</button>
+                            </div>
+                            <div className="col-sm-6 text-rigth">
+                                <button className="btn btn-outline-danger btn-sm ml-auto" onClick={() => this.redirect3(this.state.device._id)}>Reportar taxista</button>
+                            </div>
                         </div>
                         
                         <br/>
