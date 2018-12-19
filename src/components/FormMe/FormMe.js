@@ -43,7 +43,7 @@ class FormMe extends Component{
                 city:this.state.user.city,
                 country:this.state.user.country,
                 cc:this.state.user.cc,
-                tel:this.state.user.tel,
+                tel:this.state.user.telefono,
                 image_url:this.state.user.image_url
             })
             console.log(this.state)

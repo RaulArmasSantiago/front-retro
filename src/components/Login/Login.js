@@ -4,7 +4,10 @@ import login from '../../services/login';
 import checkToken from '../../resolvers/checkToken';
 import payload from '../../resolvers/payload';
 import Modal from 'react-modal';
-import TaxiConectado from '../../assets/taxi-conectado.png'
+import TaxiConectado from '../../assets/taxi-conectado.png';
+import Copete from '../../assets/copete.png';
+import icons from '../../assets/iconosLog.png';
+
 
 class Login extends Component{
     constructor(props){
@@ -52,7 +55,7 @@ class Login extends Component{
         }else{
             return(
                 <div className="container">
-                    <img src="./img/copete.png" alt="retro.png" className="img-fluid"/>
+                    <img src={Copete} alt="retro.png" className="img-fluid"/>
                     <br/><br/>
                 <div className="row justify-content-center" >
                     <div className="col-sm-8 col-md-10 container-fluid animated fadeIn delay-2s">
@@ -77,7 +80,7 @@ class Login extends Component{
                     </div>
                 </div>
                 <br/>
-                <img src="../img/iconosLog.png" alt="iconos.png" className="img-fluid animated slower delay-2s animated bounceInDown"/>
+                <img src={icons} alt="iconos.png" className="img-fluid animated slower delay-2s animated bounceInDown"/>
                 </div>
             )
         }
