@@ -12,7 +12,17 @@ class Dashboard extends Component{
         return(
             <div>
                 <Nav/>
-                <div className="row justify-content-center bg-white">
+                <div className="bodyDashboard">
+                    <div className="row justify-content-center container-fluid">
+                        <div className="col-sm-12 col-md-4">
+                        
+                        </div>
+                        <div className="col-sm-12 col-md-8">
+                        
+                        </div>
+                    </div>
+                </div>
+                <div className="row justify-content-center bg-white bo">
                     <div className="col-md-4">
                         
                     </div>

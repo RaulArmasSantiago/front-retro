@@ -4,6 +4,7 @@ import updateDevice from '../../services/updateDevice';
 import singleDevice from '../../services/singleDevice';
 import FileUploader from 'react-firebase-file-uploader';
 import Firebase from '../../Firebase';
+import Nav from '../Nav/Nav';
 
 class UpdateDeviceForm extends Component{
     constructor(props){
@@ -131,143 +132,184 @@ class UpdateDeviceForm extends Component{
 
     render(){
         return(
-            <div className="container">
-                <h1>Dispositivos {this.state._id}</h1>
-                <div className="row">
-                    <div className="col-sm-12 col-md-5 bg-dark container">
-                    <form onSubmit={this.onFormSubmit}>
-                        <h3 className="text-white">Datos del conductor</h3>
-                        <div className="form-group">
-                            <label className="text-white" htmlFor="conductorName">Nombre:</label>
-                            <input type="text" className="form-control" name="conductorName" id="conductorName" value={this.state.conductorName} onChange={this.onInputCheck} size="30"/>
+            <div>
+                <Nav/>
+                <div className="bodyUpdateDev container-fluid">
+                    <div className="card">
+                        <div className="card-header bg-dark text-white">
+                            <h3>Actualizacion de la concesión</h3>
                         </div>
+                        <div className="card-body">
+                            <form onSubmit={this.onFormSubmit}>
+                            <div className="row">
+                                <div className="col-sm-12 bg-dark text-white">
+                                    <h5>Datos de la concesión</h5>
+                                </div>
+                                
+                                <div className="col-sm-12 col-md-4 text-left">
+                                    <br/><br/>
+                                    <div className="form-group">
+                                        <label htmlFor="concesion">Concesion</label>
+                                        <input type="text" className="form-control" name="concesion" id="concesion" value={this.state.concesion} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="marcaVehicle" >Marca</label>
+                                        <input type="text" className="form-control" name="marcaVehicle" id="marcaVehicle" value={this.state.marcaVehicle} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="modeloVehicle" >Modelo</label>
+                                        <input type="text" className="form-control" name="modeloVehicle" id="modeloVehicle" value={this.state.modeloVehicle} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="anioVehicle" >Modelo</label>
+                                        <input type="text" className="form-control" name="anioVehicle" id="anioVehicle" value={this.state.anioVehicle} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="placaVehicle" >Placas</label>
+                                        <input type="text" className="form-control" name="placaVehicle" id="placaVehicle" value={this.state.placaVehicle} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                </div>
+                                
+                                <div className="col-sm-12 col-md-8">
+                                <br/><br/>
+                                    <div className="row">
+                                        <div className="col-md-6">
+                                            <div className="form-group">
+                                                <img src={this.state.image_url_fvehicle} width="200px" alt=""/>
+                                                <br/><br/>
+                                                <label className="btn btn-warning">
+                                                Agregar foto delantera
+                                                    <FileUploader
+                                                        hidden
+                                                        accept="image/*"
+                                                        randomizeFilename
+                                                        storageRef={Firebase.storage().ref('images')}
+                                                        onUploadError={error => console.log(error)}
+                                                        onUploadSuccess={this.handleUploadSuccessFv}
+                                                    />
+                                                </label>
+                                            </div>
 
-                        <div className="form-group">
-                            <label className="text-white" htmlFor="conductorLastname">Apellidos:</label>
-                            <input type="text" className="form-control" name="conductorLastname" id="conductorLastname" value={this.state.conductorLastname} onChange={this.onInputCheck} size="30"/>
+                                            <div className="form-group">
+                                                <img src={this.state.image_url_bvehicle} width="200px" alt=""/>
+                                                <br/><br/>
+                                                <label className="btn btn-warning">
+                                                Agregar foto trasera
+                                                    <FileUploader
+                                                        hidden
+                                                        accept="image/*"
+                                                        randomizeFilename
+                                                        storageRef={Firebase.storage().ref('images')}
+                                                        onUploadError={error => console.log(error)}
+                                                        onUploadSuccess={this.handleUploadSuccessBv}
+                                                    />
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-md-6">
+                                            <div className="form-group">
+                                                <img src={this.state.image_url_lvehicle} width="200px" alt=""/>
+                                                <br/><br/>
+                                                <label className="btn btn-warning">
+                                                Agregar foto lateral izquierda
+                                                    <FileUploader
+                                                        hidden
+                                                        accept="image/*"
+                                                        randomizeFilename
+                                                        storageRef={Firebase.storage().ref('images')}
+                                                        onUploadError={error => console.log(error)}
+                                                        onUploadSuccess={this.handleUploadSuccessLv}
+                                                    />
+                                                </label>
+                                            </div>
+                                            <div className="form-group">
+                                                <img src={this.state.image_url_rvehicle} width="200px" alt=""/>
+                                                <br/><br/>
+                                                <label className="btn btn-warning">
+                                                Agregar foto lateral derecha
+                                                    <FileUploader
+                                                        hidden
+                                                        accept="image/*"
+                                                        randomizeFilename
+                                                        storageRef={Firebase.storage().ref('images')}
+                                                        onUploadError={error => console.log(error)}
+                                                        onUploadSuccess={this.handleUploadSuccessRv}
+                                                    />
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                </div>
+
+                                <div className="col-sm-12 bg-dark text-white">
+                                    <h5>Datos del conductor</h5>
+                                </div>
+
+                                <div className="col-sm-12 col-md-6 text-left">
+                                    <br/>
+                                    <div className="form-group">
+                                        <label className="" htmlFor="conductorName">Nombre:</label>
+                                        <input type="text" className="form-control" name="conductorName" id="conductorName" value={this.state.conductorName} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label className="" htmlFor="conductorLastname">Apellidos:</label>
+                                        <input type="text" className="form-control" name="conductorLastname" id="conductorLastname" value={this.state.conductorLastname} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    
+                                    <div className="form-group">      
+                                        <label className="left" htmlFor="conductorAddress">Domicilio:</label>    
+                                        <input type="text" className="form-control" name="conductorAddress" id="conductorAddress" value={this.state.conductorAddress} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    
+                                    <div className="form-group">      
+                                        <label className="" htmlFor="conductorDistrict">Colonia: </label>    
+                                        <input type="text" className="form-control" name="conductorDistrict" id="conductorDistrict" value={this.state.conductorDistrict} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    
+                                    <div className="form-group">      
+                                        <label className="" htmlFor="conductorNumExt">Num. Ext:</label>    
+                                        <input type="text" className="form-control" name="conductorNumExt" id="conductorNumExt" value={this.state.conductorNumExt} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    
+                                    <div className="form-group">      
+                                        <label className=" col-md-4" htmlFor="conductorNumInt">Num. Int:</label>    
+                                        <input type="text" className="form-control" name="conductorNumInt" id="conductorNumInt" value={this.state.conductorNumInt} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    <div className="form-group">      
+                                        <label className=" col-md-5" htmlFor="conductorTel">Telefono de contacto:</label>    
+                                        <input type="text" className="form-control" name="conductorTel" id="conductorTel" value={this.state.conductorTel} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    <br/>
+                                    
+                                    <div className="form-group">
+                                        <button type="submit" className="btn btn-success btn-lg btn-block login-button">Guardar</button>
+                                    </div>
+                                
+                                </div>
+                                <div className="col-sm-12 col-md-6">
+                                <br/><br/>
+                                    <div className="form-group">
+                                        <img src={this.state.image_url_conductor} alt="" width="200px"/>
+                                        <br/><br/>
+                                        <label className="btn btn-warning">
+                                        Agregar foto del conductor
+                                            <FileUploader
+                                                hidden
+                                                accept="image/*"
+                                                randomizeFilename
+                                                storageRef={Firebase.storage().ref('images')}
+                                                onUploadError={error => console.log(error)}
+                                                onUploadSuccess={this.handleUploadSuccess}
+                                            />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
                         </div>
-                        
-                        <div className="form-group">      
-                            <label className="text-white col-md-4 left" htmlFor="conductorAddress">Domicilio:</label>    
-                            <input type="text" className="form-control" name="conductorAddress" id="conductorAddress" value={this.state.conductorAddress} onChange={this.onInputCheck} size="30
-                            "/>
-                        </div>
-                        
-                        <div className="form-group">      
-                            <label className="text-white col-md-4" htmlFor="conductorDistrict">Colonia: </label>    
-                            <input type="text" className="form-control" name="conductorDistrict" id="conductorDistrict" value={this.state.conductorDistrict} onChange={this.onInputCheck} size="30"/>
-                        </div>
-                        
-                        <div className="form-group">      
-                            <label className="text-white col-md-4" htmlFor="conductorNumExt">Num. Ext:</label>    
-                            <input type="text" className="form-control" name="conductorNumExt" id="conductorNumExt" value={this.state.conductorNumExt} onChange={this.onInputCheck} size="30"/>
-                        </div>
-                        
-                        <div className="form-group">      
-                            <label className="text-white col-md-4" htmlFor="conductorNumInt">Num. Int:</label>    
-                            <input type="text" className="form-control" name="conductorNumInt" id="conductorNumInt" value={this.state.conductorNumInt} onChange={this.onInputCheck} size="30"/>
-                        </div>
-                        <div className="form-group">      
-                            <label className="text-white col-md-5" htmlFor="conductorTel">Telefono de contacto:</label>    
-                            <input type="text" className="form-control" name="conductorTel" id="conductorTel" value={this.state.conductorTel} onChange={this.onInputCheck} size="30"/>
-                        </div>
-                        <div className="form-group">
-                            <label className="btn btn-primary">
-                            Agregar foto del conductor
-                                <FileUploader
-                                    hidden
-                                    accept="image/*"
-                                    randomizeFilename
-                                    storageRef={Firebase.storage().ref('images')}
-                                    onUploadError={error => console.log(error)}
-                                    onUploadSuccess={this.handleUploadSuccess}
-                                />
-                            </label>
-                        </div>
-                        <hr/>
-                        <h3 className="text-white">Datos de la concesion</h3>
-                        <div className="form-group">
-                            <label htmlFor="concesion" className="text-white col-md-3">Concesion</label>
-                            <input type="text" className="form-control" name="concesion" id="concesion" value={this.state.concesion} onChange={this.onInputCheck} size="30"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="marcaVehicle" className="text-white col-md-3">Marca</label>
-                            <input type="text" className="form-control" name="marcaVehicle" id="marcaVehicle" value={this.state.marcaVehicle} onChange={this.onInputCheck} size="30"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="modeloVehicle" className="text-white col-md-3">Modelo</label>
-                            <input type="text" className="form-control" name="modeloVehicle" id="modeloVehicle" value={this.state.modeloVehicle} onChange={this.onInputCheck} size="30"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="anioVehicle" className="text-white col-md-3">Modelo</label>
-                            <input type="text" className="form-control" name="anioVehicle" id="anioVehicle" value={this.state.anioVehicle} onChange={this.onInputCheck} size="30"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="placaVehicle" className="text-white col-md-3">Placas</label>
-                            <input type="text" className="form-control" name="placaVehicle" id="placaVehicle" value={this.state.placaVehicle} onChange={this.onInputCheck} size="30"/>
-                        </div>
-                        <div className="form-group">
-                            <label className="btn btn-primary">
-                            Agregar foto delantera
-                                <FileUploader
-                                    hidden
-                                    accept="image/*"
-                                    randomizeFilename
-                                    storageRef={Firebase.storage().ref('images')}
-                                    onUploadError={error => console.log(error)}
-                                    onUploadSuccess={this.handleUploadSuccessFv}
-                                />
-                            </label>
-                        </div>
-                        <div className="form-group">
-                            <label className="btn btn-primary">
-                            Agregar foto lateral izquierda
-                                <FileUploader
-                                    hidden
-                                    accept="image/*"
-                                    randomizeFilename
-                                    storageRef={Firebase.storage().ref('images')}
-                                    onUploadError={error => console.log(error)}
-                                    onUploadSuccess={this.handleUploadSuccessLv}
-                                />
-                            </label>
-                        </div>
-                        <div className="form-group">
-                            <label className="btn btn-primary">
-                            Agregar foto lateral derecha
-                                <FileUploader
-                                    hidden
-                                    accept="image/*"
-                                    randomizeFilename
-                                    storageRef={Firebase.storage().ref('images')}
-                                    onUploadError={error => console.log(error)}
-                                    onUploadSuccess={this.handleUploadSuccessRv}
-                                />
-                            </label>
-                        </div>
-                        <div className="form-group">
-                            <label className="btn btn-primary">
-                            Agregar foto trasera
-                                <FileUploader
-                                    hidden
-                                    accept="image/*"
-                                    randomizeFilename
-                                    storageRef={Firebase.storage().ref('images')}
-                                    onUploadError={error => console.log(error)}
-                                    onUploadSuccess={this.handleUploadSuccessBv}
-                                />
-                            </label>
-                        </div>
-                        <br/>
-                        <div className="form-group">
-							<button type="submit" className="btn btn-primary btn-lg btn-block login-button">Guardar</button>
-						</div>
-                    </form>
-                    <br/>
-                    </div>
-                    <br/>
-                    <div className="col-sm-12 col-md-6">
-                        <img src="/img/retro3.jpg" alt=""/>
                     </div>
                 </div>
             </div>
