@@ -21,6 +21,7 @@ import Records from './components/Records/Records';
 import ReportTax from './components/ReportTax/ReportTax';
 import Reports from './components/Reports/Reports';
 import Report from './components/Report/Report.js';
+import FormCollaborator from './components/formCollaborator/FormCollaborator';
 
 
 class Routes extends Component{
@@ -55,6 +56,7 @@ class Routes extends Component{
                     <PrivateRoute exact path='/reportTax/:id' component={ReportTax}/>
                     <PrivateRoute exact path='/reports' component={Reports}/>
                     <PrivateRoute exact path='/report/:id' component={Report}/>
+                    <PrivateRoute exact path='/addColaborador/:id' component={FormCollaborator}/>
 
 
                 </main>

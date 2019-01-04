@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './style.css';
 import me from '../../services/me';
 import CardDevice from '../CardDevice/CardDevice';
+import BtnCollaborator from '../BtnCollaborator/BtnCollaborator';
 import Nav from '../Nav/Nav';
 
 class Profile extends Component{
@@ -28,6 +29,9 @@ class Profile extends Component{
         this.props.history.push(`/device/${id}`)
     }
 
+    redirect3 = (id) => {
+        this.props.history.push(`/addColaborador/${id}`)
+    }
     renderDevices = () => {
         if(this.state.user !== ""){
             let devices = this.state.user.devices.map((device,index) => {
@@ -36,6 +40,21 @@ class Profile extends Component{
                 )
             })
             return devices
+        }else{
+            return(
+                <div></div>
+            )
+        }
+    }
+
+    renderCollaborators = () => {
+        if(this.state.user !== ""){
+            let colaborador = this.state.user.collaborators.map((collaborator,index) =>{
+                return (
+                    <BtnCollaborator colaborador={collaborator} key={index}/>
+                )
+            })
+            return colaborador
         }else{
             return(
                 <div></div>
@@ -81,11 +100,16 @@ class Profile extends Component{
                         <br/>
                         <hr/>
                     </div>
+
                     <div className="col-sm-12">
-                    <h6>Colaboradores</h6>
-                    <img src={this.state.user.image_url} alt="img-colaborador" className="imgRedondasm"/>
-                    <hr/>
+                        <h6>Colaboradores</h6>
+                        {this.renderCollaborators()}
+                        
+                        <button className="btn btn-circle ml-2" onClick={() => this.redirect3(this.state.user._id)}><i class="fa fa-user-plus" aria-hidden="true"></i></button>
+                        <hr/>
                     </div>
+
+
                     <div className="row justify-content-center">
                         <div className="col-sm-12">
                             <h3>OPERADORES</h3>

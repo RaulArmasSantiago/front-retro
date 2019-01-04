@@ -30,7 +30,7 @@ class CardDevice extends Component{
     }
 
     render(){
-        console.log(this.state.device)
+        //console.log(this.state.device)
         return(
 
             <tr onClick={() => this.props.redirect(this.state.device._id)}>
@@ -54,7 +54,7 @@ class CardDevice extends Component{
                                 <div className="col-sm-1">
                                     <img src={this.state.device.image_url_conductor} alt="Operador" className="imgRedondacard"/>
                                 </div>
-                                <div className="col-sm-8">
+               td                 <div className="col-sm-8">
                                     <strong>{this.state.device.conductorName} {this.state.device.conductorLastname}</strong><br/>
                                     <cite>{this.state.device.modeloVehicle} {this.state.device.anioVehicle}</cite>
                                 </div>

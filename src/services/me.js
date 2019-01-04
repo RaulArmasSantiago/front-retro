@@ -37,6 +37,12 @@ export default () => {
                         image_url_lvehicle,
                         lastLocation
                         image_url_conductor
+                    },
+                    collaborators{
+                        _id,
+                        name,
+                        lastname,
+                        image_url
                     }
                 }
             }
