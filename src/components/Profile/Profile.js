@@ -15,6 +15,7 @@ class Profile extends Component{
             allDevices:[],
             active:"false",
             typeBtn:"",
+            img:"../../img/preload.png"
         }
     }
 
@@ -22,7 +23,6 @@ class Profile extends Component{
         me().then((user) => {
             console.log(user)
             this.setState({user:user.data.data.me})
-            
             console.log(this.state)
         })
 

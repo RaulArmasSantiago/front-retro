@@ -2,8 +2,6 @@ import React,{ Component } from 'react';
 import './style.css'
 import Nav from '../Nav/Nav';
 import singleMail from '../../services/singleUserMail';
-import allUsers from '../../services/allUsers';
-import image from 'react-firebase-file-uploader/lib/utils/image';
 import addCollaborator from '../../services/addColaborator';
 
 class FormCollaborator extends Component {

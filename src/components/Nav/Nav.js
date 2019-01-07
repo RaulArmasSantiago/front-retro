@@ -23,7 +23,7 @@ class Nav extends Component{
                             <Link className="nav-link" to="/reports">Malos Taxistas</Link>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                            <a href="#" className="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
                                 Servicios
                             </a>
                             <div className="dropdown-menu">
@@ -31,7 +31,7 @@ class Nav extends Component{
                                 
                                 <Link className="dropdown-item" to="/users">Usuarios</Link>
                                 <Link className="dropdown-item" to="/devices">Taxis</Link>
-                                <a className="dropdown-item">Reportes</a>
+                                <a href="#" className="dropdown-item">Reportes</a>
                             </div>
                         </li>
 

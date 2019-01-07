@@ -49,6 +49,7 @@ class Login extends Component{
         if(checkToken()){
             const token = localStorage.getItem('token')
             let pl = payload(token);
+            console.log(pl)
             return(
                 this.props.history.push('/profile')
             )
@@ -106,7 +107,7 @@ class Login extends Component{
             <div className="bodyLogin">
                 {this.chargeProfile()}
 
-                <Modal className="modal-main" isOpen={this.state.showModal} contentLabel="Minimal Modal Example" className="Modal">
+                <Modal isOpen={this.state.showModal} contentLabel="Minimal Modal Example" className="Modal">
                 <div className="row">
                     <div className="col-md-12">
                         <center><br/>
