@@ -42,7 +42,16 @@ export default () => {
                         _id,
                         name,
                         lastname,
-                        image_url
+                        email,
+                        telefono,
+                        image_url,
+                        street,
+                        district,
+                        numExt,
+                        numInt,
+                        city,
+                        country,
+                        cc,
                     }
                 }
             }

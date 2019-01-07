@@ -4,6 +4,7 @@ import me from '../../services/me';
 import CardDevice from '../CardDevice/CardDevice';
 import BtnCollaborator from '../BtnCollaborator/BtnCollaborator';
 import Nav from '../Nav/Nav';
+import Modal from 'react-modal';
 
 class Profile extends Component{
     constructor(props){
@@ -84,7 +85,14 @@ class Profile extends Component{
          }
     }
 
-    
+    handleOpenModal = () => {
+        this.setState({ showModal: true });
+    }
+      
+    handleCloseModal = () => {
+        this.setState({ showModal: false });
+    }
+
     render() {
         return(
             
@@ -123,6 +131,36 @@ class Profile extends Component{
                         </div>
                     </div>
                 </div>
+
+                <Modal className="modal-main" isOpen={this.state.showModal} contentLabel="Minimal Modal Example" className="Modal">
+                <div className="row">
+                    <div className="col-md-12">
+                        <center><br/>
+                            <img src={this.state.image_url} alt="retro.png" className="img-fluid"/><br/><br/>
+                            <h3 className="insesion">Iniciando Sesión ...</h3>
+                        </center>
+                    </div>
+                    <div className="col-sm-12">
+                    <center>
+                        <div class="lds-spinner">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </center>
+                    </div>
+                </div>
+                
+                </Modal>
             </div>
         )
     }
