@@ -15,18 +15,19 @@ class BtnCollaborator extends Component{
             this.setState(
                 {
                     typeText:"text-longest",
-                    typeImg:"img-longest"
+                    typeImg:"img-longest mr-2"
                 }
             )
         }else{
             this.setState(
                 {
                     typeText:"text-medium",
-                    typeImg:"img-medium"
+                    typeImg:"img-medium mr-2"
                 }
             )
         }
     }
+    
     handleOpenModal = () => {
         this.setState({ showModal: true });
     }
@@ -38,7 +39,7 @@ class BtnCollaborator extends Component{
     render(){
         return(
             <React.Fragment>
-                <img src={this.state.colaborador.image_url} className="imgRedondasm mr-2" alt={this.state.colaborador.name} onClick={this.handleOpenModal}/>
+                <img src={this.state.colaborador.image_url} className={this.state.typeImg} alt={this.state.colaborador.name} onClick={this.handleOpenModal}/>
                 <Modal isOpen={this.state.showModal} contentLabel="Minimal Modal Example" className="modalColaborador">
                     
                     <div className="row justify-content-center">

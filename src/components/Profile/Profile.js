@@ -13,7 +13,8 @@ class Profile extends Component{
             _id:"", 
             user:"",
             allDevices:[],
-            active:"false"
+            active:"false",
+            typeBtn:"",
         }
     }
 
@@ -24,6 +25,20 @@ class Profile extends Component{
             
             console.log(this.state)
         })
+
+        if(window.screen.availWidth <= 500){
+            this.setState(
+                {
+                    typeBtn:"btn btn-circleSmall",
+                }
+            )
+        }else{
+            this.setState(
+                {
+                    typeBtn:"btn btn-circleMed",
+                }
+            )
+        }
     }
 
     redirect2 = (id) => {
@@ -113,7 +128,7 @@ class Profile extends Component{
                         <h6>Colaboradores</h6>
                         {this.renderCollaborators()}
                         
-                        <button className="btn btn-circle ml-2" onClick={() => this.redirect3(this.state.user._id)}><i class="fa fa-user-plus" aria-hidden="true"></i></button>
+                        <button className={this.state.typeBtn} onClick={() => this.redirect3(this.state.user._id)}><i class="fa fa-user-plus" aria-hidden="true"></i></button>
                         <hr/>
                     </div>
 

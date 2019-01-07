@@ -42,10 +42,6 @@ cite{
     font-size: 18px;
 }
 
-td{
-    align:center;
-}
-
 #contenido {
     overflow: hidden;
     white-space:nowrap;
