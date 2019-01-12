@@ -34,7 +34,7 @@ class Report extends Component{
             <div className="bodyReport">
                 <Nav/>
                 <br/>
-                <div className="row justify-content-center container">
+                <div className="row reportBody justify-content-center container">
                     <div className="col-sm-12 col-md-6">
                         <img src={this.state.reporte.img_url} alt="" width="300"/>
                         <h3></h3>

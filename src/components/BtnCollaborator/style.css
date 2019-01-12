@@ -4,8 +4,10 @@
     left: 10%;
     right: 10%;
     bottom: 10%;
+    
     background-color: #cca;
     border-radius: 50,50,50,50;
+    overflow: scroll;
   }
 
   .img-longest {

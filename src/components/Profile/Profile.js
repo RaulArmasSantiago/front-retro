@@ -5,6 +5,8 @@ import CardDevice from '../CardDevice/CardDevice';
 import BtnCollaborator from '../BtnCollaborator/BtnCollaborator';
 import Nav from '../Nav/Nav';
 import Modal from 'react-modal';
+import taxi from '../../assets/taxi_animado.gif'
+import loading from '../../assets/loading2.gif'
 
 class Profile extends Component{
     constructor(props){
@@ -15,15 +17,22 @@ class Profile extends Component{
             allDevices:[],
             active:"false",
             typeBtn:"",
-            img:"../../img/preload.png"
+            img:"../../img/preload.png",
+            showModal:true
         }
     }
 
     componentDidMount(){
         me().then((user) => {
-            console.log(user)
-            this.setState({user:user.data.data.me})
-            console.log(this.state)
+            //console.log(user)
+            this.setState({
+                user:user.data.data.me
+            })
+
+            if(this.state.user !== ""){
+                setTimeout(() => { this.setState({showModal:false})},1500)
+            }
+            //console.log(this.state)
         })
 
         if(window.screen.availWidth <= 500){
@@ -52,7 +61,7 @@ class Profile extends Component{
         if(this.state.user !== ""){
             let devices = this.state.user.devices.map((device,index) => {
                 return (
-                    <CardDevice device={device} redirect={this.redirect2}/>
+                    <CardDevice device={device} redirect={this.redirect2} key={index}/>
                 )
             })
             return devices
@@ -66,8 +75,9 @@ class Profile extends Component{
     renderCollaborators = () => {
         if(this.state.user !== ""){
             let colaborador = this.state.user.collaborators.map((collaborator,index) =>{
+                //console.log(this.state.user.devices)
                 return (
-                    <BtnCollaborator colaborador={collaborator} key={index}/>
+                    <BtnCollaborator colaborador={collaborator} devices={this.state.user.devices} key={index}/>
                 )
             })
             return colaborador
@@ -79,7 +89,7 @@ class Profile extends Component{
     }
 
     redirect = (_id) => {
-        console.log(this.state)
+        //console.log(this.state)
         this.props.history.push(`/me/update/${_id}`)
     }
 
@@ -147,34 +157,13 @@ class Profile extends Component{
                     </div>
                 </div>
 
-                <Modal className="modal-main" isOpen={this.state.showModal} contentLabel="Minimal Modal Example" className="Modal">
-                <div className="row">
-                    <div className="col-md-12">
-                        <center><br/>
-                            <img src={this.state.image_url} alt="retro.png" className="img-fluid"/><br/><br/>
-                            <h3 className="insesion">Iniciando Sesión ...</h3>
-                        </center>
-                    </div>
-                    <div className="col-sm-12">
+                <Modal className="modal-main" isOpen={this.state.showModal} contentLabel="Minimal Modal Example">
                     <center>
-                        <div class="lds-spinner">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
+                        <img src={taxi} alt="" width="100px" />
+                        <br/> 
+                        <img src={loading} alt="" width="300px"/>
                     </center>
-                    </div>
-                </div>
-                
+
                 </Modal>
             </div>
         )

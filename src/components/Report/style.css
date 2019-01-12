@@ -1,5 +1,9 @@
 .bodyReport{
     background: #fff;
     height: 100vh;
-    padding-top: 50px;
+    
+}
+
+.reportBody{
+    padding-top: 60px;
 }

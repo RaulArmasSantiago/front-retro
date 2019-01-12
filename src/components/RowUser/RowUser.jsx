@@ -5,13 +5,14 @@ class RowUser extends Component{
     constructor(props){
         super(props);
         this.state = {
-            user:props.user,
+            device:props.device,
             typeText:"",
             typeImg:""
         }
     }
 
     componentDidMount(){
+        //console.log(this.props)//
         if(window.screen.availWidth <= 500){
             this.setState(
                 {
@@ -29,18 +30,25 @@ class RowUser extends Component{
         }
     }
 
+    addArray = (e) =>{
+        let value = e.target.value
+        this.props.onCheckBox(value)
+    }
+
     render(){
         return(
             <tr>
-                <td className="alingFoto"><img src={this.state.user.image_url} className={this.state.typeImg}/></td>
                 <td>
                     <div className="contenido">
-                        <p className={this.state.typeText}><b>{this.state.user.name} {this.state.user.lastname}</b></p>
+                        <p className={this.state.typeText}><b>{this.state.device.concesion}-T</b></p>
                     </div>
                 </td>
                 <td>
-                    <div className="contenido">
-                        <p className={this.state.typeText}><b>{this.state.user.email}</b></p>
+                    <div className="form-group">
+                        <input type="checkbox" className="form-control" 
+                        value={this.state.device._id} 
+                        onChange={this.addArray} 
+                        name="arrayDev" id="che"/>
                     </div>
                 </td>
             </tr>

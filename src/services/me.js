@@ -52,6 +52,10 @@ export default () => {
                         city,
                         country,
                         cc,
+                        devices{
+                            _id,
+                            concesion,
+                        }
                     }
                 }
             }
