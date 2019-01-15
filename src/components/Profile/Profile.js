@@ -142,7 +142,6 @@ class Profile extends Component{
                         <hr/>
                     </div>
 
-
                     <div className="row justify-content-center">
                         <div className="col-sm-12">
                             <h3>OPERADORES</h3>

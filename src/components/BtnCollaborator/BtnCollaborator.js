@@ -2,22 +2,24 @@ import React,{Component} from 'react';
 import './style.css';
 import Modal from 'react-modal';
 import RowUser from '../RowUser/RowUser';
+import addDevicesColaborador from '../../services/updateDevColaborador'
 
-let array =""
 
+let array= []
 class BtnCollaborator extends Component{
     constructor(props){
         super(props);
         this.state = {
             colaborador:props.colaborador,
             devices:props.devices,
-            arrayDev:[]
+            arrayDev:''
         }
     }
 
     
 
     componentDidMount(){
+        //console.log(this.state)
         if(window.screen.availWidth <= 500){
             this.setState(
                 {
@@ -45,16 +47,18 @@ class BtnCollaborator extends Component{
     }
 
     addArray =(id) => {
+        //console.log(this.state)
         let indice = array.indexOf(id)
-        console.log(indice,"indice")
+        //console.log(indice,"indice")
         if( indice === -1){
-            array = [array,id]
-            console.log(array)
+            array.push(id)
+            //console.log(array)
+            
             /* console.log("entro al meter")
             this.setState({arrayDev:[...this.state.arrayDev, id]}) */
         }else{
-            array = array.splice(indice,1)
-            console.log(array)
+            array.splice(indice,1)
+            //console.log(array)
             /* console.log("entro al sacar")
            
             this.setState({arrayDev:[this.state.arrayDev.splice(indice+1,1)]}) */
@@ -101,8 +105,19 @@ class BtnCollaborator extends Component{
         e.preventDefault();
         console.log(this.state);
 
-        if(this.state.arrayDev.length > 0){
+        if(array.length > 0){
             alert("Entro al si")
+            array.map((dev,index) =>{
+                addDevicesColaborador(this.state.colaborador._id,dev).then((user) =>{
+                    console.log(user)
+                    return user
+                }).catch((err) =>{
+                    console.log(err);
+                    return err
+                })
+                console.log(dev)
+                console.log(this.state)
+            })
         }else{
             alert("Selecciones por lo menos una concesion")
         }

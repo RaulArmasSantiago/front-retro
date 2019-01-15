@@ -29,7 +29,7 @@ class Routes extends Component{
         
         const PrivateRoute = ({component:Component, ...rest}) => (
             <Route {...rest} render = {(props) => (
-                checkToken() === true ? <Component {...props}/> : <Redirect to="/login"/>
+                checkToken() === true ? <Component {...props}/> : <Redirect to="/"/>
             )}/>
         )
         return(
