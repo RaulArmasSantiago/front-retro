@@ -20,7 +20,7 @@ class Nav extends Component{
                             <Link className="nav-link" to="/profile">{pl.name}</Link>
                         </li>
                         <li>
-                            <Link className="nav-link" to="/reports">Malos Taxistas</Link>
+                            <Link className="nav-link" to="/reports">Historial de Taxistas</Link>
                         </li>
                         <li className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
@@ -47,7 +47,7 @@ class Nav extends Component{
                             <Link className="nav-link" to="/profile">{pl.name}</Link>
                         </li>
                         <li>
-                            <Link className="nav-link" to="/reports">Malos Taxistas</Link>
+                            <Link className="nav-link" to="/reports">Historial de Taxistas</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/logout">Cerrar sesión</Link>

@@ -3,6 +3,7 @@ import singleDriver from '../../services/singleDevice';
 import Nav from '../Nav/Nav'
 import './style.css'
 import addReport from '../../services/addReport';
+import me from '../../services/me';
 
 class Report extends Component{
     constructor(props){
@@ -14,11 +15,18 @@ class Report extends Component{
             lastname:"",
             description:"",
             concesion:"",
-            img_url:""
+            img_url:"",
+            me:""
         }
     }
 
     componentDidMount(){
+        me().then((user) => {
+            //console.log(user)
+            this.setState({
+                me:user.data.data.me
+            })
+        })
         singleDriver(this.state.id).then((driver) => {
             this.setState({driver:driver.data.data.singleDevice})
             console.log(this.state)
@@ -31,6 +39,7 @@ class Report extends Component{
                 }
             )
         })
+        console.log(this.state)
     }
 
     onInputCheck = (e) => {

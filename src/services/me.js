@@ -53,8 +53,11 @@ export default () => {
                         country,
                         cc,
                         devices{
+                            _id
+                        },
+                        reporters{
                             _id,
-                            concesion,
+                            reporter
                         }
                     }
                 }

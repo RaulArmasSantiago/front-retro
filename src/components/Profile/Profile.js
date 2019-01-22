@@ -24,15 +24,23 @@ class Profile extends Component{
 
     componentDidMount(){
         me().then((user) => {
-            //console.log(user)
-            this.setState({
-                user:user.data.data.me
-            })
-
-            if(this.state.user !== ""){
-                setTimeout(() => { this.setState({showModal:false})},1500)
+            if(user !== null){
+                this.setState({
+                    user:user.data.data.me
+                })
+    
+                if(this.state.user !== ""){
+                    setTimeout(() => { this.setState({showModal:false})},1500)
+                }
+                console.log(this.state)
+            }else{
+                localStorage.removeItem('token')
+                this.props.history.push('/')
             }
-            //console.log(this.state)
+            
+        }).catch((err) =>{
+            localStorage.removeItem('token')
+            this.props.history.push('/')
         })
 
         if(window.screen.availWidth <= 500){
@@ -116,6 +124,7 @@ class Profile extends Component{
       
     handleCloseModal = () => {
         this.setState({ showModal: false });
+        console.log(this.state)
     }
 
     render() {
@@ -130,6 +139,7 @@ class Profile extends Component{
                         Concesionario
                         <br/>
                         <button className="btn bg-retroyellow btn-sm" onClick={() => this.redirect(this.state.user._id)} active={this.state.active}>Editar Perfil</button>
+                        <button className="btn bg-retroyellow btn-sm ml-2" onClick={() => this.redirect(this.state.user._id)} active={this.state.active}>Mis reportes</button>
                         <br/>
                         <hr/>
                     </div>

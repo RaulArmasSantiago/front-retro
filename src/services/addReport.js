@@ -15,7 +15,8 @@ export default (data) => {
                   lastname:"${data.lastname}",
                   img_url:"${data.img_url}"
                   description:"${data.description}",
-                  reporter:"${data.concesion}"
+                  reporter:"${data.concesion}",
+                  user_reporter:"${data.me._id}"
                 }){
                   _id,
                   name

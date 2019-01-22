@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './style.css';
 import singleReports from '../../services/singleReport';
 
+
 import Nav from '../Nav/Nav';
 
 

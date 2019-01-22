@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import './style.css';
 import Modal from 'react-modal';
-import RowUser from '../RowUser/RowUser';
+import RowConcesion from '../RowConcesion/RowConcesion';
+import RowConcesionColaborador from '../RowConcesionColaborador/RowConcesionColaborador';
 import addDevicesColaborador from '../../services/updateDevColaborador'
 
 
@@ -19,7 +20,7 @@ class BtnCollaborator extends Component{
     
 
     componentDidMount(){
-        //console.log(this.state)
+        //console.log(this.state.colaborador.devices)
         if(window.screen.availWidth <= 500){
             this.setState(
                 {
@@ -73,7 +74,7 @@ class BtnCollaborator extends Component{
         if(this.state.colaborador.devices.length !== 0){
             let devices = this.state.colaborador.devices.map((device,index) => {
                 return (
-                    <RowUser device={device} />
+                    <RowConcesionColaborador device={device} />
                 )
             })
             return devices
@@ -90,7 +91,7 @@ class BtnCollaborator extends Component{
         if(this.state.devices !== ""){
             let devices = this.state.devices.map((device,index) => {
                 return (
-                    <RowUser device={device} onCheckBox={this.addArray} key={index}/>
+                    <RowConcesion device={device} onCheckBox={this.addArray} key={index}/>
                 )
             })
             return devices
@@ -106,11 +107,11 @@ class BtnCollaborator extends Component{
         console.log(this.state);
 
         if(array.length > 0){
-            alert("Entro al si")
+            //alert("Entro al si")
             array.map((dev,index) =>{
                 addDevicesColaborador(this.state.colaborador._id,dev).then((user) =>{
                     console.log(user)
-                    return user
+                    window.location.reload()
                 }).catch((err) =>{
                     console.log(err);
                     return err
