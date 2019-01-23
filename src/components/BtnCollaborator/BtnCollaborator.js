@@ -133,7 +133,7 @@ class BtnCollaborator extends Component{
                         <button className="btn btn-danger" onClick={this.handleCloseModal}>x</button>
                     </div>
                     
-                    <div className="row container justify-content-center">
+                    <div className="row justify-content-center">
                     
                         <div className="col-md-12">
                             <center><br/>
@@ -193,6 +193,7 @@ class BtnCollaborator extends Component{
                                             <thead>
                                                 <tr>
                                                     <th className="text-center">Concesión</th>
+                                                    <th className="text-center">Operador</th>
                                                     
                                                 </tr>
                                             </thead>

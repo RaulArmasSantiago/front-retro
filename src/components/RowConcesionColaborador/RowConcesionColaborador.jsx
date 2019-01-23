@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-
+import singleDevice from '../../services/singleDevice'
 
 class RowUser extends Component{
     constructor(props){
         super(props);
         this.state = {
             device:props.device,
+            dispositivo:"",
             typeText:"",
             typeImg:""
         }
     }
 
     componentDidMount(){
-        console.log(this.props)
+        console.log(this.state)
+        singleDevice(this.state.device._id).then((dev) =>{
+            this.setState({
+                dispositivo:dev.data.data.singleDevice
+            })
+        })
+        console.log(this.state)
         if(window.screen.availWidth <= 500){
             this.setState(
                 {
@@ -36,15 +43,20 @@ class RowUser extends Component{
     }
 
     render(){
+        console.log(this.state)
         return(
             <tr>
                 <td>
                     <div className="contenido">
-                        <p className={this.state.typeText}><b>{this.state.device.concesion}-T</b></p>
+                    <center>
+                        <p className={this.state.typeText}><b>{this.state.dispositivo.concesion}-T</b></p>
+                    </center>
                     </div>
                 </td>
                 <td>
-                    <img src={this.state.device.image_conductor} alt=""/>
+                    <center>
+                        <img src={this.state.dispositivo.image_url_conductor} alt="" width="50px"/>
+                    </center>
                 </td>
             </tr>
         )
