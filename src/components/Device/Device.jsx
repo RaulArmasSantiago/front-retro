@@ -3,7 +3,8 @@ import './style.css';
 import singleDevice from '../../services/singleDevice';
 import Map from '../Map/Map';
 import Nav from '../Nav/Nav';
-
+import Modal from 'react-modal';
+import TaxiConectado from '../../assets/taxi-conectado.png';
 
 
 class Device extends Component{
@@ -13,7 +14,8 @@ class Device extends Component{
         this.state = {
             id:props.match.params.id,
             device:"",
-            velocidad:[]
+            velocidad:[],
+            showModal:true
         }
     }
 
@@ -22,6 +24,9 @@ class Device extends Component{
             //console.log(device.data.data.singleDevice)
             this.setState({device:device.data.data.singleDevice})
             console.log(this.state)
+            if(this.state.device !== ""){
+                setTimeout(() => { this.setState({showModal:false})},1500)
+            }
         }) 
     }
 
@@ -239,6 +244,37 @@ class Device extends Component{
                     </div>
                 </div>
 
+                <Modal className="modal-device" isOpen={this.state.showModal} contentLabel="Minimal Modal Example">
+                    <div className="row">
+                    <div className="col-md-12">
+                        <center><br/>
+                            <img src={TaxiConectado} alt="retro.png" className="img-fluid"/><br/><br/>
+                            <br/>
+                            <br/>
+                            <h3 className="insesion">Cargando...</h3>
+                        </center>
+                    </div>
+                    <div className="col-sm-12">
+                        <center>
+                            <div class="lds-spinner">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </center>
+                    </div>
+                    </div>
+
+                </Modal>
             </div>
         )
     }

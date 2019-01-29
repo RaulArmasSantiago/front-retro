@@ -5,6 +5,8 @@ import singleUser from '../../services/singleUser';
 import FileUploader from 'react-firebase-file-uploader';
 import Firebase from '../../Firebase';
 import Nav from '../Nav/Nav';
+import Modal from 'react-modal';
+import TaxiConectado from '../../assets/taxi-conectado.png';
 
 
 class FormMe extends Component{
@@ -24,6 +26,7 @@ class FormMe extends Component{
             country:"",
             cc:"",
             tel:"",
+            showModal:true 
         }
     }
 
@@ -46,7 +49,9 @@ class FormMe extends Component{
                 tel:this.state.user.telefono,
                 image_url:this.state.user.image_url
             })
-            console.log(this.state)
+            if(this.state.user !== ""){
+                setTimeout(() => { this.setState({showModal:false})},1500)
+            }
             
         })
     }
@@ -167,6 +172,39 @@ class FormMe extends Component{
                     <br/>
                     </div>
                 </div>
+
+                <Modal className="modal-main" isOpen={this.state.showModal} contentLabel="Minimal Modal Example">
+                    <div className="row">
+                    <div className="col-md-12">
+                        <center><br/>
+                            <img src={TaxiConectado} alt="retro.png" className="img-fluid"/><br/><br/>
+                            <br/>
+                            <br/>
+                            <h3 className="insesion">Cargando...</h3>
+                        </center>
+                    </div>
+                    <div className="col-sm-12">
+                        <center>
+                            <div class="lds-spinner">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </center>
+                    </div>
+                    </div>
+
+                </Modal>
+                
             </div>
         )    
     }

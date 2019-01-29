@@ -19,9 +19,10 @@ import UpdateMe from './components/FormMe/FormMe';
 import Records from './components/Records/Records';
 import ReportTax from './components/ReportTax/ReportTax';
 import Reports from './components/Reports/Reports';
-import Report from './components/Report/Report.js';
+import Report from './components/Report/Report';
 import FormCollaborator from './components/formCollaborator/FormCollaborator';
-
+import misReportes from './components/MisReportes/MisReportes';
+import editReport from './components/editReport/editReport'
 
 class Routes extends Component{
     
@@ -55,7 +56,8 @@ class Routes extends Component{
                     <PrivateRoute exact path='/reports' component={Reports}/>
                     <PrivateRoute exact path='/report/:id' component={Report}/>
                     <PrivateRoute exact path='/addColaborador/:id' component={FormCollaborator}/>
-
+                    <PrivateRoute exact path='/misReportes' component={misReportes}/>
+                    <PrivateRoute exact path='/editReport/:id' component={editReport}/>
 
                 </main>
             </Router>

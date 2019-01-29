@@ -57,3 +57,14 @@
      font-size: 1.5em;
  }
 
+ .modal-device{
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    right: 25%;
+    bottom: 5%;
+    
+    background-color: #1a191bff;
+    border-radius: 40px;
+
+}

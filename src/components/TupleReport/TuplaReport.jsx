@@ -16,7 +16,8 @@ class TuplaReport extends Component{
             <tr onClick={()=> this.props.redirect(this.state.reporte._id)}>
                 
                 <td>{this.state.reporte.reporter}-T</td>
-                <td>{this.state.reporte.name} {this.state.reporte.lastname}</td>
+                <td> <img src={this.state.reporte.img_url} alt="" width="50px"/><br/>
+                {this.state.reporte.name} {this.state.reporte.lastname}</td>
                 
             </tr>
         )

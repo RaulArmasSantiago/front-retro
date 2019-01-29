@@ -5,6 +5,7 @@ import CardDevice from '../CardDevice/CardDevice';
 import BtnCollaborator from '../BtnCollaborator/BtnCollaborator';
 import Nav from '../Nav/Nav';
 import Modal from 'react-modal';
+import TaxiConectado from '../../assets/taxi-conectado.png';
 import taxi from '../../assets/taxi_animado.gif'
 import loading from '../../assets/loading2.gif'
 
@@ -139,7 +140,7 @@ class Profile extends Component{
                         Concesionario
                         <br/>
                         <button className="btn bg-retroyellow btn-sm" onClick={() => this.redirect(this.state.user._id)} active={this.state.active}>Editar Perfil</button>
-                        <button className="btn bg-retroyellow btn-sm ml-2" onClick={() => this.redirect(this.state.user._id)} active={this.state.active}>Mis reportes</button>
+                        <button className="btn bg-retroyellow btn-sm ml-2" onClick={() => this.props.history.push('/misReportes')} active={this.state.active}>Mis reportes</button>
                         <br/>
                         <hr/>
                     </div>
@@ -167,11 +168,34 @@ class Profile extends Component{
                 </div>
 
                 <Modal className="modal-main" isOpen={this.state.showModal} contentLabel="Minimal Modal Example">
-                    <center>
-                        <img src={taxi} alt="" width="100px" />
-                        <br/> 
-                        <img src={loading} alt="" width="300px"/>
-                    </center>
+                    <div className="row">
+                    <div className="col-md-12">
+                        <center><br/>
+                            <img src={TaxiConectado} alt="retro.png" className="img-fluid"/><br/><br/>
+                            <br/>
+                            <br/>
+                            <h3 className="insesion">Cargando...</h3>
+                        </center>
+                    </div>
+                    <div className="col-sm-12">
+                        <center>
+                            <div class="lds-spinner">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </center>
+                    </div>
+                    </div>
 
                 </Modal>
             </div>

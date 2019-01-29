@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './style.css';
 import records from '../../services/records';
 import Nav from '../Nav/Nav';
+import Modal from 'react-modal';
+import TaxiConectado from '../../assets/taxi-conectado.png';
+
 
 class Records extends Component{
     constructor(props){
@@ -9,13 +12,17 @@ class Records extends Component{
         this.state = {
             id:props.match.params.id,
             device:"",
-            velocidad:[]
+            velocidad:[],
+            showModal:true
         }
     }
 
     componentDidMount(){
         records(this.state.id).then((device) => {
             this.setState({device:device.data.data.singleDevice})
+            if(this.state.device !== ""){
+                setTimeout(() => { this.setState({showModal:false})},1500)
+            }
         })
     }
 
@@ -100,6 +107,38 @@ class Records extends Component{
                         </center>
                 </div>
             </div>
+
+                <Modal className="modal-main" isOpen={this.state.showModal} contentLabel="Minimal Modal Example">
+                    <div className="row">
+                    <div className="col-md-12">
+                        <center><br/>
+                            <img src={TaxiConectado} alt="retro.png" className="img-fluid"/><br/><br/>
+                            <br/>
+                            <br/>
+                            <h3 className="insesion">Cargando...</h3>
+                        </center>
+                    </div>
+                    <div className="col-sm-12">
+                        <center>
+                            <div class="lds-spinner">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </center>
+                    </div>
+                    </div>
+
+                </Modal>
             </div>
         )
     }

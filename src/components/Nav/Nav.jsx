@@ -83,11 +83,13 @@ class Nav extends Component{
                 <form className="form-inline my-2 my-lg-0">
                     <div className="input-group md-form form-sm form-2 pl-0">
                         <input className="form-control my-0 py-1 lime-border" type="text" placeholder="Search" aria-label="Search"/>
+                        
                         <div className="input-group-append">
                             <span className="input-group-text lime lighten-2" id="basic-text1">
                                 <i className="fa fa-search text-grey" aria-hidden="true"></i>
                             </span>
                         </div>
+                        
                     </div>
                 </form>  
             </nav>
