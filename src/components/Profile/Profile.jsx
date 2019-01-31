@@ -23,6 +23,8 @@ class Profile extends Component{
         }
     }
 
+    
+
     componentDidMount(){
         me().then((user) => {
             if(user !== null){

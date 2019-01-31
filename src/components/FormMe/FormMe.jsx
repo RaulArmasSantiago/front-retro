@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import './style.css';
 import updateMe from '../../services/updateMe';
 import singleUser from '../../services/singleUser';
-import FileUploader from 'react-firebase-file-uploader';
+import FileUploader from 'react-fire  base-file-uploader';
 import Firebase from '../../Firebase';
 import Nav from '../Nav/Nav';
 import Modal from 'react-modal';
 import TaxiConectado from '../../assets/taxi-conectado.png';
+import ReactCrop from 'react-image-crop'
+import 'react-image-crop/dist/ReactCrop.css'
 
 
 class FormMe extends Component{
@@ -26,7 +28,15 @@ class FormMe extends Component{
             country:"",
             cc:"",
             tel:"",
-            showModal:true 
+            showModal:true, 
+            showModal2:false, 
+
+            src:"",
+            crop:{
+                x:0,
+                y:0,
+                aspect:1,
+            }
         }
     }
 
@@ -87,7 +97,91 @@ class FormMe extends Component{
    }
 
 
+
+   onSelectFile = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      const reader = new FileReader();
+      let image = reader.result
+      
+      reader.addEventListener('load', () => {
+        
+        this.setState({ 
+            src: reader.result,
+            showModal2:true
+         });
+      });
+      reader.readAsDataURL(e.target.files[0]);
+    }
+  }
+
+  onImageLoaded = (image, pixelCrop) => {
+    this.imageRef = image;
+    this.makeClientCrop(this.state.crop, pixelCrop);
+  }
+
+  onCropComplete = (crop, pixelCrop) => {
+    console.log('onCropComplete', { crop, pixelCrop });
+    this.makeClientCrop(crop, pixelCrop);
+  }
+
+  onCropChange = (crop) => {
+    // console.log('onCropChange', crop);
+    this.setState({ crop });
+  }
+
+  getCroppedImg(image, pixelCrop, fileName) {
+    console.log('getCroppedImg', { image, pixelCrop, fileName });
+    const canvas = document.createElement('canvas');
+    canvas.width = pixelCrop.width;
+    canvas.height = pixelCrop.height;
+    const ctx = canvas.getContext('2d');
+
+    ctx.drawImage(
+      image,
+      pixelCrop.x,
+      pixelCrop.y,
+      pixelCrop.width,
+      pixelCrop.height,
+      0,
+      0,
+      pixelCrop.width,
+      pixelCrop.height,
+    );
+
+    return new Promise((resolve) => {
+      canvas.toBlob((blob) => {
+        blob.name = fileName;
+        window.URL.revokeObjectURL(this.fileUrl);
+        this.fileUrl = window.URL.createObjectURL(blob);
+        resolve(this.fileUrl);
+      }, 'image/jpeg');
+    });
+  }
+
+  makeClientCrop(crop, pixelCrop) {
+    if (this.imageRef && crop.width && crop.height) {
+      this.getCroppedImg(
+        this.imageRef,
+        pixelCrop,
+        'newFile.jpeg',
+      ).then(croppedImageUrl => this.setState({ croppedImageUrl }));
+    }
+  }
+
+  onInput=(e)=>{    
+    console.log(this.state.src)
+    console.log(this.state)
+    this.setState({
+        src:this.state.croppedImageUrl,
+        showModal2:false
+    })
+
+    Firebase.storage().ref('images')
+    this.handleUploadSuccess(this.state.src)
+  }
+
     render(){
+        const { croppedImageUrl } = this.state;
         return (
             <div className="bodyFormMe">
                 <Nav/>
@@ -103,17 +197,18 @@ class FormMe extends Component{
                                     <div className="row">
                                         <div className="col-sm-12 col-md-6">
                                             <div className="form-group">
-                                                <img className="bg-white imgRedonda" src={this.state.image_url} width="150px" alt=""/><br/><br/>
-                                                <label className="btn btn-yellow">
+                                                <img className="bg-white imgRedonda" src={this.state.src} width="150px" alt=""/><br/><br/>
+                                                <input className="btn btn-yellow" type="file" onChange={this.onSelectFile} />
+                                                <label className="btn btn-yellow" onClick={this.onSelectFile}> 
                                                 Cambiar foto
-                                                    <FileUploader
+                                                    {/* <FileUploader
                                                         hidden
                                                         accept="image/*"
                                                         randomizeFilename
                                                         storageRef={Firebase.storage().ref('images')}
                                                         onUploadError={error => console.log(error)}
                                                         onUploadSuccess={this.handleUploadSuccess}
-                                                    />
+                                                    /> */}
                                                 </label>
                                             </div>
                                         </div>
@@ -203,6 +298,32 @@ class FormMe extends Component{
                     </div>
                     </div>
 
+                </Modal>
+                <Modal className="modal-main-crop" isOpen={this.state.showModal2} contentLabel="Minimal Modal Example">
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <button className="btn btn-danger" onClick={() =>{this.setState({showModal2:false})}}>X</button>
+                            <br/><br/>
+                        </div>    
+                    </div>
+                    <div className="row justify-content-center">
+                    <br/>
+                        <div className="col-md-6">
+                            <ReactCrop
+                                src={this.state.src}
+                                crop={this.state.crop}
+                                onImageLoaded={this.onImageLoaded}
+                                onComplete={this.onCropComplete}
+                                onChange={this.onCropChange}
+                                style={{width:'100%'}}
+                            />
+                        </div>
+                        <div className="col-md-6">
+                            <img alt="Crop" src={croppedImageUrl} width="200px"/>
+                        </div>
+                    </div>
+
+                    <input type="submit" onClick={this.onInput} value="Prueba de crop"/>
                 </Modal>
                 
             </div>

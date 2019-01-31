@@ -12,3 +12,15 @@
 hr {
     width: 100%;
 }
+
+.modal-main-crop{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 5%;
+    
+    background-color: #ffc;
+    border-radius: 20px;
+    overflow: scroll;
+}

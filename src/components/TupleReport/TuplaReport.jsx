@@ -11,7 +11,6 @@ class TuplaReport extends Component{
     }
 
     render(){
-        console.log(this.props)
         return(
             <tr onClick={()=> this.props.redirect(this.state.reporte._id)}>
                 

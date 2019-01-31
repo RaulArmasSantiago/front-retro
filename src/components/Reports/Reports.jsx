@@ -13,14 +13,15 @@ class Reports extends Component{
         this.state = {
             _id:"",
             reportes:[],
-            showModal:true
+            showModal:true,
+            conductor:""
         }
     }
 
     componentDidMount(){
         allReports().then((report) => {
             this.setState({reportes:report.data.data.allReports})
-            console.log(this.state)
+            //console.log(this.state)
             if(this.state.reportes !== []){
                 setTimeout(() => { this.setState({showModal:false})},1500)
             }
@@ -33,10 +34,10 @@ class Reports extends Component{
     }
 
     renderReport = () =>{
-        console.log(this.state.reportes)
+        //console.log(this.state.reportes)
         if(this.state.reportes != null){
             let report = this.state.reportes.map((reporte,index) => {
-                console.log(reporte,"REPORTE")
+                //console.log(reporte,"REPORTE")
                 let key = index +1
                 return (
                     <TuplaReport reporte={reporte} key={key} redirect={this.redirect}/>
@@ -49,6 +50,19 @@ class Reports extends Component{
             )
         }
     }
+    
+    onInputCheck = (e) => {
+        let name = e.target.name
+        let value = e.target.value
+        
+        
+        //console.log(this.state)
+        /*console.log(value)
+        this.setState(
+            {[name]:value}
+        )*/
+        //console.log(this.state)
+    }
 
     render(){
         return(
@@ -58,6 +72,16 @@ class Reports extends Component{
                 <div className="bodyReports">
                     <h3>Historial de taxistas</h3>
                     <br/>
+                    <div className="col-sm-12">
+                        
+                            <div className="form-group form-inline ml-auto">
+                                <label htmlFor=""></label>
+                                <input className="form-control ml-auto" type="text" name="conductor" id="conductor" placeholder="Nombre o apellido del conductor" value={this.state.conductor} onChange={this.onInputCheck} size="30"/>
+                                <button className="btn btn-yellow ml-2">Buscar</button>
+                            </div>
+                        
+                        <br/>
+                    </div>
                     <div className="container-fluid">
                         <table className="table table-striped table-hover">
                             <thead className="bg-warning">
