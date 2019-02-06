@@ -37,8 +37,6 @@ export default () => {
                         image_url_lvehicle,
                         lastLocation
                         image_url_conductor
-<<<<<<< HEAD
-=======
                     },
                     collaborators{
                         _id,
@@ -61,7 +59,6 @@ export default () => {
                             _id,
                             reporter
                         }
->>>>>>> 5baa30eb67f67882c48ecc99bf71dc87446526f4
                     }
                 }
             }
