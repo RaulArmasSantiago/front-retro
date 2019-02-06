@@ -20,10 +20,17 @@
     color: #FEE510;
 }
 
-.imgRedonda2 {
-    width:30px;
-    border-radius:160px;
+.head{
+    position: fixed;
     width:100%;
+    z-index: 100;
+    background: #000;
+    
+}
+
+.imgRedonda2 {
+    width:300px;
+    border-radius:160px;
     z-index: 100;
     background: #000;
     
