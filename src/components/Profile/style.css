@@ -6,6 +6,10 @@ body{
     background: #fff;
     align-items: left;
     height: 100%;
+<<<<<<< HEAD
+=======
+    padding-top: 50px;
+>>>>>>> 5baa30eb67f67882c48ecc99bf71dc87446526f4
 }
 .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
 
@@ -52,6 +56,15 @@ color: #999;
     border:2px solid #000;
 }
 
+<<<<<<< HEAD
+=======
+.imgRedondasm {
+    width:70px;
+    border-radius:150px;
+    border:1px solid #000;
+}
+
+>>>>>>> 5baa30eb67f67882c48ecc99bf71dc87446526f4
 .span1{
     font-size:30px; 
     cursor:pointer;
@@ -61,6 +74,7 @@ body {
     font-family: "Lato", sans-serif;
 }
 
+<<<<<<< HEAD
 .sidenav {
     height: 100%;
     width: 0;
@@ -98,4 +112,28 @@ body {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+=======
+.btn-circleMed{
+    border-radius: 70px;
+    width: 70px;
+    height: 70px;
+}
+
+.btn-circleSmall{
+    border-radius: 70px;
+    width: 40px;
+    height: 40px;
+}
+
+.modal-main{
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    right: 25%;
+    bottom: 5%;
+    
+    background-color: #1a191bff;
+    border-radius: 40px;
+
+>>>>>>> 5baa30eb67f67882c48ecc99bf71dc87446526f4
 }

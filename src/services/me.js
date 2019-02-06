@@ -37,6 +37,31 @@ export default () => {
                         image_url_lvehicle,
                         lastLocation
                         image_url_conductor
+<<<<<<< HEAD
+=======
+                    },
+                    collaborators{
+                        _id,
+                        name,
+                        lastname,
+                        email,
+                        telefono,
+                        image_url,
+                        street,
+                        district,
+                        numExt,
+                        numInt,
+                        city,
+                        country,
+                        cc,
+                        devices{
+                            _id
+                        },
+                        reporters{
+                            _id,
+                            reporter
+                        }
+>>>>>>> 5baa30eb67f67882c48ecc99bf71dc87446526f4
                     }
                 }
             }

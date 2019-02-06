@@ -10,7 +10,16 @@ export default (mail) => {
             query:`
                 query{
                     singleUserMail(email:"${mail}"){
+<<<<<<< HEAD
                         _id
+=======
+                        _id,
+                        name,
+                        lastname,
+                        email,
+                        image_url
+
+>>>>>>> 5baa30eb67f67882c48ecc99bf71dc87446526f4
                     }
                 }
             `
