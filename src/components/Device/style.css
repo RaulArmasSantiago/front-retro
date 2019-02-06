@@ -5,15 +5,11 @@
  .bodyData{
      background: #E9CE12;
      color: #FEFEFF;
-<<<<<<< HEAD
-     padding-top: 90px
-=======
      padding-top: 180px;
  }
 
  .bodyDataDev{
      background: #000;
->>>>>>> 5baa30eb67f67882c48ecc99bf71dc87446526f4
  }
 
 .text-data{ 
@@ -27,25 +23,11 @@
 .imgRedonda2 {
     width:300px;
     border-radius:160px;
-<<<<<<< HEAD
-    border:10px solid #E9CE12;
-}
-
-.head{
-=======
-    border:3px solid #E9CE12;
-}
-
-.head{
-    padding-top: 70px;
->>>>>>> 5baa30eb67f67882c48ecc99bf71dc87446526f4
-    position: fixed;
     width:100%;
     z-index: 100;
     background: #000;
     
 }
-
  .bodyDevice{
     background: #fff
  }
@@ -67,8 +49,6 @@
  .font{
      font-size: 1.5em;
  }
-<<<<<<< HEAD
-=======
 
  .modal-device{
     position: absolute;
@@ -81,4 +61,3 @@
     border-radius: 40px;
 
 }
->>>>>>> 5baa30eb67f67882c48ecc99bf71dc87446526f4
