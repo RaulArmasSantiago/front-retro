@@ -1,10 +1,5 @@
 import axios from 'axios';
 import constantes from '../const';
-<<<<<<< HEAD
-
-export default (data) => {
-    return axios.post(constantes.url+"updateMe/",data)
-=======
 import getToken from '../resolvers/getToken';
 
 export default (data) => {
@@ -33,5 +28,4 @@ export default (data) => {
         },headers:{'Authorization':'JWT '+getToken()}
     })
     //return axios.post(constantes.url+"updateMe/",data)
->>>>>>> 5baa30eb67f67882c48ecc99bf71dc87446526f4
 }
