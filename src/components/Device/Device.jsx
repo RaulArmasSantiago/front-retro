@@ -5,8 +5,9 @@ import Map from '../Map/Map';
 import Nav from '../Nav/Nav';
 import Modal from 'react-modal';
 import TaxiConectado from '../../assets/taxi-conectado.png';
-
-
+import notification from '../../assets/notification.png'
+import multas from '../../services/multasConcesion'
+let Array=[];
 class Device extends Component{
     
     constructor(props){
@@ -15,7 +16,8 @@ class Device extends Component{
             id:props.match.params.id,
             device:"",
             velocidad:[],
-            showModal:true
+            showModal:true,
+            multas:""
         }
     }
 
@@ -24,17 +26,25 @@ class Device extends Component{
             //console.log(device.data.data.singleDevice)
             this.setState({device:device.data.data.singleDevice})
             console.log(this.state)
+            multas(this.state.device.concesion).then((multas) => {
+                this.setState({multas:multas.data.data.conceReport})
+                console.log(this.state)
+                
+            })
             if(this.state.device !== ""){
                 setTimeout(() => { this.setState({showModal:false})},1500)
             }
-        }) 
+        })
+
+        
+
     }
 
     contCash(){
         let efectivo = Number(this.state.device.contEfectivo);
 
         let efectivoDecimal = efectivo.toFixed(2);
-        console.log(efectivoDecimal.toLocaleString())
+        //console.log(efectivoDecimal.toLocaleString())
         return efectivoDecimal;
     }
 
@@ -74,13 +84,24 @@ class Device extends Component{
     getHrs(){
         let hrs = Number(this.state.device.contTime);
         hrs = Math.trunc(hrs/60);
-        console.log(hrs * 60);
+        //console.log(hrs * 60);
         let min = Number(this.state.device.contTime)
         let min2 = hrs * 60
         min = min - min2;
-        console.log(min)
+        //console.log(min)
         let tiempo = String(hrs) + " hrs. " + String(min) + " min.";
         return tiempo
+    }
+
+    getMultas(){
+        if(this.state.multas.length !== 0){
+            this.state.multas.map((m) =>{
+                if(m.pagado === false){
+                    Array.push(m)
+                }
+            })
+            return Array.length
+        }
     }
 
     getColor(){
@@ -90,9 +111,9 @@ class Device extends Component{
             porcentaje:""
         }
         velocidad.vel = Math.floor(Math.random() * 161);
-        console.log(velocidad)
+        //console.log(velocidad)
         velocidad.porcentaje = (velocidad.vel / 160)*100;
-        console.log(velocidad.porcentaje)
+        //console.log(velocidad.porcentaje)
         velocidad.porcentaje= velocidad.porcentaje + "%"
         if(velocidad.vel <= 60){
             velocidad.color = "progress-bar bg-success"
@@ -104,7 +125,7 @@ class Device extends Component{
             }
         }
 
-        console.log(velocidad)
+        //console.log(velocidad)
         this.setState({
             velocidad:velocidad
         })
@@ -124,6 +145,37 @@ class Device extends Component{
         this.props.history.push(`/reportTax/${id}`)
     }
 
+    redirect4 = (multas) => {
+        this.props.history.push({
+            pathname: `/multas/${this.state.device.concesion}`,
+            state:{multas:this.state.multas}
+        })
+        
+    }
+
+    getMultas(){
+        if (this.state.multas.length !== 0){
+            let pendientes=0;
+
+            this.state.multas.map((m)=>{
+                if(m.pagado === false){
+                    pendientes++;
+                }
+                return m
+            })
+            return(
+                <div>
+                    <img src={notification} onClick={() => this.redirect4(this.state.multas)} alt="" width="20px" className="ml-4"/> {pendientes}    
+                </div>
+                
+            )
+        }else{
+            return(
+            <div></div>
+            )
+        }
+    }
+
     render(){
         return(
             <div className="container-fluid">
@@ -132,10 +184,13 @@ class Device extends Component{
                     <div className="col-sm-12 col-md-6 text-center">
                         <label className="text-white"><strong>{this.state.device.conductorName} {this.state.device.conductorLastname}</strong></label>
                     </div>
-                    <div className="col-sm-12 col-md-6 text-center">
+                    <div className="col-sm-12 col-md-4 text-center">
                         <label className="text-white"><strong>{this.state.device.concesion}-T</strong>
                         <button className="btn btn-outline-warning btn-sm ml-4" onClick={() => this.redirect2(this.state.device._id)}>Historial</button>
                         </label>
+                    </div>
+                    <div className="col-sm-12 col-md-2 text-white">
+                        {this.getMultas()}
                     </div>
                 </div>
 

@@ -65,6 +65,7 @@ class editReport extends Component{
         if(this.state.status !== ""){
             updateReport(this.state).then((report) => {
                 console.log(report);
+                return report
                 
             }).catch((err) => {
                 alert("Hubo un problema al actulizar el reporte")
@@ -127,6 +128,7 @@ class editReport extends Component{
                                         <option value="Resuelto">Resuelto</option>
                                     </select>
                                 </div>
+                                <button type="submit" className="btn btn-yellow btn-block">Actualizar reporte</button>
                             </form>    
                             
                             <br/><br/>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './style.css';
 import updateMe from '../../services/updateMe';
 import singleUser from '../../services/singleUser';
-import FileUploader from 'react-fire  base-file-uploader';
+import FileUploader from 'react-firebase-file-uploader';
 import Firebase from '../../Firebase';
 import Nav from '../Nav/Nav';
 import Modal from 'react-modal';
