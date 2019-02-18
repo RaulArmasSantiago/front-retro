@@ -135,6 +135,11 @@ class FormMe extends Component{
     canvas.width = pixelCrop.width;
     canvas.height = pixelCrop.height;
     const ctx = canvas.getContext('2d');
+    this.setState({
+        im:image,
+        pxc:pixelCrop,
+        fN:fileName
+    })
 
     ctx.drawImage(
       image,
@@ -154,6 +159,7 @@ class FormMe extends Component{
         window.URL.revokeObjectURL(this.fileUrl);
         this.fileUrl = window.URL.createObjectURL(blob);
         resolve(this.fileUrl);
+        console.log(resolve)
       }, 'image/jpeg');
     });
   }
@@ -177,7 +183,7 @@ class FormMe extends Component{
     })
 
     Firebase.storage().ref('images')
-    this.handleUploadSuccess(this.state.src)
+    this.handleUploadSuccess(this.state.fN)
   }
 
     render(){

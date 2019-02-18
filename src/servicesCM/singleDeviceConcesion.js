@@ -1,32 +1,43 @@
 import axios from 'axios';
 import getToken from '../resolvers/getToken';
 import constantes from '../const';
-
-export default (id) => {
+export default (concesion) => {
+    // console.log(concesion)
     return axios({
-        url:constantes.url+'graphql',
+        url:constantes.urlmov+'graphql',
         method:'post',
         data:{
             query:`
                 query{
-                    singleDevice(id:"${id}"){
+                    conceDevice(concesion:"${concesion}"){
                         _id,
+                        sigfox,
                         concesion,
                         name,
+                        concesionarioFullName,
+                        concesionarioLastname,
+                        concesionarioAddress,
+                        concesionarioDistrict,
+                        concesionarioNumExt,
+                        concesionarioCp,
+                        concesionarioTel,
                         marcaVehicle,
                         modeloVehicle,
-                        anioVehicle,
                         placaVehicle,
-                        conductorName,
+                        yearVehicle,
+                        conductorFullName,
                         conductorLastname,
                         conductorAddress,
                         conductorDistrict,
                         conductorNumExt,
                         conductorNumInt,
+                        conductorCp,
                         conductorTel,
-                        conductorCC,
-                        conductorCity,
-                        conductorCountry,
+                        marca_taximetro,
+                        modelo_taximetro,
+                        numSerie_taximetro,
+                        velocidadMaxima,
+                        initTravel,
                         lastLocation,
                         contTravel,
                         contTime,
@@ -37,15 +48,9 @@ export default (id) => {
                         image_url_bvehicle,
                         image_url_lvehicle,
                         image_url_rvehicle,
-                        user,
-                        initTravel,
-                        kminit,
-                        lastkm,
-                        sigfox
                     }
                 }
             `
         },headers:{'Authorization':'JWT '+getToken()}
     })
 }
-

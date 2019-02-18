@@ -1,5 +1,5 @@
 export default {
-    url:"https://backretro.herokuapp.com/",
+    uri:"https://backretro.herokuapp.com/",
     urlmov:"https://movilidad-back.herokuapp.com/",
-    uri:"http://localhost:3001/"
+    url:"http://localhost:3001/"
 }

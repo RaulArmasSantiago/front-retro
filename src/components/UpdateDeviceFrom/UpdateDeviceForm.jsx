@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import "./style.css";
 import updateDevice from '../../services/updateDevice';
+import updateDevMov from '../../servicesCM/updateDevice';
 import singleDevice from '../../services/singleDevice';
+import singleDeviceCM from '../../servicesCM/singleDeviceConcesion';
 import FileUploader from 'react-firebase-file-uploader';
 import Firebase from '../../Firebase';
 import Nav from '../Nav/Nav';
@@ -25,11 +27,14 @@ class UpdateDeviceForm extends Component{
             conductorLastname:"",
             conductorAddress:"",
             conductorDistrict:"",
+            conductorcc:"",
             conductorNumExt:"",
             conductorNumInt:"",
             conductorTel:"",
             concesion:"",
-            user:""
+            user:"",
+            sigfox:"",
+            idCM:""
         }
     }
 
@@ -46,17 +51,30 @@ class UpdateDeviceForm extends Component{
                 placaVehicle:this.state.device.placaVehicle,
                 conductorAddress:this.state.device.conductorAddress,
                 conductorDistrict:this.state.device.conductorDistrict,
+                conductorcc:this.state.device.conductorCC,
                 conductorNumExt:this.state.device.conductorNumExt,
                 conductorNumInt:this.state.device.conductorNumInt,
+                conductorCity:this.state.device.conductorCity,
+                conductorCountry:this.state.device.conductorCountry,
                 conductorTel:this.state.device.conductorTel,
                 concesion:this.state.device.concesion,
                 image_url_bvehicle:this.state.device.image_url_bvehicle,
                 image_url_conductor:this.state.device.image_url_conductor,
                 image_url_fvehicle:this.state.device.image_url_fvehicle,
                 image_url_lvehicle:this.state.device.image_url_lvehicle,
-                image_url_rvehicle:this.state.device.image_url_rvehicle
+                image_url_rvehicle:this.state.device.image_url_rvehicle,
+                sigfox:this.state.device.sigfox,
+                name:this.state.device.name
             })
-            //console.log(this.state)
+            singleDeviceCM(this.state.concesion).then((dev) => {
+                console.log(dev)
+                this.setState({
+                    idCM:dev.data.data.conceDevice
+                })
+                console.log(this.state)
+            })
+            
+            
             
         })
     }
@@ -76,7 +94,14 @@ class UpdateDeviceForm extends Component{
          updateDevice(this.state).then((response) => {
              console.log("entro chido")
              console.log(response.data )
-             this.props.history.push(`/device/${this.state._id}`)
+             if(this.state.conductorCity === "Saltillo"){
+             updateDevMov(this.state).then((response) => {
+                console.log(response.data)
+                this.props.history.push(`/device/${this.state._id}`)
+             })
+            }else{
+                this.props.history.push(`/device/${this.state._id}`)
+            }
          })
     }
 

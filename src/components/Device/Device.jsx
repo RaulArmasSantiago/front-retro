@@ -17,7 +17,8 @@ class Device extends Component{
             device:"",
             velocidad:[],
             showModal:true,
-            multas:""
+            multas:"",
+            visible:"invisible"
         }
     }
 
@@ -26,6 +27,7 @@ class Device extends Component{
             //console.log(device.data.data.singleDevice)
             this.setState({device:device.data.data.singleDevice})
             console.log(this.state)
+            console.log(this.state.device.lastkm - this.state.device.kminit)
             multas(this.state.device.concesion).then((multas) => {
                 this.setState({multas:multas.data.data.conceReport})
                 console.log(this.state)
@@ -36,7 +38,11 @@ class Device extends Component{
             }
         })
 
-        
+        if(window.screen.availWidth >= 700){
+            this.setState({
+                visible:""
+            })
+        }
 
     }
 
@@ -176,6 +182,11 @@ class Device extends Component{
         }
     }
 
+    getKm(){
+        let km = this.state.device.lastkm - this.state.device.kminit;
+        return km
+    }
+
     render(){
         return(
             <div className="container-fluid">
@@ -195,27 +206,33 @@ class Device extends Component{
                 </div>
 
                 <div className="row justify-content-center bodyData">
-                    <div className="col-sm-12 col-md-1">
+                    <div className="col-sm-12 col-md-4" id="contenido">
                         <label className="text-data"><strong>{this.state.device.contTravel}</strong></label> 
                         <br/>
                         <label className="text-dark"><strong>CARRERAS</strong></label>
                     </div>
-                    <div className="col-sm-12 col-md-3">
+                    <div className="col-sm-12 col-md-4" id="contenido">
                         <label className="text-data"><strong>{this.getHrs()}</strong></label>
                         <br/>
                         <label className="text-dark"><strong>TIEMPO CON PASAJE</strong></label>
                     </div>
-                    <div className="col-sm-12 col-md-2">
+                    <div className="col-sm-12 col-md-4" id="contenido">
                         <label className="text-data"><strong>{this.state.device.contKm}</strong></label>
                         <br/>
                         <label className="text-dark"><strong>KM EN SERVICIO</strong></label>
                     </div>
-                    <div className="col-sm-12 col-md-2">
+                    <hr className={this.state.visible}/>
+                    <div className="col-sm-12 col-md-4" id="contenido">
+                        <label className="text-data"><strong>{this.getKm()}</strong></label>
+                        <br/>
+                        <label className="text-dark"><strong>KM TOTALES</strong></label>
+                    </div>
+                    <div className="col-sm-12 col-md-4" id="contenido">
                         <label className="text-data"><strong>70 km/h</strong></label>
                         <br/>
                         <label className="text-dark"><strong>VELOCIDAD MÁXIMA</strong></label>
                     </div>
-                    <div className="col-sm-12 col-md-2">
+                    <div className="col-sm-12 col-md-4" id="contenido">
                         <label className="text-data"><strong>$ {this.contCash()}</strong></label>
                         <br/>
                         <label className="text-dark"><strong>GANANCIAS DEL DÍA</strong></label>

@@ -11,6 +11,7 @@ export default (data) => {
         conductorLastname:"${data.conductorLastname}",
         conductorAddress:"${data.conductorAddress}",
         conductorDistrict:"${data.conductorDistrict}",
+        conductorCC:"${data.conductorcc}",
         conductorNumExt:"${data.conductorNumExt}",
         conductorNumInt:"${data.conductorNumInt}",
         conductorTel:"${data.conductorTel}",
