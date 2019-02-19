@@ -300,11 +300,23 @@ class UpdateDeviceForm extends Component{
                                     </div>
                                     
                                     <div className="form-group">      
-                                        <label className=" col-md-4" htmlFor="conductorNumInt">Num. Int:</label>    
+                                        <label className=" col-md-6" htmlFor="conductorNumInt">Num. Int:</label>    
                                         <input type="text" className="form-control" name="conductorNumInt" id="conductorNumInt" value={this.state.conductorNumInt} onChange={this.onInputCheck} size="30"/>
                                     </div>
                                     <div className="form-group">      
-                                        <label className=" col-md-5" htmlFor="conductorTel">Telefono de contacto:</label>    
+                                        <label className=" col-md-6" htmlFor="conductorcc">Código Postal:</label>    
+                                        <input type="text" className="form-control" name="conductorcc" id="conductorcc" value={this.state.conductorcc} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    <div className="form-group">      
+                                        <label className=" col-md-6" htmlFor="conductorCity">Ciudad o Municipio:</label>    
+                                        <input type="text" className="form-control" name="conductorCity" id="conductorCity" value={this.state.conductorCity} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    <div className="form-group">      
+                                        <label className=" col-md-6" htmlFor="conductorCountry">Estado:</label>    
+                                        <input type="text" className="form-control" name="conductorCountry" id="conductorCountry" value={this.state.conductorCountry} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    <div className="form-group">      
+                                        <label className=" col-md-6" htmlFor="conductorTel">Telefono de contacto:</label>    
                                         <input type="text" className="form-control" name="conductorTel" id="conductorTel" value={this.state.conductorTel} onChange={this.onInputCheck} size="30"/>
                                     </div>
                                     <br/>

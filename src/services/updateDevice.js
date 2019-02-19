@@ -24,7 +24,9 @@ export default (data) => {
         image_url_fvehicle:"${data.image_url_fvehicle}",
         image_url_lvehicle:"${data.image_url_lvehicle}",
         image_url_rvehicle:"${data.image_url_rvehicle}",
-        image_url_bvehicle:"${data.image_url_bvehicle}"
+        image_url_bvehicle:"${data.image_url_bvehicle}",
+        conductorCity:"${data.conductorCity}",
+        conductorCountry:"${data.conductorCountry}",
     }
     `;
     console.log(updateDevice, data._id);
