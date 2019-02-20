@@ -12,4 +12,9 @@
 
 .bodyDashboard{
     height: 100vh;
+    padding-top: 80px;
+}
+
+.font-long{
+    font-size: 2.5em;
 }

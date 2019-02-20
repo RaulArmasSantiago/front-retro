@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import "./style.css";
 import addDevice from '../../services/addDevice';
 import FileUploader from 'react-firebase-file-uploader';
@@ -121,8 +121,11 @@ class FormDevice extends Component{
 
     render(){
         return(
-            <div className="bodyProfile">
-            <Nav/>
+            <Fragment>
+                <Nav/>
+
+                <div className="bodyProfile">
+            
             <br/>
                 <div className="container">
             <h2>Registro de taxis</h2>
@@ -323,6 +326,9 @@ class FormDevice extends Component{
             </form>
             </div>
             </div>
+
+            </Fragment>
+            
             
         )
     }
