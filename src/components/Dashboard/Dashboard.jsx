@@ -37,9 +37,10 @@ class Dashboard extends Component{
         return(
             <Fragment>
                 <Nav/>
-                <div className="bodyDashboard container-fluid">
+                <div className="bodyDashboard">
                     <center><h3>Dashboard Taxi Conectado</h3></center>
-                    <div className="row container-fluid justify-contenet-center">
+                    <br/>
+                    <div className="row justify-contenet-center container-fluid">
                         <div className="col-sm-12 col-md-4">
                             <div className="card">
                                 <div className="card-header">
@@ -56,8 +57,8 @@ class Dashboard extends Component{
                                     </div>
                                 </div>
                                 <div className="card-footer text-white">
-                                    <button className="btn btn-warning">Ver</button>
-                                    <button className="btn btn-warning ml-2">Agregar</button>
+                                    <button className="btn btn-warning" onClick={() => {this.props.history.push('/devices')}}>Ver</button>
+                                    <button className="btn btn-warning ml-2" onClick={() => {this.props.history.push('/addDevice')}}>Agregar</button>
                                 </div>
                             </div>
                         </div>
@@ -77,43 +78,11 @@ class Dashboard extends Component{
                                     </div>
                                 </div>
                                 <div className="card-footer text-white">
-                                    <button className="btn btn-success">Ver</button>
-                                    <button className="btn btn-success ml-2">Agregar</button>
+                                    <button className="btn btn-success" onClick={() => {this.props.history.push('/users')}}>Ver</button>
+                                    <button className="btn btn-success ml-2" onClick={() => {this.props.history.push('/addUser')}}>Agregar</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div className="row justify-content-center bg-white">
-                    <div className="col-md-4">
-                        
-                    </div>
-                    <div className="col-md-8">
-                        hola
-                    </div>
-
-                    <div className="col-xsm-11 col-md-4 ml-3">
-                    <div className="card">
-                        <div className="card-header bg-dark">
-                        <Link to="/devices"><h4 className="card-title color">Taxis</h4></Link>
-                        </div>
-                            
-                    </div>
-                    <br/>
-                    </div>
-                    <div className="col-xsm-11 col-md-4 ml-3">
-                    <div className="card">
-                        <div className="card-header bg-dark">
-                            <Link className="link link-hover" to="/addUser"><h4 className="card-title color">Usuarios</h4></Link>
-                        </div>
-                        <div className="card-body bg-retro text-left text-white">
-                            <ul>
-                                <Link className="link link-hover" to="/users"><li>Ver Usuarios</li></Link>
-                                <Link className="link link-hover" to="/addUser"><li>Agregar usuarios</li></Link>
-                            </ul>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </Fragment>

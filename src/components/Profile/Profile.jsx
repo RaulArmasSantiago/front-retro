@@ -26,6 +26,7 @@ class Profile extends Component{
     
 
     componentDidMount(){
+        console.log("HEROKU")
         me().then((user) => {
             if(user !== null){
                 this.setState({

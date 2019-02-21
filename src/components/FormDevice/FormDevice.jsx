@@ -17,11 +17,11 @@ class FormDevice extends Component{
             modeloVehicle:"",
             anioVehicle:"",
             placaVehicle:"",
-            image_url_fvehicle:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2F36896668_1750269811746792_3119577760905822208_n.png?alt=media&token=12ba2653-6705-40b1-8d39-64d43403bc4b",
-            image_url_lvehicle:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2F36896668_1750269811746792_3119577760905822208_n.png?alt=media&token=12ba2653-6705-40b1-8d39-64d43403bc4b",
-            image_url_rvehicle:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2F36896668_1750269811746792_3119577760905822208_n.png?alt=media&token=12ba2653-6705-40b1-8d39-64d43403bc4b",
-            image_url_bvehicle:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2F36896668_1750269811746792_3119577760905822208_n.png?alt=media&token=12ba2653-6705-40b1-8d39-64d43403bc4b",
-            image_url_conductor:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2F36896668_1750269811746792_3119577760905822208_n.png?alt=media&token=12ba2653-6705-40b1-8d39-64d43403bc4b",
+            image_url_fvehicle:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2Fleyenda-de-wordpress-1.png?alt=media&token=81796c03-6014-4e86-9f82-3c5429a319d5",
+            image_url_lvehicle:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2Fleyenda-de-wordpress-1.png?alt=media&token=81796c03-6014-4e86-9f82-3c5429a319d5",
+            image_url_rvehicle:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2Fleyenda-de-wordpress-1.png?alt=media&token=81796c03-6014-4e86-9f82-3c5429a319d5",
+            image_url_bvehicle:"https://firebasestorage.googleapis.com/v0/b/retro-c901c.appspot.com/o/images%2Fleyenda-de-wordpress-1.png?alt=media&token=81796c03-6014-4e86-9f82-3c5429a319d5",
+            image_url_conductor:"http://www.hussein-ig.com/gui/images/avatar.png",
             conductorName:"",
             conductorLastname:"",
             conductorAddress:"",
@@ -139,11 +139,11 @@ class FormDevice extends Component{
                     </div>
                     <div className="col-sm-12 col-md-4 form-group">
                         <label htmlFor="name" className="sr-only">Nombre:</label>
-                        <input className="form-control" type="text" name="name" id="name" value={this.state.name} onChange={this.onInputCheck} placeholder="Nombre del taximetro (Taller_Salt_00, Tax_00, etc.)"/>
+                        <input className="form-control" type="text" name="name" id="name" value={this.state.name} onChange={this.onInputCheck} placeholder="Concesión"/>
                     </div>
                     <div className="col-sm-12 col-md-4 form-group">
                         <label htmlFor="concesion" className="sr-only">Concesión:</label>
-                        <input className="form-control" type="text" name="concesion" id="concesion" value={this.state.concesion} onChange={this.onInputCheck} placeholder="Concesión"/>
+                        <input className="form-control" type="text" name="concesion" id="concesion" value={this.state.concesion} onChange={this.onInputCheck} placeholder="Repetir concesión"/>
                     </div>
                 </div>
 
@@ -187,7 +187,7 @@ class FormDevice extends Component{
                                     <img src={this.state.image_url_conductor} alt="Foto conductor" width="200px"/>
                                     <br/><br/>
                                     <div className="form-group">
-                                        <label className="btn btn-primary">
+                                        <label className="btn btn-yellow">
                                         Agregar foto del conductor
                                             <FileUploader
                                                 hidden
@@ -235,7 +235,7 @@ class FormDevice extends Component{
                                 <div className="col-md-4">
                                     <img src={this.state.image_url_fvehicle} alt="Foto conductor" width="200px"/><br/><br/>
                                     <div className="form-group">
-                                        <label className="btn btn-primary">
+                                        <label className="btn btn-yellow">
                                         Agregar foto delantera
                                             <FileUploader
                                                 hidden
@@ -249,7 +249,7 @@ class FormDevice extends Component{
                                     </div>
                                     <img src={this.state.image_url_bvehicle} alt="Foto conductor" width="200px"/><br/><br/>
                                     <div className="form-group">
-                                        <label className="btn btn-primary">
+                                        <label className="btn btn-yellow">
                                         Agregar foto trasera
                                             <FileUploader
                                                 hidden
@@ -266,7 +266,7 @@ class FormDevice extends Component{
                                 <div className="col-md-4">
                                     <img src={this.state.image_url_rvehicle} alt="Foto conductor" width="200px"/><br/><br/>
                                     <div className="form-group">
-                                        <label className="btn btn-primary">
+                                        <label className="btn btn-yellow">
                                         Agregar foto lateral derecha
                                             <FileUploader
                                                 hidden
@@ -280,7 +280,7 @@ class FormDevice extends Component{
                                     </div>
                                     <img src={this.state.image_url_lvehicle} alt="Foto conductor" width="200px"/><br/><br/>
                                     <div className="form-group">
-                                        <label className="btn btn-primary">
+                                        <label className="btn btn-yellow">
                                         Agregar foto lateral izquierda
                                             <FileUploader
                                                 hidden
