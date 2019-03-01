@@ -7,6 +7,9 @@ import Modal from 'react-modal';
 import TaxiConectado from '../../assets/taxi-conectado.png';
 import notification from '../../assets/notification.png'
 import multas from '../../services/multasConcesion'
+import iniTravel from '../../assets/iniTravel.png';
+import endTravel from '../../assets/endTravel.png';
+
 let Array=[];
 class Device extends Component{
     
@@ -58,7 +61,7 @@ class Device extends Component{
         if(this.state.device !== ""){
                 return(
                     <div>
-                        <Map data={this.state.device.lastLocation} data2={this.state.device.initTravel}/>
+                        <Map data={this.state.device.lastLocation} data2={this.state.device.initTravel} data3={this.state.device.endTravel}/>
                     </div>
                 )
         }else{
@@ -240,9 +243,12 @@ class Device extends Component{
                 </div>
 
                 <div className="row bodyDataDev">
-                    <div className="col-sm-12 col-md-6">
+                    <div className="col-sm-12 col-md-6 text-white">
                         <br/><br/>
                         {this.renderMap()}
+                        <br/>
+                        <img src={iniTravel} alt=""/>: Inicio de viaje
+                        <img className="ml-4" src={endTravel} alt=""/>: Fin de viaje
                     </div>
                     <div className="col-sm-12 col-md-6 text-left">
                     
@@ -328,7 +334,7 @@ class Device extends Component{
                     </div>
                     <div className="col-sm-12">
                         <center>
-                            <div class="lds-spinner">
+                            <div className="lds-spinner">
                                 <div></div>
                                 <div></div>
                                 <div></div>

@@ -7,20 +7,21 @@ import addDevicesColaborador from '../../services/updateDevColaborador'
 
 
 let array= []
+let array2 =[]
 class BtnCollaborator extends Component{
     constructor(props){
         super(props);
         this.state = {
             colaborador:props.colaborador,
             devices:props.devices,
-            arrayDev:''
+            arrayDev:'',
         }
     }
 
     
 
     componentDidMount(){
-        //console.log(this.state.colaborador.devices)
+        let concesiones=[]
         if(window.screen.availWidth <= 500){
             this.setState(
                 {
@@ -36,7 +37,11 @@ class BtnCollaborator extends Component{
                 }
             )
         }
-        //console.log(this.state)
+        this.state.colaborador.devices.map((device,index) => {
+            array2.push(device._id, index)
+        })
+        
+
     }
     
     handleOpenModal = () => {
@@ -48,21 +53,11 @@ class BtnCollaborator extends Component{
     }
 
     addArray =(id) => {
-        //console.log(this.state)
         let indice = array.indexOf(id)
-        //console.log(indice,"indice")
         if( indice === -1){
             array.push(id)
-            //console.log(array)
-            
-            /* console.log("entro al meter")
-            this.setState({arrayDev:[...this.state.arrayDev, id]}) */
         }else{
             array.splice(indice,1)
-            //console.log(array)
-            /* console.log("entro al sacar")
-           
-            this.setState({arrayDev:[this.state.arrayDev.splice(indice+1,1)]}) */
         }
 
         
@@ -74,7 +69,7 @@ class BtnCollaborator extends Component{
         if(this.state.colaborador.devices.length !== 0){
             let devices = this.state.colaborador.devices.map((device,index) => {
                 return (
-                    <RowConcesionColaborador device={device} />
+                    <RowConcesionColaborador device={device} key={index}/>
                 )
             })
             return devices
@@ -90,9 +85,15 @@ class BtnCollaborator extends Component{
     renderConcesiones = () => {
         if(this.state.devices !== ""){
             let devices = this.state.devices.map((device,index) => {
-                return (
-                    <RowConcesion device={device} onCheckBox={this.addArray} key={index}/>
-                )
+                if(array2.indexOf(device._id) >= 0){
+                    return(
+                        <div key={index}></div>
+                    )
+                }else{
+                    return (
+                        <RowConcesion device={device} onCheckBox={this.addArray} key={index}/>
+                    )
+                }
             })
             return devices
         }else{
@@ -104,20 +105,14 @@ class BtnCollaborator extends Component{
 
     onFormSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
-
         if(array.length > 0){
             //alert("Entro al si")
             array.map((dev,index) =>{
                 addDevicesColaborador(this.state.colaborador._id,dev).then((user) =>{
-                    console.log(user)
                     window.location.reload()
                 }).catch((err) =>{
-                    console.log(err);
                     return err
                 })
-                console.log(dev)
-                console.log(this.state)
             })
         }else{
             alert("Selecciones por lo menos una concesion")
@@ -144,7 +139,7 @@ class BtnCollaborator extends Component{
                     <div className="row justify-content-center">
                         <center>
                             <div className="col-sm-12">
-                                {this.state.colaborador.name} {this.state.colaborador.lastname} <br/>
+                                {this.state.colaborador.name} <br/>
                                 {this.state.colaborador.email} <br/>
                                 {this.state.colaborador.telefono} <br/>
                                 {this.state.colaborador.street} {this.state.colaborador.numExt}, Col. {this.state.colaborador.district} <br/>
@@ -161,7 +156,7 @@ class BtnCollaborator extends Component{
                             <div className="col-sm-12 col-md-6">
                                 <div className="card">
                                     <div className="card-header bg-dark text-white">
-                                        Asignar dispsitvios
+                                        Asignar dispositivos
                                     </div>
                                     <div className="card-body">
                                         <form onSubmit={this.onFormSubmit}>

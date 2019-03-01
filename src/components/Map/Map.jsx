@@ -16,6 +16,7 @@ class Map extends Component {
    } 
 
    componentDidMount(){
+     console.log(this.props)
      this.setState({pos:this.state.device.data,travels:this.state.device.data2})
    }
 
@@ -76,6 +77,19 @@ class Map extends Component {
        return travel
      }
    }
+   /* 
+   renderEndTravels = () =>{
+     if(this.state.device !== ""){
+      let travel = this.state.device.data3.map((travel,index)=>{
+          console.log("endViaje "+ index, travel)
+          let i = index + 1
+          return(
+            <Marker title={"Fin de viaje # "+i} description={"Fin de viaje # "+i} options={{icon: "../img/"+i+"e.png"}} position={this.getLocation(travel)}/>
+          )
+       })
+       return travel
+     }
+   } */
 
    render() {
    const GoogleMapExample = withGoogleMap(props => (
@@ -84,7 +98,8 @@ class Map extends Component {
         defaultZoom = { 17 }
       >
       {this.renderTravels()}
-      <Marker title={"Posicion Actual"} options={{icon: "../img/taxi-yellow.png"}} position={this.getLocation(this.state.pos)}/>
+      
+      <Marker title={"Ultima localizacion registrada"} options={{icon: "../img/taxi-yellow.png"}} position={this.getLocation(this.state.pos)}/>
       </GoogleMap>
    ));
    return(

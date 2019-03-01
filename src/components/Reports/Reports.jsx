@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import './style.css';
 import allReports from '../../services/allReports';
-
 import Nav from '../Nav/Nav';
 import TuplaReport from '../TupleReport/TuplaReport';
 import Modal from 'react-modal';
 import TaxiConectado from '../../assets/taxi-conectado.png';
+import allName from '../../services/allNameReport';
+
 
 class Reports extends Component{
     constructor(props){
@@ -37,7 +38,9 @@ class Reports extends Component{
         //console.log(this.state.reportes)
         if(this.state.reportes != null){
             let report = this.state.reportes.map((reporte,index) => {
-                //console.log(reporte,"REPORTE")
+                if (this.state.conductor !== "" && reporte.name.indexOf(this.state.conductor) === -1){
+                    return null
+                }
                 let key = index +1
                 return (
                     <TuplaReport reporte={reporte} key={key} redirect={this.redirect}/>
@@ -57,11 +60,21 @@ class Reports extends Component{
         
         
         //console.log(this.state)
-        /*console.log(value)
+        console.log(value)
         this.setState(
             {[name]:value}
-        )*/
+        )
         //console.log(this.state)
+    }
+
+    onFormSerch = (e) =>{
+        e.preventDefault();
+        allName(this.state.conductor).then((resp) => {
+            console.log(resp)
+            this.setState({
+                reportes: resp.data.data.allName
+            })
+        })
     }
 
     render(){
@@ -73,12 +86,14 @@ class Reports extends Component{
                     <h3>Historial de taxistas</h3>
                     <br/>
                     <div className="col-sm-12">
-                        
-                            <div className="form-group form-inline ml-auto">
-                                <label htmlFor=""></label>
-                                <input className="form-control ml-auto" type="text" name="conductor" id="conductor" placeholder="Nombre o apellido del conductor" value={this.state.conductor} onChange={this.onInputCheck} size="30"/>
-                                <button className="btn btn-yellow ml-2">Buscar</button>
-                            </div>
+                            <form onSubmit={this.onFormSerch}>
+                                <div className="form-group form-inline ml-auto">
+                                    <label htmlFor=""></label>
+                                    <input className="form-control ml-auto" type="text" name="conductor" id="conductor" placeholder="Nombre o apellido del conductor" value={this.state.conductor} onChange={this.onInputCheck} size="30"/>
+                                    <button className="btn btn-yellow ml-2" type="submit">Buscar</button>
+                                </div>
+                            </form>
+                            
                         
                         <br/>
                     </div>
@@ -109,7 +124,7 @@ class Reports extends Component{
                     </div>
                     <div className="col-sm-12">
                         <center>
-                            <div class="lds-spinner">
+                            <div className="lds-spinner">
                                 <div></div>
                                 <div></div>
                                 <div></div>

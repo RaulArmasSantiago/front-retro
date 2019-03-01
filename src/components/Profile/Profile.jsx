@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import './style.css';
 import me from '../../services/me';
 import CardDevice from '../CardDevice/CardDevice';
@@ -6,8 +6,8 @@ import BtnCollaborator from '../BtnCollaborator/BtnCollaborator';
 import Nav from '../Nav/Nav';
 import Modal from 'react-modal';
 import TaxiConectado from '../../assets/taxi-conectado.png';
-import taxi from '../../assets/taxi_animado.gif'
-import loading from '../../assets/loading2.gif'
+import Pagination from 'rc-pagination';
+import 'rc-pagination/assets/index.css';
 
 class Profile extends Component{
     constructor(props){
@@ -19,29 +19,39 @@ class Profile extends Component{
             active:"false",
             typeBtn:"",
             img:"../../img/preload.png",
-            showModal:true
+            showModal:true,
+            currentPage:1,
+            todosPerPage:10,
+            todos:[]
         }
     }
 
-    
+    onChange = (page) => {
+        console.log(page);
+        this.setState({
+            currentPage: page,
+            showModal:true
+        });
+
+        setTimeout(() => { this.setState({showModal:false})},1000)
+    }    
 
     componentDidMount(){
-        console.log("HEROKU")
+        //console.log("HEROKU")
         me().then((user) => {
             if(user !== null){
                 this.setState({
-                    user:user.data.data.me
+                    user:user.data.data.me,
+                    todos:user.data.data.me.devices
                 })
     
                 if(this.state.user !== ""){
                     setTimeout(() => { this.setState({showModal:false})},1500)
                 }
-                console.log(this.state)
             }else{
                 localStorage.removeItem('token')
                 this.props.history.push('/')
             }
-            
         }).catch((err) =>{
             localStorage.removeItem('token')
             this.props.history.push('/')
@@ -68,20 +78,6 @@ class Profile extends Component{
 
     redirect3 = (id) => {
         this.props.history.push(`/addColaborador/${id}`)
-    }
-    renderDevices = () => {
-        if(this.state.user !== ""){
-            let devices = this.state.user.devices.map((device,index) => {
-                return (
-                    <CardDevice device={device} redirect={this.redirect2} key={index}/>
-                )
-            })
-            return devices
-        }else{
-            return(
-                <div></div>
-            )
-        }
     }
 
     renderCollaborators = () => {
@@ -132,14 +128,50 @@ class Profile extends Component{
     }
 
     render() {
+
+        const { todos, currentPage, todosPerPage } = this.state;
+
+        // Logic for displaying todos
+        const indexOfLastTodo = currentPage * todosPerPage;
+        const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+
+        const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+
+        const renderTodos = currentTodos.map((todo, index) => {
+        return (
+            <CardDevice key={index} device={todo} redirect={this.redirect2}/>
+        )
+        });
+
+        // Logic for displaying page numbers
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(todos.length / todosPerPage); i++) {
+        pageNumbers.push(i);
+        }
+
+        let total = this.state.todos.length
+
+        const renderPageNumbers = pageNumbers.map(number => {
+            return (
+                <button
+                className="btn btn-yellow ml-1 btn-sm"
+                key={number}
+                id={number}
+                onClick={this.handleClick}
+                >
+                {number}
+                </button>
+            );
+        });
+
         return(
-            
+            <Fragment>
             <div className="bodyProfile">
                 <Nav/>    
                 <div className="row bodyUser justify-content-center">
                     <div className="col-sm-12">
                         <img src={this.state.user.image_url} alt="img_profile" className="imgRedonda"/><br/>
-                        <h4>{this.state.user.name} {this.state.user.lastname}</h4>
+                        <h4>{this.state.user.name}</h4>
                         Concesionario
                         <br/>
                         <button className="btn bg-retroyellow btn-sm" onClick={() => this.redirect(this.state.user._id)} active={this.state.active}>Editar Perfil</button>
@@ -152,7 +184,7 @@ class Profile extends Component{
                         <h6>Colaboradores</h6>
                         {this.renderCollaborators()}
                         
-                        <button className={this.state.typeBtn} onClick={() => this.redirect3(this.state.user._id)}><i class="fa fa-user-plus" aria-hidden="true"></i></button>
+                        <button className={this.state.typeBtn} onClick={() => this.redirect3(this.state.user._id)}><i className="fa fa-user-plus" aria-hidden="true"></i></button>
                         <hr/>
                     </div>
 
@@ -163,9 +195,20 @@ class Profile extends Component{
                         <div className="col-sm-12">
                             <table className="table table-sm table-striped table-hover">
                                 <tbody>
-                                    {this.renderDevices()}
+                                    {renderTodos}
                                 </tbody>
                             </table>
+
+                            <br/><br/>
+                            <center>
+                                <Pagination 
+                                    showSizeChanger
+                                    onChange={this.onChange} 
+                                    current={this.state.currentPage} 
+                                    total={total}
+                                    showTitle={true}
+                                />
+                            </center>
                         </div>
                     </div>
                 </div>
@@ -182,7 +225,7 @@ class Profile extends Component{
                     </div>
                     <div className="col-sm-12">
                         <center>
-                            <div class="lds-spinner">
+                            <div className="lds-spinner">
                                 <div></div>
                                 <div></div>
                                 <div></div>
@@ -202,6 +245,7 @@ class Profile extends Component{
 
                 </Modal>
             </div>
+            </Fragment>
         )
     }
 

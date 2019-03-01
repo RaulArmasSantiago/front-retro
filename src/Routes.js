@@ -22,8 +22,9 @@ import Reports from './components/Reports/Reports';
 import Report from './components/Report/Report';
 import FormCollaborator from './components/formCollaborator/FormCollaborator';
 import misReportes from './components/MisReportes/MisReportes';
-import editReport from './components/editReport/editReport'
+import editReport from './components/editReport/editReport';
 import Multas from './components/Multas/Multas';
+import addUserCol from './components/addUserCol/addUserCol';
 
 class Routes extends Component{
     
@@ -60,6 +61,7 @@ class Routes extends Component{
                     <PrivateRoute exact path='/misReportes' component={misReportes}/>
                     <PrivateRoute exact path='/editReport/:id' component={editReport}/>
                     <PrivateRoute exact path='/multas/:concesion' component={Multas}/>
+                    <PrivateRoute exact path='/addUserCollaborator/:id' component={addUserCol}/>
                 </main>
             </Router>
         )

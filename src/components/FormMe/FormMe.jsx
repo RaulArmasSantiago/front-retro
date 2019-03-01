@@ -101,7 +101,7 @@ class FormMe extends Component{
    onSelectFile = (e) => {
     if (e.target.files && e.target.files.length > 0) {
       const reader = new FileReader();
-      let image = reader.result
+      //let image = reader.result
       
       reader.addEventListener('load', () => {
         
@@ -204,17 +204,17 @@ class FormMe extends Component{
                                         <div className="col-sm-12 col-md-6">
                                             <div className="form-group">
                                                 <img className="bg-white imgRedonda" src={this.state.src} width="150px" alt=""/><br/><br/>
-                                                <input className="btn btn-yellow" type="file" onChange={this.onSelectFile} />
-                                                <label className="btn btn-yellow" onClick={this.onSelectFile}> 
+                                                {/* <input className="btn btn-yellow" type="file" onChange={this.onSelectFile} /> */}
+                                                <label className="btn btn-yellow"> 
                                                 Cambiar foto
-                                                    {/* <FileUploader
+                                                    <FileUploader
                                                         hidden
                                                         accept="image/*"
                                                         randomizeFilename
                                                         storageRef={Firebase.storage().ref('images')}
                                                         onUploadError={error => console.log(error)}
                                                         onUploadSuccess={this.handleUploadSuccess}
-                                                    /> */}
+                                                    /> 
                                                 </label>
                                             </div>
                                         </div>
@@ -286,7 +286,7 @@ class FormMe extends Component{
                     </div>
                     <div className="col-sm-12">
                         <center>
-                            <div class="lds-spinner">
+                            <div className="lds-spinner">
                                 <div></div>
                                 <div></div>
                                 <div></div>

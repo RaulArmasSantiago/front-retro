@@ -4,20 +4,36 @@ class CardUser extends Component{
     constructor(props){
         super(props);
         this.state = {
-            user:props.user
+            user:props.user,
+            rol:""
         }
     }
 
-    render(){
-        console.log(this.state.device)
-        return (
-            
-            <div className="col-sm-12 col-md-6 col-lg-4" style={{width: "14rem;"}}>
-            <div className="card">
-                <div className="card-header bg-dark text-white"><h5 className="card-title" onClick={() => this.props.redirect(this.state.user._id)}>{this.state.user.name} {this.state.user.lastname}</h5></div>
-                <div className="card-body bg-retro text-white">
-                        
+    getAdmin = () => {
+        let rol
+        if(this.state.user.is_admin === true){
+            this.setState({
+                rol: "Administrador"
+            })
+        }else{
+            this.setState({
+                rol: "Concesionario"
+            })
+        }
 
+    }
+
+    render(){
+        
+        return (
+            <div className="col-sm-12 col-md-4 col-lg-3" style={{width: "14rem;"}}>
+            <div className="card">
+                <div className="card-body bg-dark text-white">
+                    <img src={this.state.user.image_url} alt="user" className="imgRedonda"/>
+                    <br/><br/>
+                    <h5>{this.state.user.name} {this.state.user.lastname}</h5>
+                    <cite id="ccuser" style={{fontSize:'15px'}}>{this.state.user.email}</cite><br/>
+                    <label htmlFor="">Taximetros Asociados: <br/>{this.state.user.devices.length}</label>
                 </div>
                 <div className="card-footer bg-warning">
                     <button className="btn btn-dark" onClick={() => this.props.redirect(this.state.user._id)}> Ver usuario</button>

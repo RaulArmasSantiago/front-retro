@@ -15,7 +15,11 @@ export default () => {
                         name,
                         lastname,
                         email,
-                        is_admin
+                        is_admin,
+                        image_url,
+                        devices{
+                            _id
+                        }
                     }
                 }
             `

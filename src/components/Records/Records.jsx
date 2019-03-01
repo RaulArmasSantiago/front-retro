@@ -4,6 +4,8 @@ import records from '../../services/records';
 import Nav from '../Nav/Nav';
 import Modal from 'react-modal';
 import TaxiConectado from '../../assets/taxi-conectado.png';
+import Pagination from 'rc-pagination';
+import 'rc-pagination/assets/index.css';
 
 
 class Records extends Component{
@@ -13,13 +15,34 @@ class Records extends Component{
             id:props.match.params.id,
             device:"",
             velocidad:[],
-            showModal:true
+            showModal:true,
+            currentPage:1,
+            todosPerPage:30,
+            todos:[]
         }
+    }
+
+    onChange = (page) => {
+        console.log(page);
+        this.setState({
+            currentPage: page,
+            showModal:true
+        });
+
+        setTimeout(() => { this.setState({showModal:false})},1000)
     }
 
     componentDidMount(){
         records(this.state.id).then((device) => {
-            this.setState({device:device.data.data.singleDevice})
+            this.setState({
+                device:device.data.data.singleDevice,
+                records:device.data.data.singleDevice.records,
+                
+            })
+            let reverse = this.state.records.reverse();
+            this.setState({
+                todos:reverse
+            })
             if(this.state.device !== ""){
                 setTimeout(() => { this.setState({showModal:false})},1500)
             }
@@ -36,11 +59,9 @@ class Records extends Component{
     getHrs(contmin){
         let hrs = Number(contmin);
         hrs = Math.trunc(hrs/60);
-        console.log(hrs * 60);
         let min = Number(contmin)
         let min2 = hrs * 60
         min = min - min2;
-        console.log(min)
         let tiempo = String(hrs) + " hrs. " + String(min) + " min.";
         
         return tiempo
@@ -53,27 +74,39 @@ class Records extends Component{
         return efectivoDecimal;
     }
 
-    renderRecords = () => {
-        if(this.state.device !== ""){
-            let record = this.state.device.records.map((record,index)=>{
-                console.log(record._id)
-                console.log(index + 1)
-                return(
-                    <tr>
-                        
-                        <td>{this.convertDate(record.date)}</td>
-                        <td>{record.contTravel}</td>
-                        <td>{this.getHrs(record.contTime)}</td>
-                        <td>{record.velocidadMaxima}70 km/h</td>
-                        <td>$ {this.contCash(record.contEfectivo)}</td>
-                    </tr>
-                )
-            })
-            return record
-        }
-    }
+    
 
     render(){
+
+        const { todos, currentPage, todosPerPage } = this.state;
+
+        // Logic for displaying todos
+        const indexOfLastTodo = currentPage * todosPerPage;
+        const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+
+        const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
+
+        const renderTodos = currentTodos.map((record, index) => {
+            console.log(record,index)
+        return (
+            <tr>                        
+                <td>{this.convertDate(record.date)}</td>
+                <td>{record.contTravel}</td>
+                <td>{this.getHrs(record.contTime)}</td>
+                <td>{record.velocidadMaxima}70 km/h</td>
+                <td>$ {this.contCash(record.contEfectivo)}</td>
+            </tr>
+        )
+        });
+
+        // Logic for displaying page numbers
+        const pageNumbers = [];
+        for (let i = 1; i <= Math.ceil(todos.length / todosPerPage); i++) {
+        pageNumbers.push(i);
+        }
+
+        let total = this.state.todos.length
+
         return(
             <div>
             <Nav/>
@@ -101,9 +134,20 @@ class Records extends Component{
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.renderRecords()}
+                                {renderTodos}
                             </tbody>
                         </table>
+                        <br/><br/>    
+                            <Pagination 
+                                showSizeChanger
+                                onChange={this.onChange} 
+                                current={this.state.currentPage} 
+                                total={total}
+                                showTitle={true}
+                                hideOnSinglePage={true}
+                                showPrevNextJumpers={true}
+                                
+                            />
                         </center>
                 </div>
             </div>
@@ -120,7 +164,7 @@ class Records extends Component{
                     </div>
                     <div className="col-sm-12">
                         <center>
-                            <div class="lds-spinner">
+                            <div className="lds-spinner">
                                 <div></div>
                                 <div></div>
                                 <div></div>

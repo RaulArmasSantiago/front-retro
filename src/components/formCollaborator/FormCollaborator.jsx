@@ -3,6 +3,7 @@ import './style.css'
 import Nav from '../Nav/Nav';
 import singleMail from '../../services/singleUserMail';
 import addCollaborator from '../../services/addColaborator';
+import {Link} from 'react-router-dom';
 
 class FormCollaborator extends Component {
     constructor(props){
@@ -13,6 +14,7 @@ class FormCollaborator extends Component {
             image:'../img/load.png',
             user:'',
             visible:'invisible',
+            linkVisible:'invisible',
             visiblediv:'col-sm-12 col-md-6 invisible',
             name:'',
             lastname:'',
@@ -50,10 +52,11 @@ class FormCollaborator extends Component {
                     lastname:this.state.user.lastname,
                     photo:this.state.user.image_url,
                     idcolaborador:this.state.user._id,
-                    visiblediv:'col-sm-12 col-md-6'
+                    visiblediv:'col-sm-12 col-md-6',
+                    linkVisible:'invisible'
                 })
             }else{
-                this.setState({image:'../img/cancel.png',visiblediv:'col-sm-12 col-md-6 invisible'})
+                this.setState({image:'../img/cancel.png',visiblediv:'col-sm-12 col-md-6 invisible',linkVisible:'text-left'})
             }
         }).catch((err)=>{
             console.log(err)
@@ -91,8 +94,13 @@ class FormCollaborator extends Component {
                                         <br/>
                                         <div className="form-group form-inline">
                                             <input className="form-control" type="text" name="email" id="email" placeholder="Email del colaborador" onChange={this.onInputCheck} value={this.state.email}/>
-                                            <button type="submit" className="btn btn-success ml-3" onClick={this.search}><i class="fa fa-search" aria-hidden="true"/> Buscar</button>    
+                                            <button type="submit" className="btn btn-success ml-3" onClick={this.search}><i className="fa fa-search" aria-hidden="true"/> Buscar</button>    
                                             <img className={this.state.visible} src={this.state.image} alt=""/>
+                                        </div>
+                                        <br/>
+                                        <div className={this.state.linkVisible}>
+                                            <label htmlFor="">El correo ingresado no fue encontrado, pusla crear cuenta para agregar una cuenta de colaborador.</label>
+                                            <center><button className="btn btn-yellow" onClick={()=> (this.props.history.push(`/addUserCollaborator/${this.state._id}`)) }>Crear cuenta</button></center>
                                         </div>
                                         
                                     <hr/>

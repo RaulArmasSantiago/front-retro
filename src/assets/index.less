@@ -1,0 +1,342 @@
+@prefixClass : rc - paginación;
+
+. @ {prefixClass} {
+  tamaño de letra : 12 px ;
+  Familia tipográfica : ' Arial ' ;
+  selección de usuario : ninguna ;
+  relleno : 0 ;
+
+  >  li {
+    estilo de lista : ninguno ;
+  }
+
+  & -total-text {
+    flotar : izquierda ;
+    altura : 30 px ;
+    altura de línea : 30 px ;
+    estilo de lista : ninguno ;
+    relleno : 0 ;
+    margen : 0  8 px  0  0 ;
+  }
+
+  & : después de {
+    contenido : "  " ;
+    pantalla : bloque ;
+    altura : 0 ;
+    claro : ambos ;
+    desbordamiento : oculto ;
+    visibilidad : oculta ;
+  }
+
+  & -emigo {
+    cursor : puntero ;
+    radio del borde : 6 px ;
+    ancho mínimo : 28 px ;
+    altura : 28 px ;
+    altura de línea : 28 px ;
+    text-align : center ;
+    estilo de lista : ninguno ;
+    flotar : izquierda ;
+    borde : 1 px  sólido  # d9d9d9 ;
+    color de fondo : #fff ;
+    margen derecho : 8 px ;
+
+    un {
+      texto-decoración : ninguno ;
+      color : # 666 ;
+    }
+
+    & : hover {
+      color de borde : # 2db7f5 ;
+      un {
+        color : # 2db7f5 ;
+      }
+    }
+
+    & -deshabilitado {
+      cursor : no permitido ;
+      & : hover {
+        color de borde : # d9d9d9 ;
+        un {
+          color : # d9d9d9 ;
+        }
+      }
+    }
+
+    & -activo {
+      color de fondo : # 2db7f5 ;
+      color de borde : # 2db7f5 ;
+
+      un {
+        color : #fff ;
+      }
+
+      & : hover {
+        un {
+          color : #fff ;
+        }
+      }
+    }
+  }
+
+  & -jump-prev , & -jump-next {
+    & : después de {
+      contenido : " ••• " ;
+      pantalla : bloque ;
+      espacio entre letras : 2 px ;
+      color : #ccc ;
+      tamaño de letra : 12 px ;
+      margen superior : 1 px ;
+    }
+
+    & : hover {
+      & : después de {
+        color : # 2db7f5 ;
+      }
+    }
+
+  }
+
+  & -jump-prev {
+    & : hover {
+      & : después de {
+        contenido : " « " ;
+      }
+    }
+  }
+
+  & -jump-next {
+    & : hover {
+      & : después de {
+        contenido : " » " ;
+      }
+    }
+  }
+  
+  & -jump-prev-custom-icon ,
+  & -jump-next-custom-icon {
+    posición : relativa ;
+
+    & : después de {
+      posición : absoluta ;
+      arriba : 0 ;
+      derecha : 0 ;
+      abajo : 0 ;
+      izquierda : 0 ;
+      margen : auto ;
+      transición : todos  .2 s ;
+
+      contenido : " ••• " ;
+      opacidad : 1 ;
+      pantalla : bloque ;
+      espacio entre letras : 2 px ;
+      color : #ccc ;
+      tamaño de letra : 12 px ;
+      margen superior : 1 px ;
+    }
+
+    .custom-icon-jump-prev ,
+    .custom-icon-jump-next {
+      opacidad : 0 ;
+      transición : todos  .2 s ;
+    }
+
+    & : hover {
+      & : después de {
+        opacidad : 0 ;
+        color : #ccc ;
+      }
+
+      .custom-icon-jump-prev ,
+      .custom-icon-jump-next {
+        opacidad : 1 ;
+        color : # 2db7f5 ;
+      }
+    }
+  }
+
+  & -prev , & -jump-prev , & -jump-next {
+    margen derecho : 8 px ;
+  }
+  & -prev , & -next , & -jump-prev , & -jump-next {
+    cursor : puntero ;
+    color : # 666 ;
+    tamaño de letra : 10 px ;
+    radio del borde : 6 px ;
+    estilo de lista : ninguno ;
+    ancho mínimo : 28 px ;
+    altura : 28 px ;
+    altura de línea : 28 px ;
+    flotar : izquierda ;
+    text-align : center ;
+  }
+
+  & -prev {
+    un {
+      & : después de {
+        contenido : " ‹ " ;
+        pantalla : bloque ;
+      }
+    }
+  }
+
+  & -siguiente {
+    un {
+      & : después de {
+        contenido : " › " ;
+        pantalla : bloque ;
+      }
+    }
+  }
+
+  & -prev , & -siguiente {
+    borde : 1 px  sólido  # d9d9d9 ;
+    tamaño de letra : 18 px ;
+    un {
+      color : # 666 ;
+      & : después de {
+        margen superior : -1 px ;
+      }
+    }
+  }
+
+  & -deshabilitado {
+    cursor : no permitido ;
+    un {
+      color : #ccc ;
+    }
+  }
+
+  & -opciones {
+    flotar : izquierda ;
+    margen izquierdo : 15 px ;
+    & -size-changer {
+      flotar : izquierda ;
+      ancho : 80 px ;
+    }
+
+    & -quick-jumper {
+      flotar : izquierda ;
+      margen izquierdo : 16 px ;
+      altura : 28 px ;
+      altura de línea : 28 px ;
+
+      entrada {
+        margen : 0  8 px ;
+        caja de tamaño : frontera-box ;
+        color de fondo : #fff ;
+        radio del borde : 6 px ;
+        borde : 1 px  sólido  # d9d9d9 ;
+        esquema : ninguno ;
+        Acolchado : 3 px  12 px ;
+        ancho : 50 px ;
+        altura : 28 px ;
+
+        & : hover {
+          color de borde : # 2db7f5 ;
+        }
+      }
+
+      botón {
+        pantalla : bloque en línea ;
+        margen : 0  8 px ;
+        peso de la fuente : 500 ;
+        text-align : center ;
+        acción-tacto : manipulación ;
+        cursor : puntero ;
+        imagen de fondo : ninguna ;
+        borde : 1 px  sólido  transparente ;
+        espacio en blanco : nowrap ;
+        Relleno : 0  15 px ;
+        tamaño de letra : 12 px ;
+        radio del borde : 6 px ;
+        altura : 28 px ;
+        selección de usuario : ninguna ;
+        transición : todos  .3 s  cubic-bezier ( .645 , .045 , .355 , 1 );
+        posición : relativa ;
+        color : rgba ( 0 , 0 , 0 , .65 );
+        color de fondo : #fff ;
+        color de borde : # d9d9d9 ;
+
+        & : hover , & : activo , & : focus {
+          color : # 2db7f5 ;
+          color de fondo : #fff ;
+          color de borde : # 2db7f5 ;
+        }
+      }
+    }
+  }
+
+  & -simple {
+    . @ {} prefixClass -prev , . @ {prefixClass} -siguiente {
+      frontera : ninguna ;
+      altura : 24 px ;
+      altura de línea : 24 px ;
+      margen : 0 ;
+      tamaño de letra : 18 px ;
+    }
+
+    . @ {prefixClass} -simple-pager {
+      flotar : izquierda ;
+      margen derecho : 8 px ;
+      estilo de lista : ninguno ;
+
+      . @ {prefixClass} -slash {
+        margen : 0  10 px ;
+      }
+
+      entrada {
+        margen : 0  8 px ;
+        caja de tamaño : frontera-box ;
+        color de fondo : #fff ;
+        radio del borde : 6 px ;
+        borde : 1 px  sólido  # d9d9d9 ;
+        esquema : ninguno ;
+        Relleno : 5 px  8 px ;
+        altura min : 20 px ;
+
+        & : hover {
+          color de borde : # 2db7f5 ;
+        }
+      }
+
+      botón {
+        pantalla : bloque en línea ;
+        margen : 0  8 px ;
+        peso de la fuente : 500 ;
+        text-align : center ;
+        acción-tacto : manipulación ;
+        cursor : puntero ;
+        imagen de fondo : ninguna ;
+        borde : 1 px  sólido  transparente ;
+        espacio en blanco : nowrap ;
+        Relleno : 0  8 px ;
+        tamaño de letra : 12 px ;
+        radio del borde : 6 px ;
+        altura : 26 px ;
+        selección de usuario : ninguna ;
+        transición : todos  .3 s  cubic-bezier ( .645 , .045 , .355 , 1 );
+        posición : relativa ;
+        color : rgba ( 0 , 0 , 0 , .65 );
+        color de fondo : #fff ;
+        color de borde : # d9d9d9 ;
+
+        & : hover , & : activo , & : focus {
+          color : # 2db7f5 ;
+          color de fondo : #fff ;
+          color de borde : # 2db7f5 ;
+        }
+      }
+
+    }
+  }
+}
+
+Pantalla  solo @media y ( ancho máximo : 1024 px ) {
+  . @ {prefixClass} -item {
+    & -después de saltar-prev ,
+    Y -antes-salto-siguiente {
+      pantalla : ninguna ;
+    }
+  }
+}

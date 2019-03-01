@@ -15,6 +15,7 @@ class RowUser extends Component{
     componentDidMount(){
         console.log(this.state)
         singleDevice(this.state.device._id).then((dev) =>{
+            console.log(dev)
             this.setState({
                 dispositivo:dev.data.data.singleDevice
             })

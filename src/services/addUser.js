@@ -12,7 +12,7 @@ export default (data) => {
             mutation{
                 addUser(data:{
                     name:"${data.name}",
-                    lastname:"${data.lastname}",
+                    lastname:".",
                     email:"${data.email}",
                     password:"${data.password}"
                 }){

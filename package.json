@@ -8,6 +8,7 @@
     "bootstrap": "^4.1.3",
     "firebase": "^5.5.0",
     "font-awesome": "^4.7.0",
+    "rc-pagination": "^1.17.8",
     "rc-react": "^1.1.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

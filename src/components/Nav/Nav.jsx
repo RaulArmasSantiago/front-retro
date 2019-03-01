@@ -15,7 +15,7 @@ class Nav extends Component{
             let pl = payload(token);
             if(pl.admin === true){
                 return (
-                    <ul className="navbar-nav ml-4">
+                    <ul className="navbar-nav ml-">
                         <li className="nav-item">
                             <Link className="nav-link" to="/profile">{pl.name}</Link>
                         </li>
@@ -80,7 +80,7 @@ class Nav extends Component{
                     <img src={TaxiConectado} width="100px" alt="logo.png"/>
                     {this.chargeProfile()}
                 </div>
-                <form className="form-inline my-2 my-lg-0">
+                {/* <form className="form-inline my-2 my-lg-0">
                     <div className="input-group md-form form-sm form-2 pl-0">
                         <input className="form-control my-0 py-1 lime-border" type="text" placeholder="Search" aria-label="Search"/>
                         
@@ -91,7 +91,7 @@ class Nav extends Component{
                         </div>
                         
                     </div>
-                </form>  
+                </form>   */}
             </nav>
         )
     }
