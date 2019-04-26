@@ -6,3 +6,9 @@ left{
     height: 100vh;
     padding-top: 70px;
 }
+
+.imgRedondaUD{
+    border-radius: 50%;
+}
+
+.centered-and-cropped { object-fit: cover }

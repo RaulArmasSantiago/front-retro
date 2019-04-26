@@ -12,11 +12,11 @@ class Report extends Component{
             id:props.match.params.id,
             driver:"",
             name:"",
-            lastname:"",
             description:"",
             concesion:"",
             img_url:"",
-            me:""
+            me:"",
+            direccion:""
         }
     }
 
@@ -30,12 +30,22 @@ class Report extends Component{
         singleDriver(this.state.id).then((driver) => {
             this.setState({driver:driver.data.data.singleDevice})
             console.log(this.state)
+            let calle = this.state.driver.conductorAddress;
+        let numE = this.state.driver.conductorNumExt
+        let numI = this.state.driver.conductorNumInt;
+        let col = this.state.driver.conductorDistrict;
+        let cc = this.state.driver.conductorCC;
+        let tel = this.state.driver.conductorTel;
+        let city = this.state.driver.conductorCity
+        let country =this.state.driver.conductorCountry
+        let dir = `${calle}, #${numE}, Int.${numI}, Col. ${col}, CP. ${cc}, ${city}, ${country}`;
             this.setState(
                 {
                     name: this.state.driver.conductorName,
                     lastname: this.state.driver.conductorLastname,
                     concesion: this.state.driver.concesion,
-                    img_url:this.state.driver.image_url_conductor
+                    img_url:this.state.driver.image_url_conductor,
+                    direccion: dir
                 }
             )
         })
@@ -59,6 +69,19 @@ class Report extends Component{
         })
     }
 
+    getAddress() {
+        let calle = this.state.driver.conductorAddress;
+        let numE = this.state.driver.conductorNumExt
+        let numI = this.state.driver.conductorNumInt;
+        let col = this.state.driver.conductorDistrict;
+        let cc = this.state.driver.conductorCC;
+        let tel = this.state.driver.conductorTel;
+        let city = this.state.driver.conductorCity
+        let country =this.state.driver.conductorCountry
+        let dir = `${calle}, #${numE}, Int.${numI}, Col. ${col}, CP. ${cc}, ${city}, ${country}`;
+        
+        return dir
+    }
     render(){
         return(
             <div className="bodyReport">
@@ -70,36 +93,29 @@ class Report extends Component{
                     <div className="col-sm-12">
                         <div className="card">
                             <div className="card-header bg-dark text-white">
-                                <h4>Reportar</h4>
+                                <h4>Reportar taxista</h4>
                             </div>
                             <div className="card-body">
                             <form onSubmit={this.onFormSubmit}>
                                 <div className="row">
                                 
                                     <div className="col-sm-12 col-md-6">
-                                        <img src={this.state.img_url} className="img-fluid imgRedondaRep" alt="" width="400px"/>
+                                        <img src={this.state.img_url} className="img-fluid imgRedondaRep centered-and-cropped" alt=""/><br/>
+                                        <label htmlFor="">{this.state.name}</label> <br/>
+                                        <cite>{this.getAddress()}</cite>
                                     </div>
                                     <div className="col-sm-12 col-md-6 text-left">
-                                        <center><h4>Datos del taxista</h4></center>
-                                        
-                                        <div className="form-group">
-                                            <label htmlFor="name">Nombre:</label>
-                                            <input type="text" name="name" id="name" className="form-control" placeholder="Nombre del taxista" value={this.state.name} onChange={this.onInputCheck}/>
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="">Apellidos</label>
-                                            <input type="text" className="form-control" name="lastname" id="" placeholder="Apellidos" value={this.state.lastname} onChange={this.onInputCheck}/>
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="">Motivo del reporte:</label>
-                                            <textarea name="description" className="form-control
-                                            " id="" cols="20" rows="5" placeholder="Menciona cual es el motivo por el cual se levanta el reporte al conductor..." value={this.state.description} onChange={this.onInputCheck}></textarea>
-
-                                        </div>
+                                        <center><h4>Reporte</h4></center>
                                         <div className="form-group">
                                             <label htmlFor="">Concesion que reporta: </label>
                                             <input type="text" className="form-control" name="concesion" id="" placeholder="Numero de la concesión" value={this.state.concesion} onChange={this.onInputCheck}/>
                                         </div>
+                                        <div className="form-group">
+                                            <label htmlFor="">Motivo del reporte:</label>
+                                            <textarea name="description" className="form-control" id="" cols="20" rows="5" placeholder="Menciona cual es el motivo por el cual se levanta el reporte al conductor..." value={this.state.description} onChange={this.onInputCheck}></textarea>
+
+                                        </div>
+
 
                                         <button className="btn btn-danger btn-block">Levantar Reporte</button>
                                     </div>

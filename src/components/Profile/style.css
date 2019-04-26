@@ -47,9 +47,12 @@ line-height: 1.428571429;
 color: #999;
 }
 
+.centered-and-cropped { object-fit: cover }
+
 .imgRedonda {
     width:150px;
-    border-radius:150px;
+    height: 150;
+    border-radius:50%;
     border:2px solid #000;
 }
 

@@ -21,19 +21,21 @@ class Device extends Component{
             velocidad:[],
             showModal:true,
             multas:"",
+            quejas:[],
             visible:"invisible"
         }
     }
 
     componentDidMount(){
         singleDevice(this.state.id).then((device) => {
+            console.log(device)
             //console.log(device.data.data.singleDevice)
             this.setState({device:device.data.data.singleDevice})
-            console.log(this.state)
-            console.log(this.state.device.lastkm - this.state.device.kminit)
+            //console.log(this.state)
+            //console.log(this.state.device.lastkm - this.state.device.kminit)
             multas(this.state.device.concesion).then((multas) => {
                 this.setState({multas:multas.data.data.conceReport})
-                console.log(this.state)
+                //console.log(this.state)
                 
             })
             if(this.state.device !== ""){
@@ -59,10 +61,10 @@ class Device extends Component{
 
     renderMap(){
         if(this.state.device !== ""){
-                return(
-                    <div>
-                        <Map data={this.state.device.lastLocation} data2={this.state.device.initTravel} data3={this.state.device.endTravel}/>
-                    </div>
+            return(
+                <div>
+                    <Map data={this.state.device.lastLocation} data2={this.state.device.initTravel} data3={this.state.device.endTravel}/>
+                </div>
                 )
         }else{
             return(
@@ -102,16 +104,7 @@ class Device extends Component{
         return tiempo
     }
 
-    getMultas(){
-        if(this.state.multas.length !== 0){
-            this.state.multas.map((m) =>{
-                if(m.pagado === false){
-                    Array.push(m)
-                }
-            })
-            return Array.length
-        }
-    }
+    
 
     getColor(){
         let velocidad = {
@@ -174,7 +167,30 @@ class Device extends Component{
             })
             return(
                 <div>
-                    <img src={notification} onClick={() => this.redirect4(this.state.multas)} alt="" width="20px" className="ml-4"/> {pendientes}    
+                    <button className="reportIMT btn" onClick={() => this.redirect4(this.state.multas)}>Reportes IMT</button>
+                </div>
+                
+            )
+        }else{
+            return(
+            <div></div>
+            )
+        }
+    }
+
+    getQuejas(){
+        if (this.state.quejas.length !== 0){
+            let pendientes=0;
+
+            this.state.quejas.map((m)=>{
+                if(m.pagado === false){
+                    pendientes++;
+                }
+                return m
+            })
+            return(
+                <div>
+                    <button className="reportUser btn ml-2" onClick={() => this.redirect4(this.state.multas)}>Reportes por usuarios</button>
                 </div>
                 
             )
@@ -198,13 +214,14 @@ class Device extends Component{
                     <div className="col-sm-12 col-md-6 text-center">
                         <label className="text-white"><strong>{this.state.device.conductorName} {this.state.device.conductorLastname}</strong></label>
                     </div>
-                    <div className="col-sm-12 col-md-4 text-center">
+                    <div className="col-sm-12 col-md-2 text-center">
                         <label className="text-white"><strong>{this.state.device.concesion}-T</strong>
                         <button className="btn btn-outline-warning btn-sm ml-4" onClick={() => this.redirect2(this.state.device._id)}>Historial</button>
                         </label>
                     </div>
-                    <div className="col-sm-12 col-md-2 text-white">
+                    <div className="col-sm-12 col-md-4 text-white">
                         {this.getMultas()}
+                        {this.getQuejas()}
                     </div>
                 </div>
 
@@ -230,10 +247,15 @@ class Device extends Component{
                         <br/>
                         <label className="text-dark"><strong>KM TOTALES</strong></label>
                     </div>
-                    <div className="col-sm-12 col-md-4" id="contenido">
-                        <label className="text-data"><strong>70 km/h</strong></label>
+                    <div className="col-sm-12 col-md-2" id="contenido">
+                        <label className="text-data"><strong>{this.state.device.velocidadMax} km/h</strong></label>
                         <br/>
-                        <label className="text-dark"><strong>VELOCIDAD MÁXIMA</strong></label>
+                        <label className="text-dark"><strong>MÁXIMA</strong></label>
+                    </div>
+                    <div className="col-sm-12 col-md-2" id="contenido">
+                        <label className="text-data"><strong>{this.state.device.velocidadProm} km/h</strong></label>
+                        <br/>
+                        <label className="text-dark"><strong>PROMEDIO</strong></label>
                     </div>
                     <div className="col-sm-12 col-md-4" id="contenido">
                         <label className="text-data"><strong>$ {this.contCash()}</strong></label>
@@ -249,12 +271,13 @@ class Device extends Component{
                         <br/>
                         <img src={iniTravel} alt=""/>: Inicio de viaje
                         <img className="ml-4" src={endTravel} alt=""/>: Fin de viaje
+                        <br/>
                     </div>
                     <div className="col-sm-12 col-md-6 text-left">
                     
                         <br/>
                         <center><h2 className="text-white">DATOS DEL TAXI</h2></center>
-                        <center><img src={this.state.device.image_url_conductor} className="imgRedonda2" alt="Operador" width="200px"/></center>
+                        <center><img src={this.state.device.image_url_conductor} className="imgRedonda2 centered-and-cropped" alt="Operador" width="200px"/></center>
                         <br/>
                         <table className="table font-tabel">
                             <tr>
@@ -278,6 +301,10 @@ class Device extends Component{
                                 <td><img src="../img/cel-icon.png" alt="iconos.png" className="img-fluid"/></td>
                                 <td><strong><label className="text-driver ml-2">{this.state.device.conductorTel}</label></strong></td>
                             </tr>
+                            <tr>
+                                <td><img src="../img/phoneHome.png" alt="iconos.png" className="img-fluid"/></td>
+                                <td><strong><label className="text-driver ml-2">{this.state.device.conductorTelCasa}</label></strong></td>
+                            </tr>
                         </table>
                         <div className="row justify-content-center">
                             <div className="col-sm-6">
@@ -298,16 +325,16 @@ class Device extends Component{
                                         </ol>
                                         <div className="carousel-inner">
                                             <div className="carousel-item active">
-                                            <img className="d-block w-100" src={this.state.device.image_url_fvehicle} alt="Second slide"/>
+                                            <img className="d-block w-100 centered-and-cropped" src={this.state.device.image_url_fvehicle} alt="Second slide"/>
                                             </div>
                                             <div className="carousel-item">
-                                            <img className="d-block w-100" src={this.state.device.image_url_lvehicle} alt="Third slide"/>
+                                            <img className="d-block w-100 centered-and-cropped" src={this.state.device.image_url_lvehicle} alt="Third slide"/>
                                             </div>
                                             <div className="carousel-item">
-                                            <img className="d-block w-100" src={this.state.device.image_url_rvehicle} alt="Third slide"/>
+                                            <img className="d-block w-100 centered-and-cropped" src={this.state.device.image_url_rvehicle} alt="Third slide"/>
                                             </div>
                                             <div className="carousel-item">
-                                            <img className="d-block w-100" src={this.state.device.image_url_bvehicle} alt="Third slide"/>
+                                            <img className="d-block w-100 centered-and-cropped" src={this.state.device.image_url_bvehicle} alt="Third slide"/>
                                             </div>
                                         </div>
                                         <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

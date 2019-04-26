@@ -170,7 +170,7 @@ class Profile extends Component{
                 <Nav/>    
                 <div className="row bodyUser justify-content-center">
                     <div className="col-sm-12">
-                        <img src={this.state.user.image_url} alt="img_profile" className="imgRedonda"/><br/>
+                        <img src={this.state.user.image_url} alt="img_profile" className="imgRedonda centered-and-croppes"/><br/>
                         <h4>{this.state.user.name}</h4>
                         Concesionario
                         <br/>

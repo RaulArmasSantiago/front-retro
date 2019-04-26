@@ -13,10 +13,12 @@ class TuplaReport extends Component{
     render(){
         return(
             <tr onClick={()=> this.props.redirect(this.state.reporte._id)}>
-                
+                <td> <img src={this.state.reporte.img_url} alt="" width="70px" height="70px" className="centered-and-cropped imgRedondaTR"/></td>
+                <td>{this.state.reporte.name} {this.state.reporte.lastname}</td>
+                <td>{this.state.reporte.description}</td>
                 <td>{this.state.reporte.reporter}-T</td>
-                <td> <img src={this.state.reporte.img_url} alt="" width="50px"/><br/>
-                {this.state.reporte.name} {this.state.reporte.lastname}</td>
+                
+                
                 
             </tr>
         )

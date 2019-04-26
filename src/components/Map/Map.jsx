@@ -1,5 +1,7 @@
+/*global google*/
+
 import React, { Component } from 'react';
-import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+import { withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from 'react-google-maps';
 import './style.css'
 
 
@@ -16,11 +18,10 @@ class Map extends Component {
    } 
 
    componentDidMount(){
-     console.log(this.props)
      this.setState({pos:this.state.device.data,travels:this.state.device.data2})
    }
 
-   getLatitud(loc){
+  getLatitud(loc){
      
      let pos = loc;
      let latitud = String(pos).substring(0,6)
@@ -68,7 +69,7 @@ class Map extends Component {
    renderTravels = () => {
      if(this.state.device !== ""){
        let travel = this.state.device.data2.map((travel,index)=>{
-         console.log("viaje " + index, travel)
+         //console.log("viaje " + index, travel)
          let i = index + 1
          return(
            <Marker title={"Viaje # "+ i} description={"Viaje # "+i}  options={{icon: "../img/"+i+".png"}} position={this.getLocation(travel)}/>
@@ -77,11 +78,11 @@ class Map extends Component {
        return travel
      }
    }
-   /* 
+   
    renderEndTravels = () =>{
      if(this.state.device !== ""){
       let travel = this.state.device.data3.map((travel,index)=>{
-          console.log("endViaje "+ index, travel)
+          //console.log("endViaje "+ index, travel)
           let i = index + 1
           return(
             <Marker title={"Fin de viaje # "+i} description={"Fin de viaje # "+i} options={{icon: "../img/"+i+"e.png"}} position={this.getLocation(travel)}/>
@@ -89,7 +90,7 @@ class Map extends Component {
        })
        return travel
      }
-   } */
+   }
 
    render() {
    const GoogleMapExample = withGoogleMap(props => (
@@ -98,13 +99,17 @@ class Map extends Component {
         defaultZoom = { 17 }
       >
       {this.renderTravels()}
-      
-      <Marker title={"Ultima localizacion registrada"} options={{icon: "../img/taxi-yellow.png"}} position={this.getLocation(this.state.pos)}/>
+      {this.renderEndTravels()}
+
+      <Marker title={"Ultima localizacion registrada"} options={{icon: "../img/taxi-yellow.png"}} position={this.getLocation(this.state.pos)} onClick={() => {
+
+      }}/>
       </GoogleMap>
    ));
    return(
      <div>
       <div className="row justify-content-center">
+
         <GoogleMapExample className="col-sm-12"
           containerElement={ <div style={{ height: '400px', width: '500px' }} /> }
           mapElement={ <div style={{ height: `100%` }} /> }

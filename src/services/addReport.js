@@ -13,11 +13,11 @@ export default (data) => {
             mutation{
                 addReport(data:{
                   name:"${data.name}",
-                  lastname:"${data.lastname}",
                   img_url:"${data.img_url}"
                   description:"${data.description}",
                   reporter:"${data.concesion}",
                   user_reporter:"${data.me._id}"
+                  direccion:"${data.direccion}"
                 }){
                   _id,
                   name

@@ -13,6 +13,8 @@ hr {
     width: 100%;
 }
 
+.centered-and-cropped { object-fit: cover }
+
 .modal-main-crop{
     position: absolute;
     top: 10%;

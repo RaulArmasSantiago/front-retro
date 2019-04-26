@@ -31,6 +31,7 @@ class UpdateDeviceForm extends Component{
             conductorNumExt:"",
             conductorNumInt:"",
             conductorTel:"",
+            conductorTelCasa:"",
             concesion:"",
             user:"",
             sigfox:"",
@@ -57,6 +58,7 @@ class UpdateDeviceForm extends Component{
                 conductorCity:this.state.device.conductorCity,
                 conductorCountry:this.state.device.conductorCountry,
                 conductorTel:this.state.device.conductorTel,
+                conductorTelCasa:this.state.device.conductorTelCasa,
                 concesion:this.state.device.concesion,
                 image_url_bvehicle:this.state.device.image_url_bvehicle,
                 image_url_conductor:this.state.device.image_url_conductor,
@@ -200,7 +202,7 @@ class UpdateDeviceForm extends Component{
                                     <div className="row">
                                         <div className="col-md-6">
                                             <div className="form-group">
-                                                <img src={this.state.image_url_fvehicle} width="200px" alt=""/>
+                                                <img src={this.state.image_url_fvehicle} width="200px" height="100" alt="" className="centered-and-cropped"/>
                                                 <br/><br/>
                                                 <label className="btn btn-warning">
                                                 Agregar foto delantera
@@ -216,7 +218,7 @@ class UpdateDeviceForm extends Component{
                                             </div>
 
                                             <div className="form-group">
-                                                <img src={this.state.image_url_bvehicle} width="200px" alt=""/>
+                                                <img src={this.state.image_url_bvehicle} width="200px" height="100" alt="" className="centered-and-cropped"/>
                                                 <br/><br/>
                                                 <label className="btn btn-warning">
                                                 Agregar foto trasera
@@ -234,7 +236,7 @@ class UpdateDeviceForm extends Component{
 
                                         <div className="col-md-6">
                                             <div className="form-group">
-                                                <img src={this.state.image_url_lvehicle} width="200px" alt=""/>
+                                                <img src={this.state.image_url_lvehicle} width="200px" height="100" alt="" className="centered-and-cropped"/>
                                                 <br/><br/>
                                                 <label className="btn btn-warning">
                                                 Agregar foto lateral izquierda
@@ -278,11 +280,6 @@ class UpdateDeviceForm extends Component{
                                         <label className="" htmlFor="conductorName">Nombre:</label>
                                         <input type="text" className="form-control" name="conductorName" id="conductorName" value={this.state.conductorName} onChange={this.onInputCheck} size="30"/>
                                     </div>
-
-                                    <div className="form-group">
-                                        <label className="" htmlFor="conductorLastname">Apellidos:</label>
-                                        <input type="text" className="form-control" name="conductorLastname" id="conductorLastname" value={this.state.conductorLastname} onChange={this.onInputCheck} size="30"/>
-                                    </div>
                                     
                                     <div className="form-group">      
                                         <label className="left" htmlFor="conductorAddress">Domicilio:</label>    
@@ -316,8 +313,12 @@ class UpdateDeviceForm extends Component{
                                         <input type="text" className="form-control" name="conductorCountry" id="conductorCountry" value={this.state.conductorCountry} onChange={this.onInputCheck} size="30"/>
                                     </div>
                                     <div className="form-group">      
-                                        <label className=" col-md-6" htmlFor="conductorTel">Telefono de contacto:</label>    
+                                        <label className=" col-md-6" htmlFor="conductorTel">Telefono celular:</label>    
                                         <input type="text" className="form-control" name="conductorTel" id="conductorTel" value={this.state.conductorTel} onChange={this.onInputCheck} size="30"/>
+                                    </div>
+                                    <div className="form-group">      
+                                        <label className=" col-md-6" htmlFor="conductorTelCasa">Telefono fijo:</label>    
+                                        <input type="text" className="form-control" name="conductorTelCasa" id="conductorTelCasa" value={this.state.conductorTelCasa} onChange={this.onInputCheck} size="30" maxLength="10"/>
                                     </div>
                                     <br/>
                                     
@@ -329,7 +330,7 @@ class UpdateDeviceForm extends Component{
                                 <div className="col-sm-12 col-md-6">
                                 <br/><br/>
                                     <div className="form-group">
-                                        <img src={this.state.image_url_conductor} alt="" width="200px"/>
+                                        <img src={this.state.image_url_conductor} alt="" width="200px" height="200px" className="centered-and-cropped imgRedondaUD"/>
                                         <br/><br/>
                                         <label className="btn btn-warning">
                                         Agregar foto del conductor

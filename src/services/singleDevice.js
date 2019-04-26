@@ -24,6 +24,7 @@ export default (id) => {
                         conductorNumExt,
                         conductorNumInt,
                         conductorTel,
+                        conductorTelCasa,
                         conductorCC,
                         conductorCity,
                         conductorCountry,
@@ -39,9 +40,13 @@ export default (id) => {
                         image_url_rvehicle,
                         user,
                         initTravel,
+                        endTravel,
                         kminit,
                         lastkm,
-                        sigfox
+                        sigfox,
+                        velocidadMax,
+                        velocidadProm,
+                        velocidadPre                        
                     }
                 }
             `

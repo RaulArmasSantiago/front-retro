@@ -11,14 +11,27 @@
     overflow: scroll;
   }
 
+  .centered-and-cropped { object-fit: cover }
+
   .img-longest {
     width:40px;
-    border-radius:150px;
+    height: 40px;
+    border-radius:50%;
     border:1px solid #000;
 }
 
 .img-medium{
     width:70px;
-    border-radius:150px;
+    height: 70px;
+    border-radius:50%;
     border:1px solid #000;
 }
+
+#PunteroAqui:hover{ width:230px; height:40px; position:absolute;}
+#PunteroAqui{
+	width:16px; 
+	height:16px; 
+	overflow:hidden; 
+	position:absolute; 
+
+	}

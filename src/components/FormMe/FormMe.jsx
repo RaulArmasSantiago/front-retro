@@ -57,7 +57,8 @@ class FormMe extends Component{
                 country:this.state.user.country,
                 cc:this.state.user.cc,
                 tel:this.state.user.telefono,
-                image_url:this.state.user.image_url
+                image_url:this.state.user.image_url,
+                src:this.state.user.image_url
             })
             if(this.state.user !== ""){
                 setTimeout(() => { this.setState({showModal:false})},1500)
@@ -77,11 +78,11 @@ class FormMe extends Component{
     }
 
     handleUploadSuccess = (filename) =>{
-        console.log(filename)
+        console.log(filename,"filename")
         Firebase.storage().ref('images').child(filename)
             .getDownloadURL().then((url) => {
                 console.log(url)
-                this.setState({image_url:url})
+                this.setState({image_url:url,src:url})
             })
 
     }
@@ -204,7 +205,7 @@ class FormMe extends Component{
                                         <div className="col-sm-12 col-md-6">
                                             <div className="form-group">
                                                 <img className="bg-white imgRedonda" src={this.state.src} width="150px" alt=""/><br/><br/>
-                                                {/* <input className="btn btn-yellow" type="file" onChange={this.onSelectFile} /> */}
+                                                
                                                 <label className="btn btn-yellow"> 
                                                 Cambiar foto
                                                     <FileUploader

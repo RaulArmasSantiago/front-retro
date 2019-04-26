@@ -15,6 +15,7 @@ export default (data) => {
         conductorNumExt:"${data.conductorNumExt}",
         conductorNumInt:"${data.conductorNumInt}",
         conductorTel:"${data.conductorTel}",
+        conductorTelCasa:"${data.conductorTelCasa}"
         marcaVehicle:"${data.marcaVehicle}",
         modeloVehicle:"${data.modeloVehicle}",
         anioVehicle:"${data.anioVehicle}",

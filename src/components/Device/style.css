@@ -1,4 +1,50 @@
- .contenedor {
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed');
+
+@keyframes shadow-pulse
+{
+  0% {
+    box-shadow: 0 0 0 0px rgba(223, 1, 1, 1);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgb(32, 11, 11);
+  }
+}
+
+@keyframes shadow-pulse2
+{
+  0% {
+    box-shadow: 0 0 0 0px rgb(255, 251, 29);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgb(32, 11, 11);
+  }
+}
+
+@keyframes shadow-pulse-big
+{
+  0% {
+    box-shadow: 0 0 0 0px rgba(223, 1, 1, 1);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(223, 1, 1, 1);
+  }
+}
+
+.reportIMT{
+    color: #fff;
+    background: #DF0101;
+    border-radius: 3px;
+    animation: shadow-pulse 1s infinite;
+  }
+
+.reportUser{
+color: #fff;
+background: rgb(255, 251, 29);
+border-radius: 3px;
+animation: shadow-pulse2 1s infinite;
+}
+
+code .contenedor {
     background: #000;
  }
 
@@ -29,10 +75,13 @@
     padding-top: 70px;
 }
 
+.centered-and-cropped { object-fit: cover }
+
 .imgRedonda2 {
     width:300px;
+    height: 300px;
     border-radius:160px;
-    z-index: 100;
+    
     background: #000;
     
 }
@@ -75,3 +124,4 @@
     white-space:nowrap;
     text-overflow: ellipsis;
 }
+

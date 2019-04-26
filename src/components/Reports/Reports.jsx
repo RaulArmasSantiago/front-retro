@@ -38,7 +38,7 @@ class Reports extends Component{
         //console.log(this.state.reportes)
         if(this.state.reportes != null){
             let report = this.state.reportes.map((reporte,index) => {
-                if (this.state.conductor !== "" && reporte.name.indexOf(this.state.conductor) === -1){
+                if (this.state.conductor !== "" && reporte.name.toLowerCase().indexOf(this.state.conductor.toLowerCase()) === -1){
                     return null
                 }
                 let key = index +1
@@ -101,8 +101,10 @@ class Reports extends Component{
                         <table className="table table-striped table-hover">
                             <thead className="bg-warning">
                                 <tr>
-                                    <th>Concesion que reporta</th>
+                                    <th>Foto</th>
                                     <th>Reportado</th>
+                                    <th>Descripcion</th>
+                                    <th>Concesion que reporta</th>
                                 </tr>
                             </thead>
                             <tbody>

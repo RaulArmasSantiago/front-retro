@@ -122,7 +122,7 @@ class BtnCollaborator extends Component{
     render(){
         return(
             <React.Fragment>
-                <img src={this.state.colaborador.image_url} className={this.state.typeImg} alt={this.state.colaborador.name} onClick={this.handleOpenModal}/>
+                <img src={this.state.colaborador.image_url} className={`${this.state.typeImg} centered-and-cropped`} alt={this.state.colaborador.name} onClick={this.handleOpenModal} title={this.state.devices.name}/>
                 <Modal isOpen={this.state.showModal} contentLabel="Minimal Modal Example" className="modalColaborador">
                     <div className="container-fluid">
                         <button className="btn btn-danger" onClick={this.handleCloseModal}>x</button>

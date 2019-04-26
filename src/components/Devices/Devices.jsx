@@ -168,13 +168,10 @@ class Devices extends Component{
                 
                     <div className="row bodyUser justify-content-center">
                         <div className="col-md-8 text-left"><Link to="/addDevice"><button className="btn btn-success">Agregar concesión</button></Link></div>
-                        <div className="col-md-4 text-right">
-                            
+                        <div className="col-md-4 text-right">                            
                                 <div className="form-group form-inline">
                                     <input className="form-control" type="text" name="concesion" id="concesion" placeholder="Ingresa los 4 digtos de la concesión" required="true" maxLength="4" onChange={this.onInputCheck} value={this.state.concesion}/>
-                                    <button className="btn btn-success btn-sm ml-2" onClick={this.searchConcesion}><img src="../img/search-icon.png" alt=""/></button>
                                 </div>
-                            
                         </div>
                     </div>
                 </div>
