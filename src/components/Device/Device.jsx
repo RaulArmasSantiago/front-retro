@@ -262,6 +262,9 @@ class Device extends Component{
                         <br/>
                         <label className="text-dark"><strong>GANANCIAS DEL DÍA</strong></label>
                     </div>
+                    <div className="col-md-12" id="contenido">
+                        Esta destinado para el boton de panico
+                    </div>
                 </div>
 
                 <div className="row bodyDataDev">
