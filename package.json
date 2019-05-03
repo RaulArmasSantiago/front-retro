@@ -6,8 +6,11 @@
     "animate.css": "^3.7.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "express": "^4.16.4",
+    "express-favicon": "^2.0.1",
     "firebase": "^5.8.5",
     "font-awesome": "^4.7.0",
+    "path": "^0.12.7",
     "rc-pagination": "^1.17.8",
     "rc-react": "^1.1.1",
     "react": "^16.8.3",
@@ -21,7 +24,8 @@
     "react-sidebar": "^3.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start":"node server.js",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
