@@ -127,11 +127,6 @@ class FormCollaborator extends Component {
                                         <label htmlFor="" className="col-md-3">Nombre:</label>
                                         <input type="text" className="form-control ml-1" value={this.state.name}/>
                                     </div>
-                                    <div className="form-group form-inline">
-                                        <label htmlFor="" className="col-md-3">Apellido:</label>
-                                        <input type="text" className="form-control ml-1" value={this.state.lastname}/>
-                                    </div>
-
                                     <input type="submit" className="btn btn-yellow btn-block" value="Agregar colaborador"/>
                                 </form>
                                 </div>

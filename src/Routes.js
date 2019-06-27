@@ -25,6 +25,7 @@ import misReportes from './components/MisReportes/MisReportes';
 import editReport from './components/editReport/editReport';
 import Multas from './components/Multas/Multas';
 import addUserCol from './components/addUserCol/addUserCol';
+import Verify from './components/Verify/Verify';
 
 class Routes extends Component{
     
@@ -42,6 +43,7 @@ class Routes extends Component{
                     
                     <Route exact path='/' component={Login}/>
                     <Route exact path='/login' component={Login}/>
+                    <Route exact path='/verify/:id' component={Verify}/>
                     <PrivateRoute exact path='/logout' component={Logout}/>
                     <PrivateRoute exact path='/dashboard' component={Dashboard}/>
                     <PrivateRoute exact path='/addUser' component={FormUser}/>

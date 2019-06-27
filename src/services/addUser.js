@@ -4,6 +4,7 @@ import getToken from '../resolvers/getToken';
 
 
 export default (data) => {
+    console.log("entro al service")
     return axios({
         url:constantes.url+'graphql',
         method:'post',

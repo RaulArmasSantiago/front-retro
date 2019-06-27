@@ -91,6 +91,7 @@ class Devices extends Component{
     }
 
     searchConcesion = () => {
+        console.log("Entro al search..")
         if(this.state.devices !== ""){
             this.state.devices.map((dev,index) => {
                 if(dev.concesion === this.state.concesion){
